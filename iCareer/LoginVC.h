@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LoginVC.h
 //  iCareer
 //
 //  Created by Hitesh Kumar Singh on 27/11/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface LoginVC : UIViewController
 
 
 @end

@@ -16,17 +16,20 @@ PODS:
     - AFNetworking/NSURLSession
   - MFSideMenu (0.5.5)
   - SVProgressHUD (2.0.4)
+  - Toast (3.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - MFSideMenu
   - SVProgressHUD
+  - Toast (~> 3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   MFSideMenu: 268122e6894f2747fc3a2b48578100b232506c60
   SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
+  Toast: 14a93686d6c8bfe2727afd342414e35660a8a1f3
 
-PODFILE CHECKSUM: 2c671f733d478e3b71a5a0afc8339427ef8d4142
+PODFILE CHECKSUM: 60d8f235cf53890f96b3d2bf8df1955d1019b44c
 
 COCOAPODS: 1.1.1

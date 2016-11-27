@@ -1,29 +1,24 @@
 //
-//  ViewController.m
+//  LoginVC.m
 //  iCareer
 //
 //  Created by Hitesh Kumar Singh on 27/11/16.
 //  Copyright © 2016 Hitesh Kumar Singh. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginVC.h"
 
-@interface ViewController ()
+@interface LoginVC ()
 
 @end
 
-@implementation ViewController
-
+@implementation LoginVC
+#pragma mark - view life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end
