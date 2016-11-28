@@ -47,12 +47,16 @@
     [vw setShadowRadius:3.0 ];
     [vw setShadowOffset:CGSizeMake( 0 , 0 )];
     [vw setShouldRasterize:YES];
-    [vw setBorderColor:[UIColor blackColor].CGColor];
-    [vw setBorderWidth:1.0];
+    [vw setBorderColor:[UIColor colorWithRed:58.0/255.0 green:100.0/255.0 blue:90.0/255.0 alpha:0.8f].CGColor];
+    [vw setBorderWidth:0.6];
     [vw setShadowPath:[UIBezierPath bezierPathWithRect:vw.bounds].CGPath];
 }
 #pragma mark - showToast
 +(void)showToast:(NSString*)msg shakeView:(UIView*)shakeView parentView:(UIView*)parentView{
     [parentView makeToast:msg duration:1.5 position:CSToastPositionBottom];
+}
+#pragma mark - showToast
++(void)showToastCenterError:(NSString*)msg parentView:(UIView*)parentView{
+    [parentView makeToast:msg duration:1.5 position:CSToastPositionCenter];
 }
 @end

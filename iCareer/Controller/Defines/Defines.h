@@ -6,7 +6,10 @@
 //  Copyright © 2016 Hitesh Kumar Singh. All rights reserved.
 //
 
-#define VALID_EMAIL            @"Please enter a valid mobile/email"
+#define BASEURL                @"http://inubex.in/preprod_icareer/api/"
+#define VALIDATEUSER           @"ValidateUser.php"
+
+#define VALID_EMAIL            @"Please enter a valid email"
 #define VALID_PASSWORD         @"Please enter a valid password"
 #define VALID_EMAIL_PASSWORD   @"Please enter a valid email and password"
 

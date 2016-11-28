@@ -50,5 +50,5 @@
  @param parentView parentView contains the toast message.
 */
 +(void)showToast:(NSString *)msg shakeView:(UIView *)shakeView parentView:(UIView*)parentView;
-
++(void)showToastCenterError:(NSString*)msg parentView:(UIView*)parentView;
 @end
