@@ -51,4 +51,5 @@
 */
 +(void)showToast:(NSString *)msg shakeView:(UIView *)shakeView parentView:(UIView*)parentView;
 +(void)showToastCenterError:(NSString*)msg parentView:(UIView*)parentView;
++(NSDictionary*)userDefaultsDictionary:(NSString*)key;
 @end

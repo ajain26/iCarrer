@@ -16,7 +16,12 @@
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
     if (standardUserDefaults) {
-        [standardUserDefaults setObject:value forKey:key];
+        if ([value isKindOfClass:[NSString class]]) {
+            [standardUserDefaults setObject:value forKey:key];
+        } else {
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:value];
+            [standardUserDefaults setObject:data forKey:key];
+        }
         [standardUserDefaults synchronize];
     }
 }
@@ -28,6 +33,17 @@
     if (standardUserDefaults)
     val = [standardUserDefaults objectForKey:key];
     
+    return val;
+}
+#pragma mark - userDefaultsDictionary
++(NSDictionary*)userDefaultsDictionary:(NSString*)key{
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *val = nil;
+
+    if (standardUserDefaults){
+        NSData *dictionaryData = [standardUserDefaults objectForKey:key];
+        val = [NSKeyedUnarchiver unarchiveObjectWithData:dictionaryData];
+    }
     return val;
 }
 #pragma mark - removeFromUserDefaultsWithKey

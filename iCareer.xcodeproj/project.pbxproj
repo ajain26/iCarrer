@@ -20,6 +20,7 @@
 		673BC7F21DEADA9600D3925D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 673BC7F01DEADA9600D3925D /* LaunchScreen.storyboard */; };
 		673BC7FD1DEADA9700D3925D /* iCareerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7FC1DEADA9700D3925D /* iCareerTests.m */; };
 		673BC8081DEADA9700D3925D /* iCareerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC8071DEADA9700D3925D /* iCareerUITests.m */; };
+		67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E965D81DEDFFA1005CAE09 /* RegisterVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		673BC8031DEADA9700D3925D /* iCareerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iCareerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BC8071DEADA9700D3925D /* iCareerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iCareerUITests.m; sourceTree = "<group>"; };
 		673BC8091DEADA9700D3925D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67E965D71DEDFFA1005CAE09 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterVC.h; path = View/RegisterVC.h; sourceTree = "<group>"; };
+		67E965D81DEDFFA1005CAE09 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVC.m; path = View/RegisterVC.m; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D52DB939900BA66936A38766 /* libPods-iCareer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCareer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 			children = (
 				673BC7E51DEADA9400D3925D /* LoginVC.h */,
 				673BC7E61DEADA9400D3925D /* LoginVC.m */,
+				67E965D71DEDFFA1005CAE09 /* RegisterVC.h */,
+				67E965D81DEDFFA1005CAE09 /* RegisterVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */,
 				673BC7E11DEADA9400D3925D /* main.m in Sources */,
 				67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */,
+				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				673BC7ED1DEADA9500D3925D /* iCareer.xcdatamodeld in Sources */,
 			);

@@ -9,6 +9,7 @@
 #import "Services.h"
 #import "Defines.h"
 #import <AFNetworking/AFNetworking.h>
+#import "AppHelper.h"
 
 @implementation Services
 #pragma mark - sharedInstance
@@ -23,25 +24,42 @@
 }
 #pragma mark - servicePOSTWithPath
 -(void)servicePOSTWithPath:(NSString *)urlPath withParam:(NSDictionary *)params success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
-
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     //manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-
+    
     [manager POST:urlPath parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
         NSError *error = nil;
         //NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                          //     error:&error];
+        //     error:&error];
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
         NSLog(@"%@",json);
         if (![json isKindOfClass:[NSNull class]] && json) {
+            if ([urlPath containsString:VALIDATEUSER]) {
+                [self insertUserDetailsToDB:json];
+            }
             success(json);
         }
     }
-    failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        failure(error);
-    }];
+          failure:^(NSURLSessionTask *operation, NSError *error) {
+              NSLog(@"Error: %@", error);
+              failure(error);
+          }];
+}
+#pragma mark - inserUserDetailToDB
+-(void)insertUserDetailsToDB:(NSDictionary*)json{
+    
+    if (![[json objectForKey:@"response"] isKindOfClass:[NSNull class]] && [json objectForKey:@"response"]) {
+        if ([[json objectForKey:@"response"] isKindOfClass:[NSArray class]]) {
+            if ([[json objectForKey:@"response"] count] > 0) {
+                NSDictionary *user = [[json objectForKey:@"response"] objectAtIndex:0];
+                [AppHelper saveToUserDefaults:user withKey:@"user"];
+                //NSLog(@"%@",[AppHelper userDefaultsDictionary:@"user"]);
+            }
+        }
+    }
+    
+    
 }
 @end

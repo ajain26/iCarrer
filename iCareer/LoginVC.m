@@ -122,6 +122,7 @@
 #pragma mark - newUser
 - (IBAction)newUser:(id)sender {
     [self.view endEditing:true];
+    [self performSegueWithIdentifier:@"RegisterVC" sender:nil];
 }
 #pragma mark - forgotPassword
 - (IBAction)forgotPassword:(id)sender {
