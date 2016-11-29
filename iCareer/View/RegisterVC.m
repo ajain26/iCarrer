@@ -32,7 +32,7 @@
     if ([self isReadyToGo]) {
         [self go];
     } else {
-        [AppHelper showToast:@"Please fill empty fields" shakeView:nil parentView:self.view];
+        [AppHelper showToastCenterError:@"Please fill empty fields" parentView:self.view];
     }
 }
 #pragma mark - setInitialView
@@ -74,7 +74,7 @@
         if ([self isReadyToGo]) {
             [self go];
         } else {
-            [AppHelper showToast:@"Please fill empty fields" shakeView:nil parentView:self.view];
+            [AppHelper showToastCenterError:@"Please fill empty fields" parentView:self.view];
         }
         [textField resignFirstResponder];
     }
