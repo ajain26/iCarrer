@@ -120,7 +120,7 @@
         [loginParam setObject:@"a" forKey:@"telephone"];
         [loginParam setObject:@"a" forKey:@"short_title"];
 
-        [SVProgressHUD showWithStatus:@"Please wait"];
+        [SVProgressHUD showWithStatus:@"Please wait..."];
         [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {
             [SVProgressHUD dismiss];
             NSDictionary *dict = [responseDict objectForKey:@"status"];

@@ -22,6 +22,11 @@
 		673BC8081DEADA9700D3925D /* iCareerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC8071DEADA9700D3925D /* iCareerUITests.m */; };
 		6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6745E7AD1DEED95D00903E4F /* WelcomVC.m */; };
 		6745E7B11DEEDD4700903E4F /* QuizVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6745E7B01DEEDD4700903E4F /* QuizVC.m */; };
+		67B3EFA81DEF23C300E3D426 /* QuizQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFA61DEF23C300E3D426 /* QuizQuestionCell.m */; };
+		67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B3EFA71DEF23C300E3D426 /* QuizQuestionCell.xib */; };
+		67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFAB1DEF28DC00E3D426 /* QuizMCQCell.m */; };
+		67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */; };
+		67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFB11DEF3C3B00E3D426 /* UISliderWidth.m */; };
 		67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E965D81DEDFFA1005CAE09 /* RegisterVC.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +76,14 @@
 		6745E7AD1DEED95D00903E4F /* WelcomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomVC.m; path = View/WelcomVC.m; sourceTree = "<group>"; };
 		6745E7AF1DEEDD4700903E4F /* QuizVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizVC.h; path = View/QuizVC.h; sourceTree = "<group>"; };
 		6745E7B01DEEDD4700903E4F /* QuizVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizVC.m; path = View/QuizVC.m; sourceTree = "<group>"; };
+		67B3EFA51DEF23C300E3D426 /* QuizQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizQuestionCell.h; path = View/QuizQuestionCell.h; sourceTree = "<group>"; };
+		67B3EFA61DEF23C300E3D426 /* QuizQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizQuestionCell.m; path = View/QuizQuestionCell.m; sourceTree = "<group>"; };
+		67B3EFA71DEF23C300E3D426 /* QuizQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizQuestionCell.xib; path = View/QuizQuestionCell.xib; sourceTree = "<group>"; };
+		67B3EFAA1DEF28DC00E3D426 /* QuizMCQCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizMCQCell.h; path = View/QuizMCQCell.h; sourceTree = "<group>"; };
+		67B3EFAB1DEF28DC00E3D426 /* QuizMCQCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizMCQCell.m; path = View/QuizMCQCell.m; sourceTree = "<group>"; };
+		67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizMCQCell.xib; path = View/QuizMCQCell.xib; sourceTree = "<group>"; };
+		67B3EFB01DEF3C3B00E3D426 /* UISliderWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UISliderWidth.h; path = Controller/UISliderWidth/UISliderWidth.h; sourceTree = "<group>"; };
+		67B3EFB11DEF3C3B00E3D426 /* UISliderWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UISliderWidth.m; path = Controller/UISliderWidth/UISliderWidth.m; sourceTree = "<group>"; };
 		67E965D71DEDFFA1005CAE09 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterVC.h; path = View/RegisterVC.h; sourceTree = "<group>"; };
 		67E965D81DEDFFA1005CAE09 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVC.m; path = View/RegisterVC.m; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +216,7 @@
 		6774FC6D1DEB3698003B83ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				67B3EFAF1DEF3BF400E3D426 /* UISliderWidth */,
 				67331EA71DEB3AB8009EB780 /* AppHelper */,
 				67331EA61DEB3AB2009EB780 /* CoreDataFunction */,
 				67331EA51DEB3AAD009EB780 /* Defines */,
@@ -222,6 +236,12 @@
 				6745E7AD1DEED95D00903E4F /* WelcomVC.m */,
 				6745E7AF1DEEDD4700903E4F /* QuizVC.h */,
 				6745E7B01DEEDD4700903E4F /* QuizVC.m */,
+				67B3EFA51DEF23C300E3D426 /* QuizQuestionCell.h */,
+				67B3EFA61DEF23C300E3D426 /* QuizQuestionCell.m */,
+				67B3EFA71DEF23C300E3D426 /* QuizQuestionCell.xib */,
+				67B3EFAA1DEF28DC00E3D426 /* QuizMCQCell.h */,
+				67B3EFAB1DEF28DC00E3D426 /* QuizMCQCell.m */,
+				67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -252,6 +272,15 @@
 				673BC7E31DEADA9400D3925D /* AppDelegate.m */,
 			);
 			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		67B3EFAF1DEF3BF400E3D426 /* UISliderWidth */ = {
+			isa = PBXGroup;
+			children = (
+				67B3EFB01DEF3C3B00E3D426 /* UISliderWidth.h */,
+				67B3EFB11DEF3C3B00E3D426 /* UISliderWidth.m */,
+			);
+			name = UISliderWidth;
 			sourceTree = "<group>";
 		};
 		C22E017BACE1A37102F0BB52 /* Pods */ = {
@@ -382,6 +411,8 @@
 			files = (
 				673BC7F21DEADA9600D3925D /* LaunchScreen.storyboard in Resources */,
 				673BC7EF1DEADA9600D3925D /* Assets.xcassets in Resources */,
+				67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */,
+				67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */,
 				673BC7EA1DEADA9400D3925D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,11 +490,14 @@
 				673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */,
 				673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */,
 				6745E7B11DEEDD4700903E4F /* QuizVC.m in Sources */,
+				67B3EFA81DEF23C300E3D426 /* QuizQuestionCell.m in Sources */,
 				673BC7E11DEADA9400D3925D /* main.m in Sources */,
 				67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */,
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
+				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */,
+				67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */,
 				673BC7ED1DEADA9500D3925D /* iCareer.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

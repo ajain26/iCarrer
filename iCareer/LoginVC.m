@@ -84,7 +84,7 @@
     NSMutableDictionary *loginParam = [NSMutableDictionary new];
     [loginParam setObject:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"email"];
     [loginParam setObject:[self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"password"];
-    [SVProgressHUD showWithStatus:@"Please wait"];
+    [SVProgressHUD showWithStatus:@"Please wait..."];
     [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,VALIDATEUSER] withParam:loginParam success:^(NSDictionary *responseDict) {
         [SVProgressHUD dismiss];
         NSDictionary *dict = [responseDict objectForKey:@"status"];
