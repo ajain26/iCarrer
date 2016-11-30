@@ -9,6 +9,8 @@
 #import "RegisterVC.h"
 #import "AppHelper.h"
 #import "Defines.h"
+#import "Services.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface RegisterVC ()<UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
@@ -109,7 +111,32 @@
         self.emailTextField.text = @"";
         [AppHelper showToast:VALID_EMAIL_ONLY shakeView:self.emailTextField parentView:self.view];
     } else {
-        //success
+        NSMutableDictionary *loginParam = [NSMutableDictionary new];
+        [loginParam setObject:[self.userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"username"];
+        [loginParam setObject:[self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"password"];
+        [loginParam setObject:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"email"];
+        [loginParam setObject:@"a" forKey:@"summary"];
+        [loginParam setObject:@"a" forKey:@"address"];
+        [loginParam setObject:@"a" forKey:@"telephone"];
+        [loginParam setObject:@"a" forKey:@"short_title"];
+
+        [SVProgressHUD showWithStatus:@"Please wait"];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 0) {
+                        [AppHelper showToastCenterError:[dict objectForKey:@"msg"] parentView:self.view];
+                    }
+                }
+            } else {
+                [self performSegueWithIdentifier:@"WelcomeVC" sender:nil];//TODO:
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
     }
 }
 #pragma mark - keyboardWillShow
