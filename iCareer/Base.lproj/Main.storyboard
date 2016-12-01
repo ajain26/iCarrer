@@ -771,6 +771,14 @@ you are most suited to a career in</string>
                                     <constraint firstAttribute="width" constant="50" id="wAa-Gz-Y0Z"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3c-cg-FTf" customClass="HCSStarRatingView">
+                                <rect key="frame" x="137" y="199" width="100" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5vq-4J-Wgk"/>
+                                    <constraint firstAttribute="width" constant="100" id="daA-eW-eTk"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business and Consumer Banking" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T65-Gh-dar">
                                 <rect key="frame" x="0.0" y="225" width="375" height="45"/>
                                 <constraints>
@@ -815,9 +823,11 @@ AND ENTER iCAREER PLATFORM</string>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="OFg-e2-JeO" secondAttribute="trailing" id="0hI-BJ-2d2"/>
                             <constraint firstItem="j5t-M3-Vox" firstAttribute="top" secondItem="d58-Ro-ioJ" secondAttribute="bottom" id="5wY-2H-g0C"/>
+                            <constraint firstItem="j3c-cg-FTf" firstAttribute="centerX" secondItem="pi9-rQ-7jT" secondAttribute="centerX" id="A6V-wU-Tns"/>
                             <constraint firstItem="OFg-e2-JeO" firstAttribute="top" secondItem="j5t-M3-Vox" secondAttribute="bottom" id="AII-0O-bhJ"/>
                             <constraint firstItem="d58-Ro-ioJ" firstAttribute="top" secondItem="pi9-rQ-7jT" secondAttribute="top" id="AtJ-fn-9JM"/>
                             <constraint firstAttribute="trailing" secondItem="Rhz-ye-Z24" secondAttribute="trailing" id="EFZ-nE-Bf2"/>
+                            <constraint firstItem="j3c-cg-FTf" firstAttribute="top" secondItem="yUp-Cn-KVv" secondAttribute="bottom" constant="21" id="LZm-nh-gK7"/>
                             <constraint firstItem="d58-Ro-ioJ" firstAttribute="leading" secondItem="pi9-rQ-7jT" secondAttribute="leading" id="Neo-Gh-6JD"/>
                             <constraint firstAttribute="trailing" secondItem="T65-Gh-dar" secondAttribute="trailing" id="P9e-oC-nPx"/>
                             <constraint firstItem="yUp-Cn-KVv" firstAttribute="centerX" secondItem="pi9-rQ-7jT" secondAttribute="centerX" id="PGv-cM-2Vb"/>
@@ -832,6 +842,9 @@ AND ENTER iCAREER PLATFORM</string>
                             <constraint firstAttribute="trailing" secondItem="d58-Ro-ioJ" secondAttribute="trailing" id="vN5-1E-uic"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="starView" destination="j3c-cg-FTf" id="jVM-g5-LDe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59X-10-1ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
