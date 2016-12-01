@@ -8,7 +8,7 @@
 
 #define BASEURL                @"http://inubex.in/preprod_icareer/api/"
 #define VALIDATEUSER           @"ValidateUser.php"
-#define USERREGISTRATION       @"UserRegistration.php"
+#define USERREGISTRATION       @"TestRegistration.php"//@"UserRegistration.php"
 #define FETCHQUESTIONS         @"FetchQuestionSet.php"
 
 

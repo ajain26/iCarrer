@@ -115,10 +115,10 @@
         [loginParam setObject:[self.userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"username"];
         [loginParam setObject:[self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"password"];
         [loginParam setObject:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"email"];
-        [loginParam setObject:@"a" forKey:@"summary"];
+        /*[loginParam setObject:@"a" forKey:@"summary"];
         [loginParam setObject:@"a" forKey:@"address"];
         [loginParam setObject:@"a" forKey:@"telephone"];
-        [loginParam setObject:@"a" forKey:@"short_title"];
+        [loginParam setObject:@"a" forKey:@"short_title"];*/
 
         [SVProgressHUD showWithStatus:@"Please wait..."];
         [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {

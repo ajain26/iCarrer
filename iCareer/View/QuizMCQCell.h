@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol QuizSliderDelegate <NSObject>
+@optional
+-(void)changedSliderValue:(float)value;
+@end
 
 @interface QuizMCQCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *option0Label;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *option1Label;
+@property (weak, nonatomic) id <QuizSliderDelegate> delegate;
 -(void)assignValueWithDictionary:(NSDictionary*)quizDict;
 @end

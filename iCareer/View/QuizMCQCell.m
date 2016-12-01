@@ -34,5 +34,6 @@
 #pragma mark - sliderValueChanged
 -(void)sliderValueChanged:(UISlider*)sender{
     NSLog(@"---- slider value = %f", sender.value);
+    [self.delegate changedSliderValue:sender.value];
 }
 @end
