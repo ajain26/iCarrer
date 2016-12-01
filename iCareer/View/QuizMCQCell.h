@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *option0Label;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UILabel *option1Label;
-
+-(void)assignValueWithDictionary:(NSDictionary*)quizDict;
 @end

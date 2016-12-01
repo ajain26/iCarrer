@@ -171,23 +171,7 @@
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-            NSArray *optionsArray;
-            if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
-                optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
-            }
-            
-            cell.option0Label.text = @"";
-            cell.option1Label.text = @"";
-
-            if (optionsArray.count > 0) {
-                cell.option0Label.text = [[optionsArray objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                cell.option1Label.text = [[optionsArray objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            }
-        
-            CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
-            cell.slider.transform = trans;
-            [cell.slider setMinimumTrackTintColor:[UIColor orangeColor]];
-            [cell.slider setMaximumTrackTintColor:[UIColor lightGrayColor]];
+            [cell assignValueWithDictionary:quizDict];
         
             return cell;
         }
@@ -200,8 +184,11 @@
     if (questionCounter < 6){
         ++questionCounter;
         [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationLeft];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationLeft];
+
     } else {
-        
+        [self performSegueWithIdentifier:@"ResultVC" sender:nil];
     }
 }
 
