@@ -27,6 +27,8 @@
 		67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFAB1DEF28DC00E3D426 /* QuizMCQCell.m */; };
 		67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */; };
 		67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFB11DEF3C3B00E3D426 /* UISliderWidth.m */; };
+		67B3EFB61DEFF4D400E3D426 /* QuizOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFB41DEFF4D400E3D426 /* QuizOptionsCell.m */; };
+		67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */; };
 		67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E965D81DEDFFA1005CAE09 /* RegisterVC.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,9 @@
 		67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizMCQCell.xib; path = View/QuizMCQCell.xib; sourceTree = "<group>"; };
 		67B3EFB01DEF3C3B00E3D426 /* UISliderWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UISliderWidth.h; path = Controller/UISliderWidth/UISliderWidth.h; sourceTree = "<group>"; };
 		67B3EFB11DEF3C3B00E3D426 /* UISliderWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UISliderWidth.m; path = Controller/UISliderWidth/UISliderWidth.m; sourceTree = "<group>"; };
+		67B3EFB31DEFF4D400E3D426 /* QuizOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizOptionsCell.h; path = View/QuizOptionsCell.h; sourceTree = "<group>"; };
+		67B3EFB41DEFF4D400E3D426 /* QuizOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizOptionsCell.m; path = View/QuizOptionsCell.m; sourceTree = "<group>"; };
+		67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizOptionsCell.xib; path = View/QuizOptionsCell.xib; sourceTree = "<group>"; };
 		67E965D71DEDFFA1005CAE09 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterVC.h; path = View/RegisterVC.h; sourceTree = "<group>"; };
 		67E965D81DEDFFA1005CAE09 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVC.m; path = View/RegisterVC.m; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +247,9 @@
 				67B3EFAA1DEF28DC00E3D426 /* QuizMCQCell.h */,
 				67B3EFAB1DEF28DC00E3D426 /* QuizMCQCell.m */,
 				67B3EFAC1DEF28DC00E3D426 /* QuizMCQCell.xib */,
+				67B3EFB31DEFF4D400E3D426 /* QuizOptionsCell.h */,
+				67B3EFB41DEFF4D400E3D426 /* QuizOptionsCell.m */,
+				67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -412,6 +420,7 @@
 				673BC7F21DEADA9600D3925D /* LaunchScreen.storyboard in Resources */,
 				673BC7EF1DEADA9600D3925D /* Assets.xcassets in Resources */,
 				67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */,
+				67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */,
 				67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */,
 				673BC7EA1DEADA9400D3925D /* Main.storyboard in Resources */,
 			);
@@ -493,6 +502,7 @@
 				67B3EFA81DEF23C300E3D426 /* QuizQuestionCell.m in Sources */,
 				673BC7E11DEADA9400D3925D /* main.m in Sources */,
 				67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */,
+				67B3EFB61DEFF4D400E3D426 /* QuizOptionsCell.m in Sources */,
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,

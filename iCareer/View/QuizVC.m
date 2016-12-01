@@ -9,16 +9,19 @@
 #import "QuizVC.h"
 #import "QuizQuestionCell.h"
 #import "QuizMCQCell.h"
+#import "QuizOptionsCell.h"
 #import "Services.h"
 #import "Defines.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "AppHelper.h"
 
 @interface QuizVC ()<UITableViewDelegate, UITableViewDataSource>{
-    
+    int questionCounter;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong, nonatomic) NSArray *quizArray;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UILabel *questionCounterLabel;
 @end
 
 @implementation QuizVC
@@ -30,6 +33,10 @@
 }
 #pragma mark - setInitialView
 -(void)setInitialView{
+    questionCounter = 0;
+    
+    self.quizArray = [NSMutableArray new];
+    
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
@@ -46,8 +53,12 @@
         
         if (![dict isKindOfClass:[NSNull class]] && dict) {
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
-                if ([[dict objectForKey:@"statuscode"] intValue] == 0) {
-                    [AppHelper showToastCenterError:[dict objectForKey:@"msg"] parentView:self.view];
+                if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                    
+                    if (![[responseDict objectForKey:@"question_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"question_array"]) {
+                        self.quizArray = [responseDict objectForKey:@"question_array"];
+                        [self reloadView];
+                    }
                 }
             }
         }
@@ -55,17 +66,59 @@
         [SVProgressHUD dismiss];
     }];
 }
+#pragma mark - reloadView
+-(void)reloadView{
+    if (self.quizArray.count > 0) {
+        questionCounter = 0;
+        [self.tableView reloadData];
+        self.tableView.hidden = false;
+        self.nextButton.hidden = false;
+    } else {
+        self.tableView.hidden = true;
+        self.nextButton.hidden = true;
+    }
+}
 #pragma mark - tableview
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    if (self.quizArray.count > 0) {
+        return 2;
+    }
+    return 0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    if (section == 0){
+        return 1;
+    }
+    else {
+        NSDictionary *quizDict = [self.quizArray objectAtIndex:questionCounter];
+        if ([[quizDict objectForKey:@"question_type"] isEqualToString:@"option"]) {
+            NSArray *optionsArray;
+            if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
+                optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
+            }
+            if (optionsArray.count > 0) {
+                return optionsArray.count-1;
+            }
+            return 0;
+        }
+        
+        return 1;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return UITableViewAutomaticDimension;
+    if (indexPath.section == 0){
+        return UITableViewAutomaticDimension;
+    } else {
+        NSDictionary *quizDict = [self.quizArray objectAtIndex:questionCounter];
+        if ([[quizDict objectForKey:@"question_type"] isEqualToString:@"option"]) {
+            return 90;
+        }
+        return 400;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *quizDict = [self.quizArray objectAtIndex:questionCounter];
+    
     if (indexPath.section == 0) {
         static NSString *cellIdentifier = @"QuizQuestionCell";
     
@@ -75,25 +128,81 @@
             cell = [arr objectAtIndex:0];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.questionLabel.text = @"the quick brown fox jumps over the lazy dog; the quick brown fox jumps over the lazy dog; the quick brown fox jumps over the lazy dog;";
+        
+        NSArray *optionsArray;
+        if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
+            optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
+        }
+        NSString *que = @"";
+        if (optionsArray.count > 0) {
+            que = [[optionsArray objectAtIndex:0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        }
+        cell.questionLabel.text = que;
         return cell;
     } else {
-        static NSString *cellIdentifier = @"QuizMCQCell";
+        if ([[quizDict objectForKey:@"question_type"] isEqualToString:@"option"]) {
+            static NSString *cellIdentifier = @"QuizOptionsCell";
+            
+            QuizOptionsCell *cell = (QuizOptionsCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"QuizOptionsCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            NSArray *optionsArray;
+            if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
+                optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
+            }
+            
+            cell.optionLabel.text = @"";
+            if (optionsArray.count > 0) {
+                cell.optionLabel.text = [[optionsArray objectAtIndex:indexPath.row+1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }
+            
+            return cell;
+        } else {
+            static NSString *cellIdentifier = @"QuizMCQCell";
     
-        QuizMCQCell *cell = (QuizMCQCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil){
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"QuizMCQCell" owner:self options:nil];
-            cell = [arr objectAtIndex:0];
+            QuizMCQCell *cell = (QuizMCQCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"QuizMCQCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+            NSArray *optionsArray;
+            if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
+                optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
+            }
+            
+            cell.option0Label.text = @"";
+            cell.option1Label.text = @"";
+
+            if (optionsArray.count > 0) {
+                cell.option0Label.text = [[optionsArray objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                cell.option1Label.text = [[optionsArray objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            }
+        
+            CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
+            cell.slider.transform = trans;
+            [cell.slider setMinimumTrackTintColor:[UIColor orangeColor]];
+            [cell.slider setMaximumTrackTintColor:[UIColor lightGrayColor]];
+        
+            return cell;
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.option0Label.text = @"this is 0 option";
-        cell.option1Label.text = @"working with a great company and with a great family by your side";
-        CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 0.5);
-        cell.slider.transform = trans;
-        [cell.slider setMinimumTrackTintColor:[UIColor orangeColor]];
-        [cell.slider setMaximumTrackTintColor:[UIColor lightGrayColor]];
-        return cell;
+        
     }
-    
 }
+#pragma mark - next
+- (IBAction)next:(id)sender {
+    NSLog(@"Q->%d",questionCounter);
+    if (questionCounter < 6){
+        ++questionCounter;
+        [self.tableView reloadData];
+    } else {
+        
+    }
+}
+
 @end

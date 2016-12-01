@@ -19,6 +19,7 @@
 */
 -(CGRect)trackRectForBounds:(CGRect)bounds{
     bounds.size.height = 10;
+    bounds.size.width = 200;
     return bounds;
 }
 @end

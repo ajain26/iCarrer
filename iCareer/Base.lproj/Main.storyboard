@@ -653,18 +653,34 @@ see what they got!</string>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="A9o-KI-C8R">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Ydt-JD-LtS" id="X7W-RA-LnT"/>
                                     <outlet property="delegate" destination="Ydt-JD-LtS" id="TXw-yV-7PS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcF-Rb-XZk">
+                                <rect key="frame" x="275" y="627" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="V4k-lK-9ma"/>
+                                    <constraint firstAttribute="width" constant="100" id="aPW-2G-rJ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.37254901960784315" green="0.66666666666666663" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="next:" destination="Ydt-JD-LtS" eventType="touchUpInside" id="jBA-75-qAe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Rzm-gk-93R" secondAttribute="trailing" constant="5" id="4H9-31-KeJ"/>
                             <constraint firstItem="A9o-KI-C8R" firstAttribute="leading" secondItem="plc-dt-vjb" secondAttribute="leading" id="5Xk-Ed-4Tf"/>
+                            <constraint firstItem="HcF-Rb-XZk" firstAttribute="top" secondItem="A9o-KI-C8R" secondAttribute="bottom" id="Fh1-bu-u77"/>
+                            <constraint firstAttribute="trailing" secondItem="HcF-Rb-XZk" secondAttribute="trailing" id="MIP-an-fRh"/>
                             <constraint firstItem="yNW-Xg-gtd" firstAttribute="leading" secondItem="plc-dt-vjb" secondAttribute="leading" id="Oe3-RV-38K"/>
                             <constraint firstItem="Rzm-gk-93R" firstAttribute="leading" secondItem="plc-dt-vjb" secondAttribute="leading" constant="5" id="T9N-xb-gKb"/>
                             <constraint firstAttribute="trailing" secondItem="OTa-Ka-0jY" secondAttribute="trailing" id="X6B-QH-nHe"/>
@@ -674,17 +690,19 @@ see what they got!</string>
                             <constraint firstItem="OTa-Ka-0jY" firstAttribute="leading" secondItem="plc-dt-vjb" secondAttribute="leading" id="lTX-vS-Xe0"/>
                             <constraint firstItem="OTa-Ka-0jY" firstAttribute="top" secondItem="plc-dt-vjb" secondAttribute="top" id="lj9-V0-3Lt"/>
                             <constraint firstItem="Rzm-gk-93R" firstAttribute="top" secondItem="OTa-Ka-0jY" secondAttribute="bottom" id="oeH-Cn-7Gz"/>
-                            <constraint firstItem="Nkf-hv-uf5" firstAttribute="top" secondItem="A9o-KI-C8R" secondAttribute="bottom" id="qqr-FS-gRP"/>
+                            <constraint firstItem="Nkf-hv-uf5" firstAttribute="top" secondItem="A9o-KI-C8R" secondAttribute="bottom" constant="40" id="qqr-FS-gRP"/>
                             <constraint firstAttribute="trailing" secondItem="A9o-KI-C8R" secondAttribute="trailing" id="rux-rY-gBb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="HcF-Rb-XZk" id="q3x-2h-udj"/>
+                        <outlet property="questionCounterLabel" destination="Rzm-gk-93R" id="6xm-c2-o9h"/>
                         <outlet property="tableView" destination="A9o-KI-C8R" id="VB1-Nx-yUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5H-OE-2rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3318" y="36"/>
+            <point key="canvasLocation" x="3317.5999999999999" y="35.532233883058474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NXD-on-5nS">
