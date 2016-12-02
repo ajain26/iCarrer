@@ -30,9 +30,9 @@
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     NSString *val = nil;
     
-    if (standardUserDefaults)
-    val = [standardUserDefaults objectForKey:key];
-    
+    if (standardUserDefaults){
+        val = [standardUserDefaults objectForKey:key];
+    }
     return val;
 }
 #pragma mark - userDefaultsDictionary

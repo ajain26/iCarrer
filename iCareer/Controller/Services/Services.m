@@ -34,9 +34,13 @@
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
         NSLog(@"%@",json);
         if (![json isKindOfClass:[NSNull class]] && json) {
+            
             if ([urlPath containsString:VALIDATEUSER] || [urlPath containsString:USERREGISTRATION]) {
                 [self insertUserDetailsToDB:json];
+            } else if ([urlPath containsString:SUBMITANSWERS]){
+                [self saveMySuitableCareer:json];
             }
+            
             success(json);
         } else {
             success(nil);
@@ -49,17 +53,35 @@
 }
 #pragma mark - inserUserDetailToDB
 -(void)insertUserDetailsToDB:(NSDictionary*)json{
-    
     if (![[json objectForKey:@"response"] isKindOfClass:[NSNull class]] && [json objectForKey:@"response"]) {
         if ([[json objectForKey:@"response"] isKindOfClass:[NSArray class]]) {
             if ([[json objectForKey:@"response"] count] > 0) {
                 NSDictionary *user = [[json objectForKey:@"response"] objectAtIndex:0];
                 [AppHelper saveToUserDefaults:user withKey:@"user"];
-                //NSLog(@"%@",[AppHelper userDefaultsDictionary:@"user"]);
             }
         }
     }
-    
-    
+}
+#pragma mark - saveMySuitableCareer
+-(void)saveMySuitableCareer:(NSDictionary*)json{
+    if (![[json objectForKey:@"trait_rating"] isKindOfClass:[NSNull class]] && [json objectForKey:@"trait_rating"]) {
+        NSArray *traitRatingArray = [json objectForKey:@"trait_rating"];
+        
+        NSDictionary *skillDict;
+        for (int i = 0; i < traitRatingArray.count-1; i++){
+            NSDictionary *dict = [traitRatingArray objectAtIndex:i];
+            float rating = [[dict objectForKey:@"rating"] floatValue];
+            NSDictionary *dictPlus1 = [traitRatingArray objectAtIndex:i+1];
+            float ratingPlus1 = [[dictPlus1 objectForKey:@"rating"] floatValue];
+            if (rating < ratingPlus1) {
+                rating = ratingPlus1;
+                skillDict = dictPlus1;
+            }
+        }
+        if (![skillDict isKindOfClass:[NSNull class]] && skillDict) {
+            [AppHelper saveToUserDefaults:skillDict withKey:@"skill"];
+        }
+        NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
+    }
 }
 @end

@@ -843,6 +843,7 @@ AND ENTER iCAREER PLATFORM</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="skillSetLabel" destination="T65-Gh-dar" id="Uiw-RK-J1C"/>
                         <outlet property="starView" destination="j3c-cg-FTf" id="jVM-g5-LDe"/>
                     </connections>
                 </viewController>

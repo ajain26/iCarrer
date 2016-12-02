@@ -18,7 +18,8 @@
 @interface QuizVC ()<UITableViewDelegate, UITableViewDataSource, QuizSliderDelegate>{
     int questionCounter;
     float sliderValue;
-    int optionValue;
+    long optionValue;
+    int answerType;//0->slider; 1-> options
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
@@ -53,7 +54,7 @@
 }
 #pragma mark - setQuestions
 -(void)setQuestions{
-    self.traitArray = [[NSMutableArray alloc] initWithObjects:@"money", @"balance", @"confidence", @"enterpreneurial", @"interpersonal", @"analytical", @"street", @"pressure", @"sales", nil];
+    self.traitArray = [[NSMutableArray alloc] initWithObjects:@"money", @"balance", @"confidence", @"entrepreneurial", @"interpersonal", @"analytical", @"street", @"pressure", @"sales", nil];
     self.question1 = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", nil];
     self.question2 = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", nil];
     self.question3 = [[NSMutableArray alloc] initWithObjects:@"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", @"0", nil];
@@ -71,6 +72,7 @@
 -(void)setInitialView{
     questionCounter = 0;
     sliderValue = 5;
+    optionValue = -1;
     
     self.quizArray = [NSMutableArray new];
     
@@ -110,6 +112,8 @@
         [self.tableView reloadData];
         self.tableView.hidden = false;
         self.nextButton.hidden = false;
+        self.questionCounterLabel.text = [NSString stringWithFormat:@"Question %d of %lu",questionCounter+1,(unsigned long)self.quizArray.count];
+
     } else {
         self.tableView.hidden = true;
         self.nextButton.hidden = true;
@@ -129,6 +133,7 @@
     else {
         NSDictionary *quizDict = [self.quizArray objectAtIndex:questionCounter];
         if ([[quizDict objectForKey:@"question_type"] isEqualToString:@"option"]) {
+            answerType = 1;
             NSArray *optionsArray;
             if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
                 optionsArray = [[quizDict objectForKey:@"question"] componentsSeparatedByString:@"|"];
@@ -138,7 +143,7 @@
             }
             return 0;
         }
-        
+        answerType = 0;
         return 1;
     }
 }
@@ -197,6 +202,12 @@
                 cell.optionLabel.text = [[optionsArray objectAtIndex:indexPath.row+1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             }
             
+            if (indexPath.row == optionValue) {
+                cell.optionLabel.backgroundColor = [UIColor colorWithRed:227.0/255.0 green:183.0/255.0 blue:114.0/255.0 alpha:1.0f];
+            } else {
+                cell.optionLabel.backgroundColor = [UIColor colorWithRed:210.0/255.0 green:210.0/255.0 blue:210.0/255.0 alpha:1.0f];
+            }
+            
             return cell;
         } else {
             static NSString *cellIdentifier = @"QuizMCQCell";
@@ -215,19 +226,51 @@
         
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        optionValue = indexPath.row;
+        [tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
 #pragma mark - next
 - (IBAction)next:(id)sender {
     NSLog(@"Q->%d",questionCounter);
-    if (questionCounter < 6){
-        [self calculateTrait];
-        ++questionCounter;
-        sliderValue = 5;
-        [self.tableView reloadData];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
-
+    if (answerType) {//options
+        if (optionValue != -1){
+            if (questionCounter < 6){
+                [self calculateTrait];
+                
+                ++questionCounter;
+                sliderValue = 5;
+                optionValue = -1;
+                
+                [self.tableView reloadData];
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+            } else {
+                [self submitAnswers];
+            }
+        } else {
+            [AppHelper showToast:@"Please select an option" shakeView:nil parentView:self.view];
+        }
     } else {
-        [self performSegueWithIdentifier:@"ResultVC" sender:nil];
+        if (questionCounter < 6){
+            [self calculateTrait];
+            
+            ++questionCounter;
+            sliderValue = 5;
+            optionValue = -1;
+            
+            [self.tableView reloadData];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+        } else {
+            [self submitAnswers];
+        }
+    }
+    self.questionCounterLabel.text = [NSString stringWithFormat:@"Question %d of %lu",questionCounter+1,(unsigned long)self.quizArray.count];
+    if (questionCounter == 6) {
+        [self.nextButton setTitle:@"Submit" forState:UIControlStateNormal];
     }
 }
 #pragma mark - quizSliderDelegate
@@ -242,7 +285,7 @@
         traitsCount = [[questionDict objectForKey:@"no_of_traits"] intValue];
     }
     for (int i = 0; i < traitsCount; i++) {
-        NSInteger index = [self.traitArray indexOfObject:[questionDict objectForKey:[NSString stringWithFormat:@"trait%d",i]]];
+        NSInteger index = [self.traitArray indexOfObject:[[questionDict objectForKey:[NSString stringWithFormat:@"trait%d",i]] lowercaseString]];
         
         if ([[questionDict objectForKey:@"question_type"] isEqualToString:@"slide"]) {
             if (questionCounter == 0) {
@@ -260,15 +303,42 @@
             } else if (questionCounter == 6) {
                 self.question7[index] = [NSString stringWithFormat:@"%f",sliderValue+[self.question7[i] floatValue]];
             }
-        } else if ([[questionDict objectForKey:@"question_type"] isEqualToString:@"slide"]){
+        } else if ([[questionDict objectForKey:@"question_type"] isEqualToString:@"option"]){
+            NSString *params = [questionDict objectForKey:[NSString stringWithFormat:@"trait_values%d",i]];
+            NSArray *optionArray = [params componentsSeparatedByString:@":"];
             
+            if (optionValue < optionArray.count) {
+                if(questionCounter == 0){
+                    self.question1[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question1[index] floatValue]];
+                }
+                else if(questionCounter == 1){
+                    self.question2[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question2[index] floatValue]];
+                }
+                else if(questionCounter == 2){
+                    self.question3[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question3[index] floatValue]];
+
+                }
+                else if(questionCounter == 3){
+                    self.question4[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question4[index] floatValue]];
+                }
+                else if(questionCounter == 4){
+                    self.question5[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question5[index] floatValue]];
+                }
+                else if(questionCounter == 5){
+                    self.question6[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question6[index] floatValue]];
+                }
+                else if(questionCounter == 6){
+                    self.question7[index] = [NSString stringWithFormat:@"%f",[optionArray[optionValue] intValue] + [self.question7[index] floatValue]];
+                }
+            }
         }
     }
 }
 #pragma mark - calculateTrait
 -(void)calculateTrait{
-    //call traitCalculator()
+
     [self traitCalculator];
+    
     for (int i = 0; i < self.avgTraitValueArray.count; i++){
         NSString *traitVal = self.traitValueArray[i];
         NSString *ques;
@@ -331,6 +401,38 @@
     NSLog(@"pressure: %@",self.avgTraitValueArray[7]);
     NSLog(@"sales: %@",self.avgTraitValueArray[8]);
     NSLog(@"==========");
+}
+#pragma mark - submitAnswers
+-(void)submitAnswers{
+    
+    NSMutableDictionary *param = [NSMutableDictionary new];
+    [param setObject:@"122" forKey:@"user_id"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[0]] forKey:@"money"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[1]] forKey:@"balance"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[2]] forKey:@"confidence"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[3]] forKey:@"entrepreneurial"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[4]] forKey:@"interpersonal"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[5]] forKey:@"analytical"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[6]] forKey:@"street"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[7]] forKey:@"pressure"];
+    [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[8]] forKey:@"sales"];
 
+    
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SUBMITANSWERS] withParam:param success:^(NSDictionary *responseDict) {
+        [SVProgressHUD dismiss];
+        NSDictionary *dict = [responseDict objectForKey:@"status"];
+        
+        if (![dict isKindOfClass:[NSNull class]] && dict) {
+            if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                    [self performSegueWithIdentifier:@"ResultVC" sender:nil];
+                }
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 @end
