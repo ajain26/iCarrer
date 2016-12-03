@@ -17,6 +17,8 @@
 		673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D41DF2ED4D0040E24F /* SideMenuHeaderView.m */; };
 		673980D71DF2ED6A0040E24F /* SideMenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673980D61DF2ED6A0040E24F /* SideMenuHeaderView.xib */; };
 		673980DA1DF2F6FB0040E24F /* SideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D91DF2F6FB0040E24F /* SideMenuCell.m */; };
+		673980DD1DF303200040E24F /* NewsRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980DC1DF303200040E24F /* NewsRoomVC.m */; };
+		673980E01DF303400040E24F /* IprofileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980DF1DF303400040E24F /* IprofileVC.m */; };
 		673BC7E11DEADA9400D3925D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E01DEADA9400D3925D /* main.m */; };
 		673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E31DEADA9400D3925D /* AppDelegate.m */; };
 		673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E61DEADA9400D3925D /* LoginVC.m */; };
@@ -76,6 +78,10 @@
 		673980D61DF2ED6A0040E24F /* SideMenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideMenuHeaderView.xib; path = View/SideMenuHeaderView.xib; sourceTree = "<group>"; };
 		673980D81DF2F6FB0040E24F /* SideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuCell.h; path = View/SideMenuCell.h; sourceTree = "<group>"; };
 		673980D91DF2F6FB0040E24F /* SideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuCell.m; path = View/SideMenuCell.m; sourceTree = "<group>"; };
+		673980DB1DF303200040E24F /* NewsRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsRoomVC.h; path = View/NewsRoomVC.h; sourceTree = "<group>"; };
+		673980DC1DF303200040E24F /* NewsRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsRoomVC.m; path = View/NewsRoomVC.m; sourceTree = "<group>"; };
+		673980DE1DF3033F0040E24F /* IprofileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IprofileVC.h; path = View/IprofileVC.h; sourceTree = "<group>"; };
+		673980DF1DF303400040E24F /* IprofileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IprofileVC.m; path = View/IprofileVC.m; sourceTree = "<group>"; };
 		673BC7DC1DEADA9400D3925D /* iCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BC7E01DEADA9400D3925D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		673BC7E21DEADA9400D3925D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -287,6 +293,10 @@
 				673980CE1DF2B9640040E24F /* BoardRoomVC.m */,
 				673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */,
 				673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */,
+				673980DB1DF303200040E24F /* NewsRoomVC.h */,
+				673980DC1DF303200040E24F /* NewsRoomVC.m */,
+				673980DE1DF3033F0040E24F /* IprofileVC.h */,
+				673980DF1DF303400040E24F /* IprofileVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -566,6 +576,8 @@
 				673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */,
 				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
+				673980DD1DF303200040E24F /* NewsRoomVC.m in Sources */,
+				673980E01DF303400040E24F /* IprofileVC.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */,
 				67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */,

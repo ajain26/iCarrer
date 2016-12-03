@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SideMenuHeaderView : UIView
-
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @end

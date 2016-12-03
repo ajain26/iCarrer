@@ -19,6 +19,6 @@
 
 + (AppDelegate*)getAppDelegate;
 -(void)setupSideMenu;
-
+-(void)logout;
 @end
 

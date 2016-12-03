@@ -51,6 +51,10 @@
                 <constraint firstItem="o1U-sS-Hcc" firstAttribute="top" secondItem="iDB-aF-V4Y" secondAttribute="bottom" constant="10" id="fMo-4d-JoF"/>
                 <constraint firstItem="MMl-Fo-1sg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="sfW-NL-4yB"/>
             </constraints>
+            <connections>
+                <outlet property="emailLabel" destination="o1U-sS-Hcc" id="hS4-0d-LcJ"/>
+                <outlet property="userNameLabel" destination="MMl-Fo-1sg" id="bdd-1y-6v3"/>
+            </connections>
             <point key="canvasLocation" x="66.5" y="54.5"/>
         </view>
     </objects>

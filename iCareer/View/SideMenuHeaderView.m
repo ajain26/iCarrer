@@ -12,18 +12,15 @@
 
 
 - (id)init {
-    self = [super initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
+    self = [super initWithFrame:CGRectMake(0, 0, self.frame.size.width, 120)];
     
     if (self) {
         NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"SideMenuHeaderView" owner:self options:nil];
-        [[nib objectAtIndex:0] setFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
+        [[nib objectAtIndex:0] setFrame:CGRectMake(0, 0, self.frame.size.width, 120)];
         self = [nib objectAtIndex:0];
-        [self setInitial];
     }
     
     return self;
 }
--(void)setInitial{
-    
-}
+
 @end

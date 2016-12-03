@@ -10,6 +10,7 @@
 #import <MFSideMenu/MFSideMenuContainerViewController.h>
 #import "MFSideMenuVC.h"
 #import "SideMenuVC.h"
+#import "AppHelper.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-        return YES;
+    
+    if (![[AppHelper userDefaultsDictionary:@"user"] isKindOfClass:[NSNull class]] && [AppHelper userDefaultsDictionary:@"user"]) {
+        [self setupSideMenu];
+    }
+    
+    return YES;
 }
 #pragma mark - getAppdelegate
 + (AppDelegate*)getAppDelegate {
@@ -74,16 +79,6 @@
 #pragma mark - setupSideMenu
 -(void)setupSideMenu{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    /*MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
-    SideMenuVC *leftSideMenuViewController = (SideMenuVC*)[storyboard instantiateViewControllerWithIdentifier:@"SideMenuVC"];
-    //UIViewController *rightSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"rightSideMenuViewController"];
-    
-    [container setLeftMenuViewController:leftSideMenuViewController];
-    //[container setRightMenuViewController:rightSideMenuViewController];
-    [container setCenterViewController:navigationController];*/
-    
-    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
      
     SideMenuVC *leftSideMenuViewController = (SideMenuVC*)[storyboard instantiateViewControllerWithIdentifier:@"SideMenuVC"];
     UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
@@ -96,5 +91,11 @@
      [self.window makeKeyAndVisible];
     
 }
+-(void)logout{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
 
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"loginNav"];
+    
+    self.window.rootViewController = navigationController;
+}
 @end

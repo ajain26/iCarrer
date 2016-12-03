@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SideMenuVC : UIViewController
-
+@property (assign, nonatomic) long selectedIndex;//0-boardroom; 1-newroom; 2-iprofile; 3-logout;
 @end
