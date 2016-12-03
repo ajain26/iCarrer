@@ -116,12 +116,33 @@
         [loginParam setObject:[self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"password"];
         [loginParam setObject:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"email"];
         /*[loginParam setObject:@"a" forKey:@"summary"];
-        [loginParam setObject:@"a" forKey:@"address"];
-        [loginParam setObject:@"a" forKey:@"telephone"];
-        [loginParam setObject:@"a" forKey:@"short_title"];*/
+        [loginParam setObject:@"a" forKey:@"address"];*/
+        [loginParam setObject:@"9999999999" forKey:@"telephone"];
+        /*[loginParam setObject:@"a" forKey:@"short_title"];*/
 
         [SVProgressHUD showWithStatus:@"Please wait..."];
-        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {
+        
+        [[Services sharedInstance] servicePOSTMultipartWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 0) {
+                        [AppHelper showToastCenterError:[dict objectForKey:@"msg"] parentView:self.view];
+                    } else {
+                        [self performSegueWithIdentifier:@"WelcomeVC" sender:nil];//TODO:
+                    }
+                }
+            } else {
+                [AppHelper showToastCenterError:@"Error" parentView:self.view];
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+
+        }];
+        
+        /*[[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,USERREGISTRATION] withParam:loginParam success:^(NSDictionary *responseDict) {
             [SVProgressHUD dismiss];
             NSDictionary *dict = [responseDict objectForKey:@"status"];
             
@@ -136,7 +157,7 @@
             }
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
-        }];
+        }];*/
     }
 }
 #pragma mark - keyboardWillShow

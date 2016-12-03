@@ -51,6 +51,57 @@
               failure(error);
           }];
 }
+-(void)servicePOSTMultipartWithPath:(NSString *)urlPath withParam:(NSDictionary *)params success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure{
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:urlPath parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        for(NSString *aKey in [params allKeys]){
+            NSLog(@"Key: %@ - Value: %@",aKey, [params objectForKey:aKey]);
+            [formData appendPartWithFormData:[[params objectForKey:aKey] dataUsingEncoding:NSUTF8StringEncoding] name:aKey];
+        }
+        [formData appendPartWithFormData:[NSData data] name:@"profile_image"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSString *myString = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
+        if (![myString isKindOfClass:[NSNull class]] && myString) {
+            NSLog(@"%@",myString);
+            
+            NSArray *strArray = [myString componentsSeparatedByString:@"}{"];
+            NSLog(@"%@",strArray);
+            
+            id json = nil;
+            
+            if (![strArray isKindOfClass:[NSNull class]] && strArray) {
+                NSString *str0 = [[strArray objectAtIndex:0] stringByAppendingString:@"}"];
+                NSLog(@"%@",str0);
+                NSData *data = [str0 dataUsingEncoding:NSUTF8StringEncoding];
+                
+                json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                NSLog(@"%@",json);
+            }
+            
+            if (![json isKindOfClass:[NSNull class]] && json) {
+                if ([urlPath containsString:USERREGISTRATION]) {
+                    [self insertUserDetailsToDB:json];
+                }
+                success(json);
+            } else {
+                success(nil);
+            }
+        }else {
+            success(nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Error: %@", error);
+        failure(error);
+    }];
+}
 #pragma mark - inserUserDetailToDB
 -(void)insertUserDetailsToDB:(NSDictionary*)json{
     if (![[json objectForKey:@"response"] isKindOfClass:[NSNull class]] && [json objectForKey:@"response"]) {
@@ -68,14 +119,25 @@
         NSArray *traitRatingArray = [json objectForKey:@"trait_rating"];
         
         NSDictionary *skillDict;
-        for (int i = 0; i < traitRatingArray.count-1; i++){
+        float maxRate = 0;
+        if (traitRatingArray.count > 0) {
+            skillDict = [traitRatingArray objectAtIndex:0];
+            maxRate = [[skillDict objectForKey:@"rating"] floatValue];
+        }
+        for (int i = 1; i < traitRatingArray.count; i++){
             NSDictionary *dict = [traitRatingArray objectAtIndex:i];
             float rating = [[dict objectForKey:@"rating"] floatValue];
-            NSDictionary *dictPlus1 = [traitRatingArray objectAtIndex:i+1];
+            /*NSDictionary *dictPlus1 = [traitRatingArray objectAtIndex:i+1];
             float ratingPlus1 = [[dictPlus1 objectForKey:@"rating"] floatValue];
+            skillDict = dict;
             if (rating < ratingPlus1) {
                 rating = ratingPlus1;
                 skillDict = dictPlus1;
+            }*/
+            
+            if (maxRate < rating){
+                skillDict = dict;
+                maxRate = rating;
             }
         }
         if (![skillDict isKindOfClass:[NSNull class]] && skillDict) {

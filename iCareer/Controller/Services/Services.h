@@ -11,4 +11,5 @@
 @interface Services : NSObject
 + (instancetype)sharedInstance;
 - (void)servicePOSTWithPath:(NSString*)path withParam:(NSDictionary*)params success:(void (^)(NSDictionary *responseDict))success failure:(void (^)(NSError *error))failure;
+-(void)servicePOSTMultipartWithPath:(NSString *)urlPath withParam:(NSDictionary *)params success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure;
 @end

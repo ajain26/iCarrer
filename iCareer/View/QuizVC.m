@@ -405,8 +405,10 @@
 #pragma mark - submitAnswers
 -(void)submitAnswers{
     
+    NSDictionary *user = [AppHelper userDefaultsDictionary:@"user"];
+    
     NSMutableDictionary *param = [NSMutableDictionary new];
-    [param setObject:@"122" forKey:@"user_id"];
+    [param setObject:[user objectForKey:@"user_id"] forKey:@"user_id"];
     [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[0]] forKey:@"money"];
     [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[1]] forKey:@"balance"];
     [param setObject:[NSString stringWithFormat:@"%@",self.avgTraitValueArray[2]] forKey:@"confidence"];
