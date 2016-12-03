@@ -254,11 +254,89 @@
                         <outlet property="passwordTextField" destination="Sq2-Ex-dz2" id="0wU-s4-eoI"/>
                         <outlet property="tableView" destination="Y78-iF-XaK" id="1vM-1M-S02"/>
                         <segue destination="S1R-d3-1LX" kind="show" identifier="RegisterVC" id="Cs9-hF-85J"/>
+                        <segue destination="Dkd-Yc-Id3" kind="show" identifier="MFSideMenuContainerViewController" id="JBY-QW-3Sn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Side MenuVC-->
+        <scene sceneID="Bjj-p1-jCs">
+            <objects>
+                <viewController id="Dkd-Yc-Id3" customClass="MFSideMenuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dk0-DF-zUZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5kD-cN-C4V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lli-8g-u8a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.97604910919999999" blue="0.35133018960000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HP7-qr-WWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="-1130"/>
+        </scene>
+        <!--Side MenuVC-->
+        <scene sceneID="vaF-st-6tc">
+            <objects>
+                <viewController restorationIdentifier="SideMenuVC" storyboardIdentifier="SideMenuVC" id="eBk-DL-2VL" customClass="SideMenuVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kaS-tQ-vW2"/>
+                        <viewControllerLayoutGuide type="bottom" id="svR-rZ-qmc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vvM-Q8-zpV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eJL-bw-ppn">
+                                <rect key="frame" x="10" y="10" width="355" height="647"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="svR-rZ-qmc" firstAttribute="top" secondItem="eJL-bw-ppn" secondAttribute="bottom" constant="10" id="C1J-29-eV5"/>
+                            <constraint firstItem="eJL-bw-ppn" firstAttribute="leading" secondItem="vvM-Q8-zpV" secondAttribute="leading" constant="10" id="Iss-w2-tEF"/>
+                            <constraint firstAttribute="trailing" secondItem="eJL-bw-ppn" secondAttribute="trailing" constant="10" id="VNr-aq-21Y"/>
+                            <constraint firstItem="eJL-bw-ppn" firstAttribute="top" secondItem="vvM-Q8-zpV" secondAttribute="top" constant="10" id="mAh-Bv-eKD"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKy-Ot-Efp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4366" y="-1487"/>
+        </scene>
+        <!--Board RoomVC-->
+        <scene sceneID="uc6-nA-a1m">
+            <objects>
+                <viewController restorationIdentifier="BoardRoomVC" storyboardIdentifier="BoardRoomVC" id="kji-y0-d8s" customClass="BoardRoomVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eH4-qX-UFK"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEW-gn-hTS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FPS-NH-PTb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDM-mi-gAC">
+                                <rect key="frame" x="48" y="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="leftSideMenuButtonPressed:" destination="kji-y0-d8s" eventType="touchUpInside" id="xmb-Nv-OH9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iKQ-3J-xmg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f1M-Sj-SLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5304.8000000000002" y="-672.41379310344837"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="Lpp-Lt-exU">
@@ -845,6 +923,7 @@ AND ENTER iCAREER PLATFORM</string>
                     <connections>
                         <outlet property="skillSetLabel" destination="T65-Gh-dar" id="Uiw-RK-J1C"/>
                         <outlet property="starView" destination="j3c-cg-FTf" id="jVM-g5-LDe"/>
+                        <segue destination="Dkd-Yc-Id3" kind="show" identifier="MFSideMenuContainerViewController" id="qS9-Jg-WHw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59X-10-1ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -870,6 +949,25 @@ AND ENTER iCAREER PLATFORM</string>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aCo-TP-bd8">
+            <objects>
+                <navigationController restorationIdentifier="navController" storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Gj0-0b-P33" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rcs-6Q-raP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kji-y0-d8s" kind="relationship" relationship="rootViewController" id="gHW-Id-zHS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e54-Xc-mPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4365.6000000000004" y="-672.41379310344837"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Login_back" width="360" height="568"/>
@@ -881,4 +979,7 @@ AND ENTER iCAREER PLATFORM</string>
         <image name="tele_user" width="143" height="144"/>
         <image name="user" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JBY-QW-3Sn"/>
+    </inferredMetricsTieBreakers>
 </document>

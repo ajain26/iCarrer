@@ -11,6 +11,7 @@
 #import "Defines.h"
 #import "Services.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "AppDelegate.h"
 
 @interface LoginVC ()<UIGestureRecognizerDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *emailImageView;
@@ -93,6 +94,8 @@
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
                 if ([[dict objectForKey:@"statuscode"] intValue] == 0) {
                     [AppHelper showToastCenterError:[dict objectForKey:@"msg"] parentView:self.view];
+                } else {
+                    [[AppDelegate getAppDelegate] setupSideMenu];
                 }
             }
         }

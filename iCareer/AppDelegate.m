@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <MFSideMenu/MFSideMenuContainerViewController.h>
+#import "MFSideMenuVC.h"
+#import "SideMenuVC.h"
 
 @interface AppDelegate ()
 
@@ -67,6 +70,31 @@
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+#pragma mark - setupSideMenu
+-(void)setupSideMenu{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    /*MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
+    SideMenuVC *leftSideMenuViewController = (SideMenuVC*)[storyboard instantiateViewControllerWithIdentifier:@"SideMenuVC"];
+    //UIViewController *rightSideMenuViewController = [storyboard instantiateViewControllerWithIdentifier:@"rightSideMenuViewController"];
+    
+    [container setLeftMenuViewController:leftSideMenuViewController];
+    //[container setRightMenuViewController:rightSideMenuViewController];
+    [container setCenterViewController:navigationController];*/
+    
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+     
+    SideMenuVC *leftSideMenuViewController = (SideMenuVC*)[storyboard instantiateViewControllerWithIdentifier:@"SideMenuVC"];
+    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navController"];
+
+     MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+     containerWithCenterViewController:navigationController
+     leftMenuViewController:leftSideMenuViewController
+     rightMenuViewController:nil];
+     self.window.rootViewController = container;
+     [self.window makeKeyAndVisible];
+    
 }
 
 @end

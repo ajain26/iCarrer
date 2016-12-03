@@ -9,6 +9,7 @@
 #import "ResultVC.h"
 #import "HCSStarRatingView.h"
 #import "AppHelper.h"
+#import "AppDelegate.h"
 
 @interface ResultVC ()
 @property (weak, nonatomic) IBOutlet HCSStarRatingView *starView;
@@ -41,7 +42,7 @@
 }
 #pragma mark - explore
 - (IBAction)explore:(id)sender {
-    
+    [[AppDelegate getAppDelegate] setupSideMenu];
 }
 
 @end

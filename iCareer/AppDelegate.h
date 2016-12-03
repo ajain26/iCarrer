@@ -18,6 +18,7 @@
 - (void)saveContext;
 
 + (AppDelegate*)getAppDelegate;
+-(void)setupSideMenu;
 
 @end
 

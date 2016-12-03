@@ -11,6 +11,9 @@
 		67331EAA1DEB3B3D009EB780 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EA91DEB3B3D009EB780 /* AppHelper.m */; };
 		67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EAC1DEB3B8C009EB780 /* CoreDataFunction.m */; };
 		67331EB11DEB3C30009EB780 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EB01DEB3C30009EB780 /* Services.m */; };
+		673980CC1DF2B94B0040E24F /* SideMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980CB1DF2B94B0040E24F /* SideMenuVC.m */; };
+		673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980CE1DF2B9640040E24F /* BoardRoomVC.m */; };
+		673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */; };
 		673BC7E11DEADA9400D3925D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E01DEADA9400D3925D /* main.m */; };
 		673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E31DEADA9400D3925D /* AppDelegate.m */; };
 		673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E61DEADA9400D3925D /* LoginVC.m */; };
@@ -59,6 +62,12 @@
 		67331EAE1DEB3C1D009EB780 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defines.h; path = Controller/Defines/Defines.h; sourceTree = "<group>"; };
 		67331EAF1DEB3C30009EB780 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Services.h; path = Controller/Services/Services.h; sourceTree = "<group>"; };
 		67331EB01DEB3C30009EB780 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Services.m; path = Controller/Services/Services.m; sourceTree = "<group>"; };
+		673980CA1DF2B94B0040E24F /* SideMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuVC.h; path = View/SideMenuVC.h; sourceTree = "<group>"; };
+		673980CB1DF2B94B0040E24F /* SideMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuVC.m; path = View/SideMenuVC.m; sourceTree = "<group>"; };
+		673980CD1DF2B9640040E24F /* BoardRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomVC.h; path = View/BoardRoomVC.h; sourceTree = "<group>"; };
+		673980CE1DF2B9640040E24F /* BoardRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomVC.m; path = View/BoardRoomVC.m; sourceTree = "<group>"; };
+		673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFSideMenuVC.h; path = View/MFSideMenuVC.h; sourceTree = "<group>"; };
+		673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuVC.m; path = View/MFSideMenuVC.m; sourceTree = "<group>"; };
 		673BC7DC1DEADA9400D3925D /* iCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BC7E01DEADA9400D3925D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		673BC7E21DEADA9400D3925D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -259,6 +268,12 @@
 				67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */,
 				67B3EFB81DF0297C00E3D426 /* ResultVC.h */,
 				67B3EFB91DF0297C00E3D426 /* ResultVC.m */,
+				673980CA1DF2B94B0040E24F /* SideMenuVC.h */,
+				673980CB1DF2B94B0040E24F /* SideMenuVC.m */,
+				673980CD1DF2B9640040E24F /* BoardRoomVC.h */,
+				673980CE1DF2B9640040E24F /* BoardRoomVC.m */,
+				673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */,
+				673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -530,8 +545,11 @@
 				67B3EFBF1DF0486000E3D426 /* HCSStarRatingView.m in Sources */,
 				673BC7E11DEADA9400D3925D /* main.m in Sources */,
 				67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */,
+				673980CC1DF2B94B0040E24F /* SideMenuVC.m in Sources */,
 				67B3EFB61DEFF4D400E3D426 /* QuizOptionsCell.m in Sources */,
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
+				673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */,
+				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */,
