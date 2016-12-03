@@ -14,6 +14,9 @@
 		673980CC1DF2B94B0040E24F /* SideMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980CB1DF2B94B0040E24F /* SideMenuVC.m */; };
 		673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980CE1DF2B9640040E24F /* BoardRoomVC.m */; };
 		673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */; };
+		673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D41DF2ED4D0040E24F /* SideMenuHeaderView.m */; };
+		673980D71DF2ED6A0040E24F /* SideMenuHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673980D61DF2ED6A0040E24F /* SideMenuHeaderView.xib */; };
+		673980DA1DF2F6FB0040E24F /* SideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 673980D91DF2F6FB0040E24F /* SideMenuCell.m */; };
 		673BC7E11DEADA9400D3925D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E01DEADA9400D3925D /* main.m */; };
 		673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E31DEADA9400D3925D /* AppDelegate.m */; };
 		673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 673BC7E61DEADA9400D3925D /* LoginVC.m */; };
@@ -68,6 +71,11 @@
 		673980CE1DF2B9640040E24F /* BoardRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomVC.m; path = View/BoardRoomVC.m; sourceTree = "<group>"; };
 		673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFSideMenuVC.h; path = View/MFSideMenuVC.h; sourceTree = "<group>"; };
 		673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuVC.m; path = View/MFSideMenuVC.m; sourceTree = "<group>"; };
+		673980D31DF2ED4D0040E24F /* SideMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuHeaderView.h; path = View/SideMenuHeaderView.h; sourceTree = "<group>"; };
+		673980D41DF2ED4D0040E24F /* SideMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuHeaderView.m; path = View/SideMenuHeaderView.m; sourceTree = "<group>"; };
+		673980D61DF2ED6A0040E24F /* SideMenuHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SideMenuHeaderView.xib; path = View/SideMenuHeaderView.xib; sourceTree = "<group>"; };
+		673980D81DF2F6FB0040E24F /* SideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuCell.h; path = View/SideMenuCell.h; sourceTree = "<group>"; };
+		673980D91DF2F6FB0040E24F /* SideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuCell.m; path = View/SideMenuCell.m; sourceTree = "<group>"; };
 		673BC7DC1DEADA9400D3925D /* iCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BC7E01DEADA9400D3925D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		673BC7E21DEADA9400D3925D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,6 +278,11 @@
 				67B3EFB91DF0297C00E3D426 /* ResultVC.m */,
 				673980CA1DF2B94B0040E24F /* SideMenuVC.h */,
 				673980CB1DF2B94B0040E24F /* SideMenuVC.m */,
+				673980D81DF2F6FB0040E24F /* SideMenuCell.h */,
+				673980D91DF2F6FB0040E24F /* SideMenuCell.m */,
+				673980D31DF2ED4D0040E24F /* SideMenuHeaderView.h */,
+				673980D41DF2ED4D0040E24F /* SideMenuHeaderView.m */,
+				673980D61DF2ED6A0040E24F /* SideMenuHeaderView.xib */,
 				673980CD1DF2B9640040E24F /* BoardRoomVC.h */,
 				673980CE1DF2B9640040E24F /* BoardRoomVC.m */,
 				673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */,
@@ -459,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				673BC7F21DEADA9600D3925D /* LaunchScreen.storyboard in Resources */,
+				673980D71DF2ED6A0040E24F /* SideMenuHeaderView.xib in Resources */,
 				673BC7EF1DEADA9600D3925D /* Assets.xcassets in Resources */,
 				67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */,
 				67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */,
@@ -549,12 +563,14 @@
 				67B3EFB61DEFF4D400E3D426 /* QuizOptionsCell.m in Sources */,
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
 				673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */,
+				673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */,
 				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */,
 				67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */,
 				673BC7ED1DEADA9500D3925D /* iCareer.xcdatamodeld in Sources */,
+				673980DA1DF2F6FB0040E24F /* SideMenuCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

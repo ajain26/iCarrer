@@ -17,11 +17,16 @@
 #pragma mark - view life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
 }
+#pragma mark - leftSideMenuButtonPressed
 - (IBAction)leftSideMenuButtonPressed:(id)sender {
     [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
-        //[self setupMenuBarButtonItems];
+
     }];
+}
+#pragma mark - search
+- (IBAction)search:(id)sender {
+    
 }
 @end
