@@ -38,11 +38,14 @@
     [super viewDidLoad];
     currentSelectedTab = 0;
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];
-    self.myBoardArray = [NSArray new];
-    [self getAllBoardRoom];
+    self.myBoardArray = [NSMutableArray new];
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self setTabView];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: true];
+    [self getAllBoardRoom];
 }
 #pragma mark - setTabView
 -(void)setTabView{
@@ -286,7 +289,7 @@
 }
 #pragma mark - addPost
 - (IBAction)addPost:(id)sender {
-    
+    [self performSegueWithIdentifier:@"BoardAddPostVC" sender:nil];
 }
 #pragma mark - tabChanged
 -(IBAction)tabChanged:(UIButton*)sender{

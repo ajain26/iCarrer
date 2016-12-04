@@ -179,7 +179,20 @@
 
 #pragma mark - share
 -(void)share:(UIButton*)sender{
-    [self.view endEditing: true];
+    [self.view endEditing:true];
+    
+    
+    NSString *shareString = [self.boardDict objectForKey:@"title"];
+    NSString *url = [NSString stringWithFormat:@"%@/boardroom_details.php?boardroom_id=%@&discussion_owner=%@",BASEURL,[self.boardDict objectForKey:@"boardroom_id"],[self.boardDict objectForKey:@"discussion_owner"]];
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[shareString, [NSURL URLWithString:url]]
+                                      applicationActivities:nil];
+    [self.navigationController presentViewController:activityViewController
+                                            animated:YES
+                                          completion:^{
+                                              // ...
+                                          }];
 }
 #pragma mark - like
 -(void)like:(UIButton*)sender{

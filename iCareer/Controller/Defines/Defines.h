@@ -23,6 +23,10 @@
 #define VALID_PASSWORD         @"Please enter a valid password"
 #define VALID_EMAIL_PASSWORD   @"Please enter a valid email and password"
 
+#define VALID_MESSAGE          @"Please enter a message"
+#define VALID_TITLE            @"Please enter a title"
+#define VALID_TITLE_MESSAGE    @"Please enter a title and a message"
+
 #define ALL_FIELDS_MANDATORY   @"All fields are mandatory"
 #define VALID_NAME             @"Please enter a valid name"
 #define VALID_MOBILE           @"Please enter a valid 10 digit mobile number"
