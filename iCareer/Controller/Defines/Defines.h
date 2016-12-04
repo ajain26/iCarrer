@@ -17,6 +17,7 @@
 #define FETCH_BOARD_BY_ID      @"api/FetchBoardRoomById.php"
 #define ADD_COMMENTS           @"api/SetCommentsToBoardRoomById"
 #define ADD_POST               @"api/AddBoardRoom.php"
+#define FETCH_NEWS             @"api/FetchAllNews.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"

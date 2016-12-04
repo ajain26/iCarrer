@@ -146,4 +146,8 @@
         NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
     }
 }
+#pragma mark - connected
+- (BOOL)connected {
+    return [AFNetworkReachabilityManager sharedManager].reachable;
+}
 @end

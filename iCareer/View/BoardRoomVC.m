@@ -126,7 +126,8 @@
     static NSString *cellIdentifier = @"BoardRoomCell";
     
     BoardRoomCell *cell = (BoardRoomCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
     cell.titleLabel.text = @"";
     cell.descLabel.text = @"";
     cell.userNameLabel.text = @"";
@@ -226,6 +227,7 @@
     }
     [self addBookMark:dict];
 }
+#pragma mark - addBookMark
 -(void)addBookMark:(NSDictionary*)dict{
     
     NSMutableDictionary *param = [NSMutableDictionary new];
