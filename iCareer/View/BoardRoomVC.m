@@ -138,4 +138,8 @@
                                          // ...
                                      }];
 }
+#pragma mark - addPost
+- (IBAction)addPost:(id)sender {
+    
+}
 @end

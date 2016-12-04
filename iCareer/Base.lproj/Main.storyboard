@@ -680,6 +680,23 @@
                                     <outlet property="delegate" destination="kji-y0-d8s" id="75R-Xf-fkC"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Pu-0N-hPw">
+                                <rect key="frame" x="300" y="592" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.58823529411764708" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="GQ0-fT-Z4w"/>
+                                    <constraint firstAttribute="height" constant="50" id="lo8-QR-hUX"/>
+                                </constraints>
+                                <state key="normal" image="plus"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addPost:" destination="kji-y0-d8s" eventType="touchUpInside" id="9L7-tY-AaI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -687,8 +704,10 @@
                             <constraint firstAttribute="trailing" secondItem="Kb2-GD-rVR" secondAttribute="trailing" id="2Sb-zo-uVZ"/>
                             <constraint firstItem="nEW-gn-hTS" firstAttribute="top" secondItem="Kb2-GD-rVR" secondAttribute="bottom" id="60B-9y-11V"/>
                             <constraint firstAttribute="trailing" secondItem="217-iu-5jC" secondAttribute="trailing" id="CAw-Jj-ePN"/>
+                            <constraint firstItem="nEW-gn-hTS" firstAttribute="top" secondItem="0Pu-0N-hPw" secondAttribute="bottom" constant="25" id="Ogw-gm-P4b"/>
                             <constraint firstItem="Kb2-GD-rVR" firstAttribute="leading" secondItem="FPS-NH-PTb" secondAttribute="leading" id="c4C-vo-Yk8"/>
                             <constraint firstItem="Kb2-GD-rVR" firstAttribute="top" secondItem="217-iu-5jC" secondAttribute="bottom" id="eFq-yF-mUq"/>
+                            <constraint firstAttribute="trailing" secondItem="0Pu-0N-hPw" secondAttribute="trailing" constant="25" id="l7P-tE-JLL"/>
                             <constraint firstItem="217-iu-5jC" firstAttribute="top" secondItem="FPS-NH-PTb" secondAttribute="top" id="uoH-na-8nt"/>
                         </constraints>
                     </view>
@@ -1453,6 +1472,7 @@ AND ENTER iCAREER PLATFORM</string>
         <image name="like" width="25" height="25"/>
         <image name="logo_iphone" width="120" height="120"/>
         <image name="menu-icon" width="22" height="17"/>
+        <image name="plus" width="25" height="25"/>
         <image name="profile" width="48" height="48"/>
         <image name="search" width="25" height="25"/>
         <image name="share" width="25" height="25"/>
