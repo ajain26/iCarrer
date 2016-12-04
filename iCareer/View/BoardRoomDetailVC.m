@@ -88,7 +88,7 @@
         cell.commentTextField.layer.borderWidth = 1.0f;
         cell.commentTextField.layer.cornerRadius = 5.0f;
     
-        if ([[self.boardDict objectForKey:@"is_bookmarked"] intValue] == 0){
+        if ([[self.boardDict objectForKey:@"is_bookmarked"] intValue] == 1){
             [cell.likeButton setImage:[UIImage imageNamed:@"likeSelected"] forState:UIControlStateNormal];
         } else {
             [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];

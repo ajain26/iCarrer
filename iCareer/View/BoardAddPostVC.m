@@ -55,7 +55,7 @@
 }
 #pragma mark - textfield
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    [self.messageTextView becomeFirstResponder];
+    [textField resignFirstResponder];
     return true;
 }
 #pragma mark - textview
@@ -136,8 +136,8 @@
 -(void)go{
     NSMutableDictionary *param = [NSMutableDictionary new];
     [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
-    [param setObject:@"" forKey:@"title"];
-    [param setObject:@"" forKey:@"desc"];
+    [param setObject:[self.titleTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"title"];
+    [param setObject:[self.messageTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"desc"];
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

@@ -74,7 +74,9 @@
                     if (![[responseDict objectForKey:@"response"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"response"]) {
                         self.boardArray = [responseDict objectForKey:@"response"];
                         
-                        NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", @"discussion_owner", [self.userDict objectForKey:@"user_id"]];//keySelected is NSString itself
+                        NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"discussion_owner ==[c] %@", [self.userDict objectForKey:@"user_id"]];
+
+                        //NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", @"discussion_owner", [self.userDict objectForKey:@"user_id"]];//keySelected is NSString itself
                         NSLog(@"predicate %@",predicateString);
                         self.myBoardArray = [NSMutableArray arrayWithArray:[self.boardArray filteredArrayUsingPredicate:predicateString]];
                         
@@ -136,10 +138,10 @@
     if (currentSelectedTab == 0) {
         boardDict = [self.boardArray objectAtIndex:indexPath.row];
     } else {
-        boardDict = [self.boardArray objectAtIndex:indexPath.row];
+        boardDict = [self.myBoardArray objectAtIndex:indexPath.row];
     }
     
-    if ([[boardDict objectForKey:@"is_bookmarked"] intValue] == 0){
+    if ([[boardDict objectForKey:@"is_bookmarked"] intValue] == 1){
         [cell.likeButton setImage:[UIImage imageNamed:@"likeSelected"] forState:UIControlStateNormal];
     } else {
         [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
