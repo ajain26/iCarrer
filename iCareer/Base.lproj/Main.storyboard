@@ -856,35 +856,46 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gck-HE-JXi" userLabel="emailImageView">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gck-HE-JXi" userLabel="emailImageView">
                                             <rect key="frame" x="47" y="47" width="280" height="40"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="rz8-w5-KgX"/>
+                                            </constraints>
                                         </imageView>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCg-hj-av9">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sCg-hj-av9">
                                             <rect key="frame" x="57" y="52" width="260" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="1E0-s4-RAu"/>
+                                            </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
                                         </textField>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ul-1w-QAl" userLabel="messageImageview">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4ul-1w-QAl" userLabel="messageImageview">
                                             <rect key="frame" x="47" y="102" width="280" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="5hj-s6-61W"/>
+                                            </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-do-ybh">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-do-ybh">
                                             <rect key="frame" x="57" y="109" width="260" height="55"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="Q4g-HJ-LQa"/>
+                                            </constraints>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33W-Xy-A54">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33W-Xy-A54">
                                             <rect key="frame" x="267" y="187" width="60" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="Clb-DH-9FZ"/>
+                                                <constraint firstAttribute="height" constant="30" id="EmW-ha-Jy9"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                             <state key="normal" title="POST">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -900,6 +911,22 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="33W-Xy-A54" firstAttribute="top" secondItem="4ul-1w-QAl" secondAttribute="bottom" constant="15" id="83C-F1-4u7"/>
+                                        <constraint firstItem="4ul-1w-QAl" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="47" id="8ck-cB-ufe"/>
+                                        <constraint firstItem="sCg-hj-av9" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="57" id="Dki-Ak-asH"/>
+                                        <constraint firstItem="ulH-do-ybh" firstAttribute="top" secondItem="gck-HE-JXi" secondAttribute="bottom" constant="22" id="QxS-Vw-UMV"/>
+                                        <constraint firstAttribute="trailing" secondItem="4ul-1w-QAl" secondAttribute="trailing" constant="48" id="SGz-hu-fP3"/>
+                                        <constraint firstItem="gck-HE-JXi" firstAttribute="top" secondItem="s1L-AF-77X" secondAttribute="top" constant="47" id="aG1-1e-QeB"/>
+                                        <constraint firstItem="ulH-do-ybh" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="57" id="bxw-w9-vVl"/>
+                                        <constraint firstAttribute="trailing" secondItem="ulH-do-ybh" secondAttribute="trailing" constant="58" id="dRy-Tq-xNf"/>
+                                        <constraint firstAttribute="trailing" secondItem="33W-Xy-A54" secondAttribute="trailing" constant="48" id="iRf-1o-PKH"/>
+                                        <constraint firstAttribute="trailing" secondItem="sCg-hj-av9" secondAttribute="trailing" constant="58" id="kd2-y8-Saq"/>
+                                        <constraint firstItem="sCg-hj-av9" firstAttribute="top" secondItem="s1L-AF-77X" secondAttribute="top" constant="52" id="mEu-Os-lNZ"/>
+                                        <constraint firstItem="gck-HE-JXi" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="47" id="nt8-cd-8kT"/>
+                                        <constraint firstItem="4ul-1w-QAl" firstAttribute="top" secondItem="gck-HE-JXi" secondAttribute="bottom" constant="15" id="ryE-6L-ILn"/>
+                                        <constraint firstAttribute="trailing" secondItem="gck-HE-JXi" secondAttribute="trailing" constant="48" id="u9N-Qh-Gau"/>
+                                    </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="rect" keyPath="frame">
                                             <rect key="value" x="0.0" y="0.0" width="0.0" height="220"/>
