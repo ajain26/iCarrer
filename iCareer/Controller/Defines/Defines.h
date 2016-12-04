@@ -7,12 +7,13 @@
 //
 
 //#define BASEURL                @"http://inubex.in/preprod_icareer/api/"
-#define BASEURL              @"http://inubex.in/icareer/"
+#define BASEURL                @"http://inubex.in/icareer/"
 #define VALIDATEUSER           @"api/ValidateUser.php"
 #define USERREGISTRATION       @"api/UserRegistration.php"
 #define FETCHQUESTIONS         @"api/FetchQuestionSet.php"
 #define SUBMITANSWERS          @"api/ProcessFinanceQuizTraitResult.php"
 #define FETCHBOARD             @"api/FetchAllBoardRoom.php"
+#define BOOKMARK               @"api/SetUpdateBoardroomBookmark.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"
