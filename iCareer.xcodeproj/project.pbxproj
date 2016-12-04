@@ -49,6 +49,11 @@
 		6740BAEE1DF3D54400C27897 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BAD81DF3D54400C27897 /* UIImageView+WebCache.m */; };
 		6740BAEF1DF3D54400C27897 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BADA1DF3D54400C27897 /* UIView+WebCache.m */; };
 		6740BAF01DF3D54400C27897 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BADC1DF3D54400C27897 /* UIView+WebCacheOperation.m */; };
+		6740BAF31DF4138E00C27897 /* BoardRoomDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BAF21DF4138E00C27897 /* BoardRoomDetailVC.m */; };
+		6740BAF61DF41D6000C27897 /* BoardRoomDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BAF51DF41D6000C27897 /* BoardRoomDetailCell.m */; };
+		6740BAFA1DF4454000C27897 /* BoardRoomCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BAF81DF4454000C27897 /* BoardRoomCommentCell.m */; };
+		6740BAFB1DF4454000C27897 /* BoardRoomCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6740BAF91DF4454000C27897 /* BoardRoomCommentCell.xib */; };
+		6740BAFE1DF4512100C27897 /* BoardAddPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6740BAFD1DF4512100C27897 /* BoardAddPostVC.m */; };
 		6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6745E7AD1DEED95D00903E4F /* WelcomVC.m */; };
 		6745E7B11DEEDD4700903E4F /* QuizVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6745E7B01DEEDD4700903E4F /* QuizVC.m */; };
 		67B3EFA81DEF23C300E3D426 /* QuizQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B3EFA61DEF23C300E3D426 /* QuizQuestionCell.m */; };
@@ -162,6 +167,15 @@
 		6740BADA1DF3D54400C27897 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "ThirdParty/SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		6740BADB1DF3D54400C27897 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "ThirdParty/SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		6740BADC1DF3D54400C27897 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "ThirdParty/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		6740BAF11DF4138E00C27897 /* BoardRoomDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomDetailVC.h; path = View/BoardRoomDetailVC.h; sourceTree = "<group>"; };
+		6740BAF21DF4138E00C27897 /* BoardRoomDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomDetailVC.m; path = View/BoardRoomDetailVC.m; sourceTree = "<group>"; };
+		6740BAF41DF41D6000C27897 /* BoardRoomDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomDetailCell.h; path = View/BoardRoomDetailCell.h; sourceTree = "<group>"; };
+		6740BAF51DF41D6000C27897 /* BoardRoomDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomDetailCell.m; path = View/BoardRoomDetailCell.m; sourceTree = "<group>"; };
+		6740BAF71DF4454000C27897 /* BoardRoomCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomCommentCell.h; path = View/BoardRoomCommentCell.h; sourceTree = "<group>"; };
+		6740BAF81DF4454000C27897 /* BoardRoomCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomCommentCell.m; path = View/BoardRoomCommentCell.m; sourceTree = "<group>"; };
+		6740BAF91DF4454000C27897 /* BoardRoomCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BoardRoomCommentCell.xib; path = View/BoardRoomCommentCell.xib; sourceTree = "<group>"; };
+		6740BAFC1DF4512100C27897 /* BoardAddPostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardAddPostVC.h; path = View/BoardAddPostVC.h; sourceTree = "<group>"; };
+		6740BAFD1DF4512100C27897 /* BoardAddPostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardAddPostVC.m; path = View/BoardAddPostVC.m; sourceTree = "<group>"; };
 		6745E7AC1DEED95D00903E4F /* WelcomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomVC.h; path = View/WelcomVC.h; sourceTree = "<group>"; };
 		6745E7AD1DEED95D00903E4F /* WelcomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomVC.m; path = View/WelcomVC.m; sourceTree = "<group>"; };
 		6745E7AF1DEEDD4700903E4F /* QuizVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizVC.h; path = View/QuizVC.h; sourceTree = "<group>"; };
@@ -403,6 +417,15 @@
 				673980CE1DF2B9640040E24F /* BoardRoomVC.m */,
 				6740BAB11DF3C85600C27897 /* BoardRoomCell.h */,
 				6740BAB21DF3C85600C27897 /* BoardRoomCell.m */,
+				6740BAF11DF4138E00C27897 /* BoardRoomDetailVC.h */,
+				6740BAF21DF4138E00C27897 /* BoardRoomDetailVC.m */,
+				6740BAF41DF41D6000C27897 /* BoardRoomDetailCell.h */,
+				6740BAF51DF41D6000C27897 /* BoardRoomDetailCell.m */,
+				6740BAF71DF4454000C27897 /* BoardRoomCommentCell.h */,
+				6740BAF81DF4454000C27897 /* BoardRoomCommentCell.m */,
+				6740BAF91DF4454000C27897 /* BoardRoomCommentCell.xib */,
+				6740BAFC1DF4512100C27897 /* BoardAddPostVC.h */,
+				6740BAFD1DF4512100C27897 /* BoardAddPostVC.m */,
 				673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */,
 				673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */,
 				673980DB1DF303200040E24F /* NewsRoomVC.h */,
@@ -599,6 +622,7 @@
 				673BC7EF1DEADA9600D3925D /* Assets.xcassets in Resources */,
 				67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */,
 				67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */,
+				6740BAFB1DF4454000C27897 /* BoardRoomCommentCell.xib in Resources */,
 				67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */,
 				673BC7EA1DEADA9400D3925D /* Main.storyboard in Resources */,
 				6740BADD1DF3D54400C27897 /* FLAnimatedImage in Resources */,
@@ -678,6 +702,7 @@
 				6740BAE61DF3D54400C27897 /* SDWebImageDownloaderOperation.m in Sources */,
 				6740BAEC1DF3D54400C27897 /* UIImage+WebP.m in Sources */,
 				6740BAEF1DF3D54400C27897 /* UIView+WebCache.m in Sources */,
+				6740BAF61DF41D6000C27897 /* BoardRoomDetailCell.m in Sources */,
 				6740BAE81DF3D54400C27897 /* SDWebImagePrefetcher.m in Sources */,
 				67331EAA1DEB3B3D009EB780 /* AppHelper.m in Sources */,
 				673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */,
@@ -698,6 +723,7 @@
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
 				673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */,
 				673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */,
+				6740BAFA1DF4454000C27897 /* BoardRoomCommentCell.m in Sources */,
 				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				6740BAEB1DF3D54400C27897 /* UIImage+MultiFormat.m in Sources */,
@@ -713,10 +739,12 @@
 				67B3EFAD1DEF28DC00E3D426 /* QuizMCQCell.m in Sources */,
 				673BC7ED1DEADA9500D3925D /* iCareer.xcdatamodeld in Sources */,
 				673980DA1DF2F6FB0040E24F /* SideMenuCell.m in Sources */,
+				6740BAFE1DF4512100C27897 /* BoardAddPostVC.m in Sources */,
 				6740BADE1DF3D54400C27897 /* MKAnnotationView+WebCache.m in Sources */,
 				6740BAB31DF3C85600C27897 /* BoardRoomCell.m in Sources */,
 				6740BAE01DF3D54400C27897 /* NSImage+WebCache.m in Sources */,
 				6740BAE11DF3D54400C27897 /* SDImageCache.m in Sources */,
+				6740BAF31DF4138E00C27897 /* BoardRoomDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

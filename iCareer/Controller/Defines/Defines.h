@@ -14,6 +14,9 @@
 #define SUBMITANSWERS          @"api/ProcessFinanceQuizTraitResult.php"
 #define FETCHBOARD             @"api/FetchAllBoardRoom.php"
 #define BOOKMARK               @"api/SetUpdateBoardroomBookmark.php"
+#define FETCH_BOARD_BY_ID      @"api/FetchBoardRoomById.php"
+#define ADD_COMMENTS           @"api/SetCommentsToBoardRoomById"
+#define ADD_POST               @"api/AddBoardRoom.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"

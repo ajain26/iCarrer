@@ -14,9 +14,11 @@
 #import "AppHelper.h"
 #import "BoardRoomCell.h"
 #import "UIImageView+WebCache.h"
+#import "BoardRoomDetailVC.h"
 
 @interface BoardRoomVC ()<UITableViewDelegate, UITableViewDataSource>{
     int currentSelectedTab;//0-all; 1-my;
+    NSIndexPath *selectedIndexPath;
 }
 @property (strong, nonatomic) NSDictionary *userDict;
 @property (strong, nonatomic) NSArray *boardArray;
@@ -174,6 +176,22 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:true];
+    selectedIndexPath = indexPath;
+    [self performSegueWithIdentifier:@"BoardRoomDetailVC" sender:nil];
+}
+#pragma mark - segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"BoardRoomDetailVC"]) {
+        NSDictionary *dict;
+        if (currentSelectedTab == 0) {
+            dict = [self.boardArray objectAtIndex:selectedIndexPath.row];
+        } else {
+            dict = [self.myBoardArray objectAtIndex:selectedIndexPath.row];
+        }
+        
+        BoardRoomDetailVC *board = (BoardRoomDetailVC*)segue.destinationViewController;
+        board.boardDict = dict;
+    }
 }
 #pragma mark - bookmark 
 -(void)bookmark:(UIButton*)sender{
@@ -238,7 +256,8 @@
     CGPoint buttonPosition = [sender convertPoint:CGPointZero
                                            toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    
+    selectedIndexPath = indexPath;
+    [self performSegueWithIdentifier:@"BoardRoomDetailVC" sender:nil];
 }
 #pragma mark - share
 -(void)share:(UIButton*)sender{
