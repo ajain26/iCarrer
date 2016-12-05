@@ -106,6 +106,9 @@
     
     cell.titleLabel.text = [newsDict objectForKey:@"news_title"];
     cell.descLabel.text = [newsDict objectForKey:@"news_desc"];
+    cell.linkLabel.text = [newsDict objectForKey:@"news_url"];
+    
+    [cell assignTime:[newsDict objectForKey:@"news_timestamp"]];
     
     return cell;
 }
@@ -114,11 +117,66 @@
     CGPoint buttonPosition = [sender convertPoint:CGPointZero
                                            toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSDictionary *likeDict = [self.newsArray objectAtIndex:indexPath.row];
+
+    NSMutableDictionary *param = [NSMutableDictionary new];
+    [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+    [param setObject:[NSString stringWithFormat:@"%d",![[likeDict objectForKey:@"is_bookmarked"] intValue]] forKey:@"isbookmark"];
+    [param setObject:[likeDict objectForKey:@"news_id"] forKey:@"newsid"];
+   
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,LIKE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
+        NSDictionary *dict = [responseDict objectForKey:@"status"];
+        
+        if (![dict isKindOfClass:[NSNull class]] && dict) {
+            if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                    [self getAllNews];
+                } else {
+                    [SVProgressHUD dismiss];
+                }
+            } else {
+                [SVProgressHUD dismiss];
+            }
+        } else {
+            [SVProgressHUD dismiss];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 #pragma mark - share
 -(void)share:(UIButton*)sender{
     CGPoint buttonPosition = [sender convertPoint:CGPointZero
                                            toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSDictionary *shareDict = [self.newsArray objectAtIndex:indexPath.row];
+    
+    NSString *shareString = [shareDict objectForKey:@"news_title"];
+    NSString *url = [shareDict objectForKey:@"news_url"];
+    
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[shareString, [NSURL URLWithString:url]]
+                                      applicationActivities:nil];
+    [self.navigationController presentViewController:activityViewController
+                                            animated:YES
+                                          completion:^{
+                                              // ...
+                                          }];
+
+    
+    NSMutableDictionary *param = [NSMutableDictionary new];
+    [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+    [param setObject:[NSString stringWithFormat:@"%d",![[shareDict objectForKey:@"is_shared"] intValue]] forKey:@"isshared"];
+    [param setObject:[shareDict objectForKey:@"news_id"] forKey:@"newsid"];
+    
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SHARE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
+        [SVProgressHUD dismiss];
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 @end

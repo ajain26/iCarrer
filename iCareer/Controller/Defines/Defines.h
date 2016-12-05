@@ -18,6 +18,8 @@
 #define ADD_COMMENTS           @"api/SetCommentsToBoardRoomById"
 #define ADD_POST               @"api/AddBoardRoom.php"
 #define FETCH_NEWS             @"api/FetchAllNews.php"
+#define LIKE_NEWS              @"api/SetUpdateNewsBookmark.php"
+#define SHARE_NEWS             @"api/SetUpdateNewsShare.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"
