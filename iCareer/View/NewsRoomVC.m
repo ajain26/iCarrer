@@ -13,8 +13,11 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "AppHelper.h"
 #import "NewsRoomCell.h"
+#import "WebViewVC.h"
 
-@interface NewsRoomVC ()<UITableViewDelegate, UITableViewDataSource>
+@interface NewsRoomVC ()<UITableViewDelegate, UITableViewDataSource>{
+    NSIndexPath *selectedIndexPath;
+}
 @property (strong, nonatomic) NSDictionary *userDict;
 @property (strong, nonatomic) NSArray *newsArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -111,6 +114,18 @@
     [cell assignTime:[newsDict objectForKey:@"news_timestamp"]];
     
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    selectedIndexPath = indexPath;
+    [self performSegueWithIdentifier:@"WebViewVC" sender:nil];
+}
+#pragma mark - segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"WebViewVC"]) {
+        NSDictionary *linkDict = [self.newsArray objectAtIndex:selectedIndexPath.row];
+        WebViewVC *web = (WebViewVC*)segue.destinationViewController;
+        web.url = [linkDict objectForKey:@"news_url"];
+    }
 }
 #pragma mark - like
 -(void)like:(UIButton*)sender{

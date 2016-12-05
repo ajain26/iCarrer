@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55DC36E43E419353A3CFAAAC /* libPods-iCareer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D52DB939900BA66936A38766 /* libPods-iCareer.a */; };
+		672DE2BA1DF5C1F5003D42C2 /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */; };
 		67331EAA1DEB3B3D009EB780 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EA91DEB3B3D009EB780 /* AppHelper.m */; };
 		67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EAC1DEB3B8C009EB780 /* CoreDataFunction.m */; };
 		67331EB11DEB3C30009EB780 /* Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EB01DEB3C30009EB780 /* Services.m */; };
@@ -87,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewVC.h; path = View/WebViewVC.h; sourceTree = "<group>"; };
+		672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewVC.m; path = View/WebViewVC.m; sourceTree = "<group>"; };
 		67331EA81DEB3B3D009EB780 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppHelper.h; path = Controller/AppHelper/AppHelper.h; sourceTree = "<group>"; };
 		67331EA91DEB3B3D009EB780 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppHelper.m; path = Controller/AppHelper/AppHelper.m; sourceTree = "<group>"; };
 		67331EAB1DEB3B8C009EB780 /* CoreDataFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataFunction.h; path = Controller/CoreDataFunction/CoreDataFunction.h; sourceTree = "<group>"; };
@@ -437,6 +440,8 @@
 				67B531C91DF48284006C9EF6 /* NewsRoomCell.m */,
 				673980DE1DF3033F0040E24F /* IprofileVC.h */,
 				673980DF1DF303400040E24F /* IprofileVC.m */,
+				672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */,
+				672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -728,6 +733,7 @@
 				6740BAED1DF3D54400C27897 /* UIImageView+HighlightedWebCache.m in Sources */,
 				67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */,
 				673980D21DF2BF2A0040E24F /* MFSideMenuVC.m in Sources */,
+				672DE2BA1DF5C1F5003D42C2 /* WebViewVC.m in Sources */,
 				673980D51DF2ED4D0040E24F /* SideMenuHeaderView.m in Sources */,
 				6740BAFA1DF4454000C27897 /* BoardRoomCommentCell.m in Sources */,
 				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
