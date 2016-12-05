@@ -40,7 +40,7 @@
     [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     //[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 
     NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
     
@@ -55,9 +55,8 @@
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
                 if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
                     if (![[responseDict objectForKey:@"response"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"response"]) {
-                        //self.newsArray = [responseDict objectForKey:@"response"];
-                        //[self.tableView reloadData];
-                        
+                        self.newsArray = [responseDict objectForKey:@"response"];
+                        [self.tableView reloadData];
                     }
                 }
             }
@@ -79,7 +78,7 @@
 }
 #pragma mark - tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.newsArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
@@ -91,26 +90,23 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.titleLabel.text = @"";
-    //cell.linkLabel.text = @"";
-    //cell.timeLabel.text = @"";
+    cell.linkLabel.text = @"";
+    cell.timeLabel.text = @"";
     cell.descLabel.text = @"";
     [cell.likeButton addTarget:self action:@selector(like:) forControlEvents:UIControlEventTouchUpInside];
     [cell.shareButton addTarget:self action:@selector(share:) forControlEvents:UIControlEventTouchUpInside];
 
-    NSDictionary *newsDict;
+    NSDictionary *newsDict = [self.newsArray objectAtIndex:indexPath.row];
     
     if ([[newsDict objectForKey:@"is_bookmarked"] intValue] == 1){
         [cell.likeButton setImage:[UIImage imageNamed:@"likeSelected"] forState:UIControlStateNormal];
     } else {
         [cell.likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
     }
-    if (indexPath.row % 2 == 0) {
-    cell.titleLabel.text = @"aks lkajf akjsf kajfk ajf;kaj fja fja fajf ajf afja";
-    cell.descLabel.text = @"askf jlkjf ajf ajfk afkaj fkaj fkljfkkj kjf kfkj  ffj kfjkas fkajf akfj kafj kafjkfj ksfksfj ksfjf fjkf klajfklajfla;kjfalkj fakfj ;lkfskfj fj klfj a;kjf aks fj";
-    }else{
-        cell.titleLabel.text = @"asf as sfa;lkf jaksljf akjf;kaj f;kajf;ajf ;ajf;kj kfajk;fja kfj akfjkafjkasfj kasfjkaks lkajf akjsf kajfk ajf;kaj fja fja fajf ajf afja";
-        cell.descLabel.text = @"askf jlkjf ajf ajfk afkaj fkaj fkljfkkj kjf kfkj  ffj kfjkas fkajf akfj kafj kafjkj kja; fja;kfj ;akjf ;kajf ka jfkajfka jfkaj kfjaskfjakslfjkafj kafjkasfj klafjsa fklaj sfklaj kfjak fjkasfj akldfj l;aksf jklasfj klsdfjkfj ksfksfj ksfjf fjkf klajfklajfla;kjfalkj fakfj ;lkfskfj fj klfj a;kjf aks fj";
-    }
+    
+    cell.titleLabel.text = [newsDict objectForKey:@"news_title"];
+    cell.descLabel.text = [newsDict objectForKey:@"news_desc"];
+    
     return cell;
 }
 #pragma mark - like
