@@ -14,8 +14,9 @@
 #import "AppHelper.h"
 #import "IprofileSummaryCell.h"
 
-@interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource>{
-    int collapsed;//
+@interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>{
+    long selectedHeader;
+    NSString *summaryText;
 }
 @property (strong, nonatomic) NSDictionary *userDict;
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) NSArray *skillsArray;
 @property (strong, nonatomic) NSArray *projectsArray;
 @property (strong, nonatomic) NSArray *awardsArray;
+@property (strong, nonatomic) NSMutableArray *titleArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -39,7 +41,9 @@
 #pragma mark - setInitial
 -(void)setInitial{
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];
-
+    selectedHeader = -1;
+    summaryText = @"";
+    self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Experience", @"Skills", @"Projects", @"Awards", nil];
 }
 #pragma mark - fetchUserDetails
 -(void)fetchUserDetails{
@@ -56,7 +60,10 @@
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
                 if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
                     if (![[responseDict objectForKey:@"profile"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"profile"]) {
-                        self.profileDict = [responseDict objectForKey:@"profile"];
+                        if ([[responseDict objectForKey:@"profile"] count] > 0) {
+                            self.profileDict = [[responseDict objectForKey:@"profile"] objectAtIndex:0];
+                            summaryText = [[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] > 0 ? [self.profileDict objectForKey:@"summary"] : @"Summary";
+                        }
                     }
                     if (![[responseDict objectForKey:@"cert_award_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"cert_award_array"]) {
                         self.awardsArray = [responseDict objectForKey:@"cert_award_array"];
@@ -101,25 +108,63 @@
     float height = 50;
     
     view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, height)];
-    UIImageView *borderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, tableView.bounds.size.width-20, 40)];
+    UIImageView *borderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, tableView.bounds.size.width-19, 40)];
     borderImageView.layer.cornerRadius = 5.0f;
     borderImageView.backgroundColor = [UIColor colorWithRed:95.0/255.0f green:170.0/255.0f blue:145.0/255.0f alpha:1.0f];
     [view addSubview:borderImageView];
     
+    UIImageView *verticalDivider1 = [[UIImageView alloc] initWithFrame:CGRectMake(10, borderImageView.bounds.size.height, 1, 10)];
+    verticalDivider1.backgroundColor = [UIColor colorWithRed:95.0/255.0f green:170.0/255.0f blue:145.0/255.0f alpha:1.0f];
+    [view addSubview:verticalDivider1];
+    
+    UIImageView *verticalDivider2 = [[UIImageView alloc] initWithFrame:CGRectMake(tableView.bounds.size.width-10, borderImageView.bounds.size.height, 1, 10)];
+    verticalDivider2.backgroundColor = [UIColor colorWithRed:95.0/255.0f green:170.0/255.0f blue:145.0/255.0f alpha:1.0f];
+    [view addSubview:verticalDivider2];
+    
+    verticalDivider1.hidden = true;
+    verticalDivider2.hidden = true;
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.bounds.size.width-40, 40)];
     titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:16.0f];;
     titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.text = @"Summary";
+    titleLabel.text = [self.titleArray objectAtIndex: section];
     [view addSubview:titleLabel];
     
     UIImageView *plusMinusImageView = [[UIImageView alloc] init];
     plusMinusImageView.frame = CGRectMake(borderImageView.bounds.size.width-20, 17, 16, 16);
-    plusMinusImageView.image = [UIImage imageNamed:@"plusSmall"];
+    if (selectedHeader == section) {
+        plusMinusImageView.image = [UIImage imageNamed:@"minus"];
+        verticalDivider1.hidden = false;
+        verticalDivider2.hidden = false;
+    } else {
+        plusMinusImageView.image = [UIImage imageNamed:@"plusSmall"];
+    }
     [view addSubview:plusMinusImageView];
+    
+    UIButton *headerButton = [[UIButton alloc] initWithFrame:borderImageView.frame];
+    headerButton.tag = section;
+    [headerButton addTarget:self action:@selector(headerTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:headerButton];
     
     return view;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if (selectedHeader == indexPath.section) {
+            return 200;
+        }
+        return 0;
+    }
+    return 0;
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        if (selectedHeader == section) {
+            return 1;
+        }
+        return 0;
+    }
+    
     return 0;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -132,7 +177,54 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    cell.textView.delegate = self;
+    cell.textView.text = summaryText;
+    [cell setBorderToContentImageView];
     
     return cell;
+}
+#pragma mark - headerTapped
+-(void)headerTapped:(UIButton*)btn{
+    long previousSelectedHeader = selectedHeader;
+    if (selectedHeader != btn.tag) {
+        if (selectedHeader != -1) {
+            selectedHeader = -1;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:previousSelectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+        }
+        selectedHeader = btn.tag;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        selectedHeader = -1;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:previousSelectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+#pragma mark - textview
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Summary"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Summary";
+        textView.textColor = [UIColor lightGrayColor];
+    } else {
+        summaryText = [textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+    [textView resignFirstResponder];
+}
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    
+    if([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+
+    return YES;
 }
 @end

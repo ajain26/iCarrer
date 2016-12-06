@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		55DC36E43E419353A3CFAAAC /* libPods-iCareer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D52DB939900BA66936A38766 /* libPods-iCareer.a */; };
+		670848CC1DF729EB001E315C /* IprofileSummaryNonEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 670848CA1DF729EB001E315C /* IprofileSummaryNonEditableCell.m */; };
+		670848CD1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670848CB1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib */; };
 		672DE2BA1DF5C1F5003D42C2 /* WebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */; };
 		67331EAA1DEB3B3D009EB780 /* AppHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EA91DEB3B3D009EB780 /* AppHelper.m */; };
 		67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 67331EAC1DEB3B8C009EB780 /* CoreDataFunction.m */; };
@@ -90,6 +92,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		670848C91DF729EB001E315C /* IprofileSummaryNonEditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IprofileSummaryNonEditableCell.h; path = View/IprofileSummaryNonEditableCell.h; sourceTree = "<group>"; };
+		670848CA1DF729EB001E315C /* IprofileSummaryNonEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IprofileSummaryNonEditableCell.m; path = View/IprofileSummaryNonEditableCell.m; sourceTree = "<group>"; };
+		670848CB1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IprofileSummaryNonEditableCell.xib; path = View/IprofileSummaryNonEditableCell.xib; sourceTree = "<group>"; };
 		672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewVC.h; path = View/WebViewVC.h; sourceTree = "<group>"; };
 		672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewVC.m; path = View/WebViewVC.m; sourceTree = "<group>"; };
 		67331EA81DEB3B3D009EB780 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppHelper.h; path = Controller/AppHelper/AppHelper.h; sourceTree = "<group>"; };
@@ -448,6 +453,9 @@
 				67DFB1EF1DF6C1D9006E0F11 /* IprofileSummaryCell.h */,
 				67DFB1F01DF6C1D9006E0F11 /* IprofileSummaryCell.m */,
 				67DFB1F11DF6C1D9006E0F11 /* IprofileSummaryCell.xib */,
+				670848C91DF729EB001E315C /* IprofileSummaryNonEditableCell.h */,
+				670848CA1DF729EB001E315C /* IprofileSummaryNonEditableCell.m */,
+				670848CB1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib */,
 				672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */,
 				672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */,
 			);
@@ -642,6 +650,7 @@
 				67DFB1F31DF6C1D9006E0F11 /* IprofileSummaryCell.xib in Resources */,
 				67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */,
 				6740BAFB1DF4454000C27897 /* BoardRoomCommentCell.xib in Resources */,
+				670848CD1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib in Resources */,
 				67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */,
 				673BC7EA1DEADA9400D3925D /* Main.storyboard in Resources */,
 				6740BADD1DF3D54400C27897 /* FLAnimatedImage in Resources */,
@@ -766,6 +775,7 @@
 				6740BAB31DF3C85600C27897 /* BoardRoomCell.m in Sources */,
 				6740BAE01DF3D54400C27897 /* NSImage+WebCache.m in Sources */,
 				6740BAE11DF3D54400C27897 /* SDImageCache.m in Sources */,
+				670848CC1DF729EB001E315C /* IprofileSummaryNonEditableCell.m in Sources */,
 				6740BAF31DF4138E00C27897 /* BoardRoomDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
