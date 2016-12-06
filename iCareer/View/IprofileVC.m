@@ -12,9 +12,13 @@
 #import "Defines.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "AppHelper.h"
+#import "IprofileSummaryCell.h"
 
-@interface IprofileVC ()
+@interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource>{
+    int collapsed;//
+}
 @property (strong, nonatomic) NSDictionary *userDict;
+
 @property (strong, nonatomic) NSDictionary *profileDict;
 @property (strong, nonatomic) NSArray *experienceArray;
 @property (strong, nonatomic) NSArray *skillsArray;
@@ -84,5 +88,51 @@
 #pragma mark - search
 - (IBAction)search:(id)sender {
     
+}
+#pragma mark - tableView
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 5;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = nil;
+    float height = 50;
+    
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, height)];
+    UIImageView *borderImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, tableView.bounds.size.width-20, 40)];
+    borderImageView.layer.cornerRadius = 5.0f;
+    borderImageView.backgroundColor = [UIColor colorWithRed:95.0/255.0f green:170.0/255.0f blue:145.0/255.0f alpha:1.0f];
+    [view addSubview:borderImageView];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.bounds.size.width-40, 40)];
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:16.0f];;
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.text = @"Summary";
+    [view addSubview:titleLabel];
+    
+    UIImageView *plusMinusImageView = [[UIImageView alloc] init];
+    plusMinusImageView.frame = CGRectMake(borderImageView.bounds.size.width-20, 17, 16, 16);
+    plusMinusImageView.image = [UIImage imageNamed:@"plusSmall"];
+    [view addSubview:plusMinusImageView];
+    
+    return view;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"IprofileSummaryCell";
+    
+    IprofileSummaryCell *cell = (IprofileSummaryCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil){
+        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryCell" owner:self options:nil];
+        cell = [arr objectAtIndex:0];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    return cell;
 }
 @end
