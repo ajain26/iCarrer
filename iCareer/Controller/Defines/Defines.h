@@ -20,6 +20,7 @@
 #define FETCH_NEWS             @"api/FetchAllNews.php"
 #define LIKE_NEWS              @"api/SetUpdateNewsBookmark.php"
 #define SHARE_NEWS             @"api/SetUpdateNewsShare.php"
+#define FETCH_USER_DETAILS     @"api/FetchUserDetails.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"

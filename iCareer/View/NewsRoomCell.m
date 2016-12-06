@@ -15,10 +15,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
     NSDate *date = [dateFormatter dateFromString:time];
-    NSLog(@"%@",date);
-    /*NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
-    NSDate *dateInLocalTimezone = [date dateByAddingTimeInterval:timeZoneSeconds];
-    NSLog(@"%@",dateInLocalTimezone);*/
+    
     
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *years = [gregorianCalendar components:NSCalendarUnitYear fromDate:date toDate:[NSDate date] options:0];

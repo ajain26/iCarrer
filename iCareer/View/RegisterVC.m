@@ -178,4 +178,8 @@
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
 }
+#pragma mark - back
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:true];
+}
 @end
