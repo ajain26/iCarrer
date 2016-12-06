@@ -39,7 +39,7 @@
     self.headerView = [[SideMenuHeaderView alloc] init];
     self.tableView.tableHeaderView = self.headerView;
     
-    self.sideArray = [[NSMutableArray alloc] initWithObjects:@"Boardroom", @"Newsroom", @"iProfile", @"Logout", nil];
+    self.sideArray = [[NSMutableArray alloc] initWithObjects:@"Boardroom", @"Newspaper", @"iProfile", @"Logout", nil];
     self.iconsArray = [[NSMutableArray alloc] initWithObjects:@"board", @"news", @"iprofile", @"logout", nil];
     
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];

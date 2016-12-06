@@ -89,6 +89,7 @@
 #pragma mark - isReadyToGo
 -(BOOL)isReadyToGo{
     if ([self.userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0 && [self.passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0 && [self.confirmPasswordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0 && [self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0) {
+        
         return true;
     }
     return false;
@@ -110,6 +111,9 @@
     } else if ([self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length == 0) {
         self.emailTextField.text = @"";
         [AppHelper showToast:VALID_EMAIL_ONLY shakeView:self.emailTextField parentView:self.view];
+    } else if (![AppHelper validateEmailWithString:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]]) {
+        self.emailTextField.text = @"";
+        [AppHelper showToast:VALID_EMAIL_ONLY shakeView:nil parentView:self.view];
     } else {
         NSMutableDictionary *loginParam = [NSMutableDictionary new];
         [loginParam setObject:[self.userNameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"username"];

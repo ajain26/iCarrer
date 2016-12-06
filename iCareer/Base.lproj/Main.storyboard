@@ -390,7 +390,7 @@
                                             <action selector="leftSideMenuButtonPressed:" destination="ple-na-O7x" eventType="touchUpInside" id="Syv-qB-SOS"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newsroom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-cA-c8J">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Newspaper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpX-cA-c8J">
                                         <rect key="frame" x="125" y="28" width="125" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="6J7-TY-h2I"/>
@@ -1973,6 +1973,13 @@ AND ENTER iCAREER PLATFORM</string>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="119-dK-Uvd">
+                                <rect key="frame" x="20" y="270" width="335" height="1"/>
+                                <color key="backgroundColor" red="0.37254901960784315" green="0.66666666666666663" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="aUw-YI-kuI"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1990,8 +1997,11 @@ AND ENTER iCAREER PLATFORM</string>
                             <constraint firstItem="bSe-3P-Ivk" firstAttribute="top" secondItem="Rhz-ye-Z24" secondAttribute="bottom" id="ScB-Hd-DrX"/>
                             <constraint firstItem="yUp-Cn-KVv" firstAttribute="top" secondItem="OFg-e2-JeO" secondAttribute="bottom" constant="10" id="T8G-kM-tkA"/>
                             <constraint firstItem="T65-Gh-dar" firstAttribute="top" secondItem="yUp-Cn-KVv" secondAttribute="bottom" constant="47" id="aIx-0U-Tw5"/>
+                            <constraint firstAttribute="trailing" secondItem="119-dK-Uvd" secondAttribute="trailing" constant="20" id="bvt-5r-le9"/>
+                            <constraint firstItem="119-dK-Uvd" firstAttribute="top" secondItem="T65-Gh-dar" secondAttribute="bottom" id="dQL-LA-Ebd"/>
                             <constraint firstItem="OFg-e2-JeO" firstAttribute="leading" secondItem="pi9-rQ-7jT" secondAttribute="leading" id="j3z-wk-ccb"/>
                             <constraint firstAttribute="trailing" secondItem="j5t-M3-Vox" secondAttribute="trailing" id="mkz-Ri-frl"/>
+                            <constraint firstItem="119-dK-Uvd" firstAttribute="leading" secondItem="pi9-rQ-7jT" secondAttribute="leading" constant="20" id="pQ1-rs-8ue"/>
                             <constraint firstItem="Rhz-ye-Z24" firstAttribute="leading" secondItem="pi9-rQ-7jT" secondAttribute="leading" id="pVV-Yc-fHY"/>
                             <constraint firstItem="j5t-M3-Vox" firstAttribute="leading" secondItem="pi9-rQ-7jT" secondAttribute="leading" id="vFR-mU-0ta"/>
                             <constraint firstAttribute="trailing" secondItem="d58-Ro-ioJ" secondAttribute="trailing" id="vN5-1E-uic"/>

@@ -137,6 +137,8 @@
             [AppHelper saveToUserDefaults:skillDict withKey:@"skill"];
         }
         NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
+        [AppHelper saveToUserDefaults:json withKey:@"traitRating"];
+        NSLog(@"%@",[AppHelper userDefaultsDictionary:@"traitRating"]);
     }
 }
 #pragma mark - connected
