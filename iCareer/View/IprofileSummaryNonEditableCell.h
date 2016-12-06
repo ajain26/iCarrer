@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface IprofileSummaryNonEditableCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

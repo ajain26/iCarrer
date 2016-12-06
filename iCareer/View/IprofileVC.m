@@ -13,6 +13,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "AppHelper.h"
 #import "IprofileSummaryCell.h"
+#import "IprofileSummaryNonEditableCell.h"
 
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>{
     long selectedHeader;
@@ -44,6 +45,9 @@
     selectedHeader = -1;
     summaryText = @"";
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Experience", @"Skills", @"Projects", @"Awards", nil];
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
 }
 #pragma mark - fetchUserDetails
 -(void)fetchUserDetails{
@@ -148,6 +152,21 @@
     
     return view;
 }
+-(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        if (selectedHeader == indexPath.section) {
+            if (indexPath.row == 0) {
+                return 200;
+            } else {
+                if (summaryText.length > 0) {
+                    return UITableViewAutomaticDimension;
+                }
+            }
+        }
+        return UITableViewAutomaticDimension;
+    }
+    return UITableViewAutomaticDimension;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (selectedHeader == indexPath.section) {
@@ -158,30 +177,80 @@
     return 0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    int row = 0;
     if (section == 0) {
-        if (selectedHeader == section) {
-            return 1;
+        if (summaryText.length > 0) {
+            row = 1;
         }
-        return 0;
+        if (selectedHeader == section) {
+            return row + 1;
+        }
+        return row;
     }
     
-    return 0;
+    return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIdentifier = @"IprofileSummaryCell";
-    
-    IprofileSummaryCell *cell = (IprofileSummaryCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil){
-        NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryCell" owner:self options:nil];
-        cell = [arr objectAtIndex:0];
+    if (indexPath.section == 0){
+        if (selectedHeader == indexPath.section) {
+            if (indexPath.row == 0) {
+                static NSString *cellIdentifier = @"IprofileSummaryCell";
+            
+                IprofileSummaryCell *cell = (IprofileSummaryCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+                cell.textView.delegate = self;
+                cell.textView.text = summaryText;
+                [cell setBorderToContentImageView];
+            
+                return cell;
+            } else {
+                static NSString *cellIdentifier = @"IprofileSummaryNonEditableCell";
+            
+                IprofileSummaryNonEditableCell *cell = (IprofileSummaryNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryNonEditableCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.titleLabel.text = [self.profileDict objectForKey:@"summary"];
+                
+                return cell;
+            }
+        } else {
+            static NSString *cellIdentifier = @"IprofileSummaryNonEditableCell";
+            
+            IprofileSummaryNonEditableCell *cell = (IprofileSummaryNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryNonEditableCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.titleLabel.text = [self.profileDict objectForKey:@"summary"];
+
+            return cell;
+        }
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.textView.delegate = self;
-    cell.textView.text = summaryText;
-    [cell setBorderToContentImageView];
-    
-    return cell;
+    else {//TODO: change the cell below
+        static NSString *cellIdentifier = @"IprofileSummaryCell";
+        
+        IprofileSummaryCell *cell = (IprofileSummaryCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil){
+            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryCell" owner:self options:nil];
+            cell = [arr objectAtIndex:0];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        cell.textView.delegate = self;
+        cell.textView.text = summaryText;
+        [cell setBorderToContentImageView];
+        
+        return cell;
+    }
 }
 #pragma mark - headerTapped
 -(void)headerTapped:(UIButton*)btn{
