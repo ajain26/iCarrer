@@ -127,13 +127,6 @@
         for (int i = 1; i < traitRatingArray.count; i++){
             NSDictionary *dict = [traitRatingArray objectAtIndex:i];
             float rating = [[dict objectForKey:@"rating"] floatValue];
-            /*NSDictionary *dictPlus1 = [traitRatingArray objectAtIndex:i+1];
-            float ratingPlus1 = [[dictPlus1 objectForKey:@"rating"] floatValue];
-            skillDict = dict;
-            if (rating < ratingPlus1) {
-                rating = ratingPlus1;
-                skillDict = dictPlus1;
-            }*/
             
             if (maxRate < rating){
                 skillDict = dict;

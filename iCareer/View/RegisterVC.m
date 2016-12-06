@@ -117,7 +117,7 @@
         [loginParam setObject:[self.emailTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] forKey:@"email"];
         /*[loginParam setObject:@"a" forKey:@"summary"];
         [loginParam setObject:@"a" forKey:@"address"];*/
-        [loginParam setObject:@"9999999999" forKey:@"telephone"];
+        [loginParam setObject:@"NA" forKey:@"telephone"];
         /*[loginParam setObject:@"a" forKey:@"short_title"];*/
 
         [SVProgressHUD showWithStatus:@"Please wait..."];
