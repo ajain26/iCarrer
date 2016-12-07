@@ -24,6 +24,7 @@
 #define UPDATE_SUMMARY         @"api/UpdateSummary.php"
 #define UPDATE_USER_EXPERIENCE @"api/UpdateUserExperience.php"
 #define UPDATE_USER_AWARDS     @"api/UpdateUserAwards.php"
+#define UPDATE_USER_EDUCATION  @"api/UpdateUserEducation.php"
 #define SET_USER_EDUCATION     @"api/SetUserEducation.php"
 #define UPDATE_PROFILE         @"api/Updateprofile.php"
 #define SUBMIT_USER_EXPERIENCE @"api/SetUserExperience.php"

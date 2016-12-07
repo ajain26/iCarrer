@@ -47,6 +47,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iD4-SC-DWv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="117"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="-70" maxX="15" maxY="0.0"/>
+                        <state key="normal" image="pencil"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2LT-Z2-zbT" firstAttribute="top" secondItem="XY9-h3-b3i" secondAttribute="bottom" id="2Pn-0f-To2"/>
@@ -56,15 +61,19 @@
                     <constraint firstAttribute="trailing" secondItem="bnD-Id-woZ" secondAttribute="trailing" constant="20" id="EUV-GP-ZOs"/>
                     <constraint firstItem="XY9-h3-b3i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Hnf-7I-YK2"/>
                     <constraint firstAttribute="trailing" secondItem="XY9-h3-b3i" secondAttribute="trailing" constant="20" id="Ikr-oo-hJr"/>
+                    <constraint firstItem="iD4-SC-DWv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="POK-8k-RkV"/>
                     <constraint firstAttribute="bottom" secondItem="apY-98-s05" secondAttribute="bottom" constant="4" id="TNt-O4-6jf"/>
                     <constraint firstAttribute="trailing" secondItem="apY-98-s05" secondAttribute="trailing" constant="20" id="cnL-BG-UGT"/>
+                    <constraint firstAttribute="bottom" secondItem="iD4-SC-DWv" secondAttribute="bottom" constant="2" id="gWD-zU-yJ0"/>
                     <constraint firstItem="bnD-Id-woZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ijo-fG-jEA"/>
                     <constraint firstAttribute="trailing" secondItem="2LT-Z2-zbT" secondAttribute="trailing" constant="20" id="klU-rM-kEI"/>
                     <constraint firstItem="apY-98-s05" firstAttribute="top" secondItem="Wnu-kv-fIE" secondAttribute="bottom" id="lcy-F0-ynO"/>
                     <constraint firstItem="2LT-Z2-zbT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="oOP-05-nUa"/>
+                    <constraint firstItem="iD4-SC-DWv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pVC-Ab-8gq"/>
                     <constraint firstItem="Wnu-kv-fIE" firstAttribute="top" secondItem="bnD-Id-woZ" secondAttribute="bottom" id="qbr-Lm-weB"/>
                     <constraint firstItem="apY-98-s05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sib-ch-fL8"/>
                     <constraint firstItem="XY9-h3-b3i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="t7D-u1-GzN"/>
+                    <constraint firstAttribute="trailing" secondItem="iD4-SC-DWv" secondAttribute="trailing" id="uCE-5N-5Nu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -73,7 +82,11 @@
                 <outlet property="descLabel" destination="apY-98-s05" id="3Dp-Gl-JYM"/>
                 <outlet property="designationLabel" destination="XY9-h3-b3i" id="5dC-yW-Qpc"/>
                 <outlet property="durationLabel" destination="Wnu-kv-fIE" id="Agc-bW-269"/>
+                <outlet property="editButton" destination="iD4-SC-DWv" id="WOz-aM-lR5"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="pencil" width="20" height="20"/>
+    </resources>
 </document>

@@ -62,22 +62,31 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7I-tI-pKj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="-50" maxX="15" maxY="0.0"/>
+                        <state key="normal" image="pencil"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="diy-gj-Uei" firstAttribute="leading" secondItem="05J-Lq-Ppu" secondAttribute="trailing" constant="9" id="2Dn-wx-nwW"/>
                     <constraint firstItem="y4O-t4-Oc6" firstAttribute="top" secondItem="jjO-P3-xHN" secondAttribute="bottom" constant="6" id="3Gx-pg-v6m"/>
                     <constraint firstAttribute="trailing" secondItem="rnb-gL-1UV" secondAttribute="trailing" constant="10" id="3im-Yf-Dm4"/>
                     <constraint firstItem="NKT-aj-es3" firstAttribute="leading" secondItem="05J-Lq-Ppu" secondAttribute="trailing" constant="9" id="Epd-cN-8G3"/>
+                    <constraint firstAttribute="bottom" secondItem="l7I-tI-pKj" secondAttribute="bottom" id="GdT-wH-L7Z"/>
                     <constraint firstItem="rnb-gL-1UV" firstAttribute="leading" secondItem="NKT-aj-es3" secondAttribute="trailing" constant="9" id="Mf1-hJ-JlW"/>
                     <constraint firstAttribute="bottom" secondItem="05J-Lq-Ppu" secondAttribute="bottom" id="MnK-R0-wVN"/>
                     <constraint firstAttribute="trailing" secondItem="y4O-t4-Oc6" secondAttribute="trailing" constant="10" id="OYh-S2-L5m"/>
                     <constraint firstItem="jjO-P3-xHN" firstAttribute="leading" secondItem="05J-Lq-Ppu" secondAttribute="trailing" constant="9" id="To2-Kh-HqL"/>
+                    <constraint firstAttribute="trailing" secondItem="l7I-tI-pKj" secondAttribute="trailing" id="W7h-3t-PrT"/>
+                    <constraint firstItem="l7I-tI-pKj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WKo-Wg-WaV"/>
                     <constraint firstAttribute="bottom" secondItem="y4O-t4-Oc6" secondAttribute="bottom" id="XDN-rP-Zs6"/>
                     <constraint firstItem="05J-Lq-Ppu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="bT9-ff-n1F"/>
                     <constraint firstAttribute="bottom" secondItem="rnb-gL-1UV" secondAttribute="bottom" id="bvE-i3-mfF"/>
                     <constraint firstItem="veQ-6T-W2z" firstAttribute="leading" secondItem="05J-Lq-Ppu" secondAttribute="trailing" constant="9" id="dnf-Ro-wH4"/>
                     <constraint firstItem="rnb-gL-1UV" firstAttribute="leading" secondItem="jjO-P3-xHN" secondAttribute="trailing" constant="9" id="fNo-ta-sgu"/>
                     <constraint firstItem="y4O-t4-Oc6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fo1-xF-iH7"/>
+                    <constraint firstItem="l7I-tI-pKj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gAQ-6y-dex"/>
                     <constraint firstItem="veQ-6T-W2z" firstAttribute="top" secondItem="NKT-aj-es3" secondAttribute="bottom" id="liR-UZ-reT"/>
                     <constraint firstItem="jjO-P3-xHN" firstAttribute="top" secondItem="veQ-6T-W2z" secondAttribute="bottom" id="liS-rN-xkP"/>
                     <constraint firstItem="rnb-gL-1UV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nfF-D8-dGS"/>
@@ -91,9 +100,13 @@
             <connections>
                 <outlet property="degreeLabel" destination="diy-gj-Uei" id="zNj-ta-FwX"/>
                 <outlet property="durationLabel" destination="jjO-P3-xHN" id="ZL5-H4-b0C"/>
+                <outlet property="editButton" destination="l7I-tI-pKj" id="Ain-dd-coh"/>
                 <outlet property="universityAddressLabel" destination="veQ-6T-W2z" id="d7i-JU-EDU"/>
                 <outlet property="universityLabel" destination="NKT-aj-es3" id="s3E-6v-jt9"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="pencil" width="20" height="20"/>
+    </resources>
 </document>

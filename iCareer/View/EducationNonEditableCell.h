@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *universityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *universityAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end

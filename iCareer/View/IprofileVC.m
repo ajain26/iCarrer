@@ -357,6 +357,8 @@
                 cell.universityAddressLabel.text = @"";
                 cell.durationLabel.text = @"";
                 
+                [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+                
                 NSDictionary *dict = [self.educationArray objectAtIndex:indexPath.row-1];
                 cell.degreeLabel.text = [dict objectForKey:@"degree_title"];
                 cell.universityLabel.text = [dict objectForKey:@"university"];
@@ -379,6 +381,8 @@
             cell.universityLabel.text = @"";
             cell.universityAddressLabel.text = @"";
             cell.durationLabel.text = @"";
+            
+            [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
             
             NSDictionary *dict = [self.educationArray objectAtIndex:indexPath.row];
             cell.degreeLabel.text = [dict objectForKey:@"degree_title"];
@@ -477,6 +481,9 @@
                 cell.durationLabel.text = @"";
                 cell.descLabel.text = @"";
                 
+                [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+
+                
                 NSDictionary *dict = [self.experienceArray objectAtIndex:indexPath.row-1];
                 cell.designationLabel.text = [dict objectForKey:@"exp_title"];
                 cell.companyLabel.text = [dict objectForKey:@"company_name"];
@@ -501,6 +508,9 @@
             cell.addressLabel.text = @"";
             cell.durationLabel.text = @"";
             cell.descLabel.text = @"";
+            
+            [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+
             
             NSDictionary *dict = [self.experienceArray objectAtIndex:indexPath.row];
             cell.designationLabel.text = [dict objectForKey:@"exp_title"];
@@ -537,7 +547,7 @@
                 UIDatePicker *datePicker = [[UIDatePicker alloc]init];
                 [datePicker setDate:[NSDate date]];
                 datePicker.datePickerMode = UIDatePickerModeDate;
-                [datePicker addTarget:self action:@selector(startDateExpTextField:) forControlEvents:UIControlEventValueChanged];
+                [datePicker addTarget:self action:@selector(startDateAwTextField:) forControlEvents:UIControlEventValueChanged];
                 [cell.yearTextField setInputView:datePicker];
                 
                 UIToolbar *toolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
@@ -582,6 +592,9 @@
                 cell.universityAddressLabel.text = @"";
                 cell.durationLabel.text = @"";
                 
+                [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+
+                
                 NSDictionary *dict = [self.awardsArray objectAtIndex:indexPath.row-1];
                 cell.degreeLabel.text = [dict objectForKey:@"ca_title"];
                 cell.universityLabel.text = [dict objectForKey:@"ca_organization"];
@@ -605,6 +618,9 @@
             cell.universityAddressLabel.text = @"";
             cell.durationLabel.text = @"";
             
+            [cell.editButton addTarget:self action:@selector(edit:) forControlEvents:UIControlEventTouchUpInside];
+
+            
             NSDictionary *dict = [self.awardsArray objectAtIndex:indexPath.row];
             cell.degreeLabel.text = [dict objectForKey:@"ca_title"];
             cell.universityLabel.text = [dict objectForKey:@"ca_organization"];
@@ -618,6 +634,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:true];
 }
+
 #pragma mark - headerTapped
 -(void)headerTapped:(UIButton*)btn{
     [self.view endEditing:true];
@@ -754,6 +771,36 @@
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
 }
+#pragma mark - edit
+-(void)edit:(UIButton *)btn{
+    CGPoint buttonPosition = [btn convertPoint:CGPointZero
+                                              toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    if (indexPath.section == 1) {
+        if (selectedHeader == indexPath.section) {
+            self.educationDict = [NSMutableDictionary dictionaryWithDictionary:[self.educationArray objectAtIndex:indexPath.row-1]];
+        } else {
+            self.educationDict = [NSMutableDictionary dictionaryWithDictionary:[self.educationArray objectAtIndex:indexPath.row]];
+        }
+    } else if (indexPath.section == 2) {
+        if (selectedHeader == indexPath.section) {
+            self.experienceDict = [NSMutableDictionary dictionaryWithDictionary:[self.experienceArray objectAtIndex:indexPath.row-1]];
+        } else {
+            self.experienceDict = [NSMutableDictionary dictionaryWithDictionary:[self.experienceArray objectAtIndex:indexPath.row]];
+        }
+    } else {
+        if (selectedHeader == indexPath.section) {
+            self.awardDict = [NSMutableDictionary dictionaryWithDictionary:[self.awardsArray objectAtIndex:indexPath.row-1]];
+        } else {
+            self.awardDict = [NSMutableDictionary dictionaryWithDictionary:[self.awardsArray objectAtIndex:indexPath.row]];
+        }
+    }
+    selectedHeader = indexPath.section;
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+
+}
 #pragma mark - textfield
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     CGPoint buttonPosition = [textField convertPoint:CGPointZero
@@ -800,12 +847,12 @@
         case 2://university address
             [self.educationDict setObject:textF.text forKey:@"university_address"];
             break;
-        case 3://start year
+        /*case 3://start year
             [self.educationDict setObject:textF.text forKey:@"start_year"];
             break;
         case 4://end year
             [self.educationDict setObject:textF.text forKey:@"end_year"];
-            break;
+            break;*/
         default:
             break;
     }
@@ -821,12 +868,12 @@
         case 2://company address
             [self.experienceDict setObject:textF.text forKey:@"company_address"];
             break;
-        case 3://start year
+        /*case 3://start year
             [self.experienceDict setObject:textF.text forKey:@"start_year"];
             break;
         case 4://end year
             [self.experienceDict setObject:textF.text forKey:@"end_year"];
-            break;
+            break;*/
         case 5://job desc
             [self.experienceDict setObject:textF.text forKey:@"job_desc"];
             break;
@@ -846,9 +893,9 @@
             case 2://organization
                 [self.awardDict setObject:textF.text forKey:@"ca_organization"];
                 break;
-            case 3://year
+            /*case 3://year
                 [self.awardDict setObject:textF.text forKey:@"ca_year"];
-                break;
+                break;*/
             default:
                 break;
         }
@@ -856,11 +903,32 @@
 }
 #pragma mark - submitAwards
 -(void)submitAwards{
+    [self.view endEditing:true];
     if ([[self.awardDict allKeys] count] == 4) {
         [self.awardDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
         [SVProgressHUD showWithStatus:@"Please wait..."];
         [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SET_USER_AWARDS] withParam:self.awardDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.awardDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    } else if ([[self.awardDict allKeys] count] == 5){//edit
+        [self.awardDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_USER_AWARDS] withParam:self.awardDict success:^(NSDictionary *responseDict) {
             [SVProgressHUD dismiss];
             NSDictionary *dict = [responseDict objectForKey:@"status"];
             
@@ -882,6 +950,7 @@
 }
 #pragma mark - submitExperience
 -(void)submitExperience{
+    [self.view endEditing:true];
     if ([[self.experienceDict allKeys] count] == 6) {
         [self.experienceDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
@@ -902,12 +971,33 @@
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
-    } else {
+    } else if ([[self.experienceDict allKeys] count] == 7) {//edit
+        [self.experienceDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_USER_EXPERIENCE] withParam:self.experienceDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.experienceDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    }else {
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
 }
 #pragma mark - submitEducation
 -(void)submitEducation{
+    [self.view endEditing:true];
     if ([[self.educationDict allKeys] count] == 5) {
         [self.educationDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
@@ -928,7 +1018,27 @@
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
-    } else {
+    } else if ([[self.educationDict allKeys] count] == 6) {//edit
+        [self.educationDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_USER_EDUCATION] withParam:self.educationDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.educationDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    }else {
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
 }
@@ -940,7 +1050,9 @@
     NSDate *eventDate = picker.date;
     [dateFormat setDateFormat:@"yyyy-MM-dd"];
     
-    NSString *dateString = [dateFormat stringFromDate:eventDate];
+//    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    NSString *dateString = [[NSString alloc] init];
+    dateString = [dateFormat stringFromDate:eventDate];
     [self.educationDict setObject:dateString forKey:@"start_year"];
 }
 #pragma mark - endDateTextField
@@ -956,8 +1068,19 @@
 }
 #pragma mark - dismissYearTextField
 -(void)dismissYearTextField{
-    [self.tableView reloadData];
     //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadData];
+}
+#pragma mark - startDateAwTextField
+-(void)startDateAwTextField:(id)sender{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    [picker setMaximumDate:[NSDate date]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [self.awardDict setObject:dateString forKey:@"ca_year"];
 }
 #pragma mark - startDateExpTextField
 -(void)startDateExpTextField:(id)sender{
