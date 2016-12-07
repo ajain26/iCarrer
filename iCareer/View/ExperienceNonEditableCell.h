@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ExperienceNonEditableCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *designationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *durationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
 
 @end

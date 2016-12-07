@@ -1,19 +1,79 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ExperienceNonEditableCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XY9-h3-b3i">
+                        <rect key="frame" x="20" y="10" width="280" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2LT-Z2-zbT">
+                        <rect key="frame" x="20" y="31" width="280" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnD-Id-woZ">
+                        <rect key="frame" x="20" y="52" width="280" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnu-kv-fIE">
+                        <rect key="frame" x="20" y="73" width="280" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apY-98-s05">
+                        <rect key="frame" x="20" y="94" width="280" height="21"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2LT-Z2-zbT" firstAttribute="top" secondItem="XY9-h3-b3i" secondAttribute="bottom" id="2Pn-0f-To2"/>
+                    <constraint firstItem="bnD-Id-woZ" firstAttribute="top" secondItem="2LT-Z2-zbT" secondAttribute="bottom" id="3MY-fr-57C"/>
+                    <constraint firstAttribute="trailing" secondItem="Wnu-kv-fIE" secondAttribute="trailing" constant="20" id="5of-h3-zll"/>
+                    <constraint firstItem="Wnu-kv-fIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AdQ-4w-dFq"/>
+                    <constraint firstAttribute="trailing" secondItem="bnD-Id-woZ" secondAttribute="trailing" constant="20" id="EUV-GP-ZOs"/>
+                    <constraint firstItem="XY9-h3-b3i" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Hnf-7I-YK2"/>
+                    <constraint firstAttribute="trailing" secondItem="XY9-h3-b3i" secondAttribute="trailing" constant="20" id="Ikr-oo-hJr"/>
+                    <constraint firstAttribute="bottom" secondItem="apY-98-s05" secondAttribute="bottom" constant="4" id="TNt-O4-6jf"/>
+                    <constraint firstAttribute="trailing" secondItem="apY-98-s05" secondAttribute="trailing" constant="20" id="cnL-BG-UGT"/>
+                    <constraint firstItem="bnD-Id-woZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ijo-fG-jEA"/>
+                    <constraint firstAttribute="trailing" secondItem="2LT-Z2-zbT" secondAttribute="trailing" constant="20" id="klU-rM-kEI"/>
+                    <constraint firstItem="apY-98-s05" firstAttribute="top" secondItem="Wnu-kv-fIE" secondAttribute="bottom" id="lcy-F0-ynO"/>
+                    <constraint firstItem="2LT-Z2-zbT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="oOP-05-nUa"/>
+                    <constraint firstItem="Wnu-kv-fIE" firstAttribute="top" secondItem="bnD-Id-woZ" secondAttribute="bottom" id="qbr-Lm-weB"/>
+                    <constraint firstItem="apY-98-s05" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sib-ch-fL8"/>
+                    <constraint firstItem="XY9-h3-b3i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="t7D-u1-GzN"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressLabel" destination="bnD-Id-woZ" id="IPh-JJ-ulx"/>
+                <outlet property="companyLabel" destination="2LT-Z2-zbT" id="Nkw-oE-gat"/>
+                <outlet property="descLabel" destination="apY-98-s05" id="3Dp-Gl-JYM"/>
+                <outlet property="designationLabel" destination="XY9-h3-b3i" id="5dC-yW-Qpc"/>
+                <outlet property="durationLabel" destination="Wnu-kv-fIE" id="Agc-bW-269"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

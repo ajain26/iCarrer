@@ -79,6 +79,10 @@
 		67F375401DF809900009641C /* EducationNonEditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F3753E1DF809900009641C /* EducationNonEditableCell.xib */; };
 		67F375441DF817E40009641C /* ExperienceNonEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375421DF817E40009641C /* ExperienceNonEditableCell.m */; };
 		67F375451DF817E40009641C /* ExperienceNonEditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */; };
+		67F375491DF81BF50009641C /* ExperienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375471DF81BF50009641C /* ExperienceCell.m */; };
+		67F3754A1DF81BF50009641C /* ExperienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375481DF81BF50009641C /* ExperienceCell.xib */; };
+		67F375531DF8237A0009641C /* AwardsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375511DF8237A0009641C /* AwardsCell.m */; };
+		67F375541DF8237A0009641C /* AwardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375521DF8237A0009641C /* AwardsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +235,12 @@
 		67F375411DF817E40009641C /* ExperienceNonEditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExperienceNonEditableCell.h; path = View/ExperienceNonEditableCell.h; sourceTree = "<group>"; };
 		67F375421DF817E40009641C /* ExperienceNonEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExperienceNonEditableCell.m; path = View/ExperienceNonEditableCell.m; sourceTree = "<group>"; };
 		67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExperienceNonEditableCell.xib; path = View/ExperienceNonEditableCell.xib; sourceTree = "<group>"; };
+		67F375461DF81BF50009641C /* ExperienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExperienceCell.h; path = View/ExperienceCell.h; sourceTree = "<group>"; };
+		67F375471DF81BF50009641C /* ExperienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExperienceCell.m; path = View/ExperienceCell.m; sourceTree = "<group>"; };
+		67F375481DF81BF50009641C /* ExperienceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExperienceCell.xib; path = View/ExperienceCell.xib; sourceTree = "<group>"; };
+		67F375501DF8237A0009641C /* AwardsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwardsCell.h; path = View/AwardsCell.h; sourceTree = "<group>"; };
+		67F375511DF8237A0009641C /* AwardsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwardsCell.m; path = View/AwardsCell.m; sourceTree = "<group>"; };
+		67F375521DF8237A0009641C /* AwardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AwardsCell.xib; path = View/AwardsCell.xib; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D52DB939900BA66936A38766 /* libPods-iCareer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCareer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.release.xcconfig"; sourceTree = "<group>"; };
@@ -485,6 +495,12 @@
 				67F375411DF817E40009641C /* ExperienceNonEditableCell.h */,
 				67F375421DF817E40009641C /* ExperienceNonEditableCell.m */,
 				67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */,
+				67F375461DF81BF50009641C /* ExperienceCell.h */,
+				67F375471DF81BF50009641C /* ExperienceCell.m */,
+				67F375481DF81BF50009641C /* ExperienceCell.xib */,
+				67F375501DF8237A0009641C /* AwardsCell.h */,
+				67F375511DF8237A0009641C /* AwardsCell.m */,
+				67F375521DF8237A0009641C /* AwardsCell.xib */,
 				672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */,
 				672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */,
 			);
@@ -673,8 +689,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				673BC7F21DEADA9600D3925D /* LaunchScreen.storyboard in Resources */,
+				67F375541DF8237A0009641C /* AwardsCell.xib in Resources */,
 				673980D71DF2ED6A0040E24F /* SideMenuHeaderView.xib in Resources */,
 				673BC7EF1DEADA9600D3925D /* Assets.xcassets in Resources */,
+				67F3754A1DF81BF50009641C /* ExperienceCell.xib in Resources */,
 				67B3EFAE1DEF28DC00E3D426 /* QuizMCQCell.xib in Resources */,
 				67DFB1F31DF6C1D9006E0F11 /* IprofileSummaryCell.xib in Resources */,
 				67B3EFB71DEFF4D400E3D426 /* QuizOptionsCell.xib in Resources */,
@@ -795,6 +813,7 @@
 				6740BADF1DF3D54400C27897 /* NSData+ImageContentType.m in Sources */,
 				673980DD1DF303200040E24F /* NewsRoomVC.m in Sources */,
 				673980E01DF303400040E24F /* IprofileVC.m in Sources */,
+				67F375531DF8237A0009641C /* AwardsCell.m in Sources */,
 				6740BAE91DF3D54400C27897 /* UIButton+WebCache.m in Sources */,
 				6740BAEE1DF3D54400C27897 /* UIImageView+WebCache.m in Sources */,
 				67DFB1F21DF6C1D9006E0F11 /* IprofileSummaryCell.m in Sources */,
@@ -809,6 +828,7 @@
 				6740BAFE1DF4512100C27897 /* BoardAddPostVC.m in Sources */,
 				6740BADE1DF3D54400C27897 /* MKAnnotationView+WebCache.m in Sources */,
 				6740BAB31DF3C85600C27897 /* BoardRoomCell.m in Sources */,
+				67F375491DF81BF50009641C /* ExperienceCell.m in Sources */,
 				6740BAE01DF3D54400C27897 /* NSImage+WebCache.m in Sources */,
 				6740BAE11DF3D54400C27897 /* SDImageCache.m in Sources */,
 				670848CC1DF729EB001E315C /* IprofileSummaryNonEditableCell.m in Sources */,

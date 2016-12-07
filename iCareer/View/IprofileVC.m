@@ -16,6 +16,9 @@
 #import "IprofileSummaryNonEditableCell.h"
 #import "EducationNonEditableCell.h"
 #import "EducationCell.h"
+#import "ExperienceNonEditableCell.h"
+#import "ExperienceCell.h"
+#import "AwardsCell.h"
 
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>{
     long selectedHeader;
@@ -50,6 +53,16 @@
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
+    /* Add notification to keyboard appear/disappear */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    /*************************************************/
 }
 #pragma mark - fetchUserDetails
 -(void)fetchUserDetails{
@@ -203,6 +216,18 @@
         } else {
             return self.educationArray.count;
         }
+    } else if (section == 2){//experience
+        if (selectedHeader == section) {
+            return self.experienceArray.count + 1;
+        } else {
+            return self.experienceArray.count;
+        }
+    } else {//awards
+        if (selectedHeader == section) {
+            return self.awardsArray.count + 1;
+        } else {
+            return self.awardsArray.count;
+        }
     }
     
     return row;
@@ -321,23 +346,132 @@
             
             return cell;
         }
-    }
-    
-    else {//TODO: change the cell below
-        static NSString *cellIdentifier = @"IprofileSummaryCell";
-        
-        IprofileSummaryCell *cell = (IprofileSummaryCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil){
-            NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryCell" owner:self options:nil];
-            cell = [arr objectAtIndex:0];
+    } else if (indexPath.section == 2){//experience
+        if (selectedHeader == indexPath.section) {
+            if (indexPath.row == 0) {
+                static NSString *cellIdentifier = @"ExperienceCell";
+                
+                ExperienceCell *cell = (ExperienceCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ExperienceCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                [cell setBorder];
+                
+                return cell;
+            } else {
+                static NSString *cellIdentifier = @"ExperienceNonEditableCell";
+                
+                ExperienceNonEditableCell *cell = (ExperienceNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ExperienceNonEditableCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.designationLabel.text = @"";
+                cell.companyLabel.text = @"";
+                cell.addressLabel.text = @"";
+                cell.durationLabel.text = @"";
+                cell.descLabel.text = @"";
+                
+                NSDictionary *dict = [self.experienceArray objectAtIndex:indexPath.row-1];
+                cell.designationLabel.text = [dict objectForKey:@"exp_title"];
+                cell.companyLabel.text = [dict objectForKey:@"company_name"];
+                cell.addressLabel.text = [dict objectForKey:@"company_address"];
+                cell.durationLabel.text = [NSString stringWithFormat:@"%@ to %@",[dict objectForKey:@"start_year"],[dict objectForKey:@"end_year"]];
+                cell.descLabel.text = [dict objectForKey:@"job_desc"];
+                
+                return cell;
+            }
+        } else {
+            static NSString *cellIdentifier = @"ExperienceNonEditableCell";
+            
+            ExperienceNonEditableCell *cell = (ExperienceNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"ExperienceNonEditableCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.designationLabel.text = @"";
+            cell.companyLabel.text = @"";
+            cell.addressLabel.text = @"";
+            cell.durationLabel.text = @"";
+            cell.descLabel.text = @"";
+            
+            NSDictionary *dict = [self.experienceArray objectAtIndex:indexPath.row];
+            cell.designationLabel.text = [dict objectForKey:@"exp_title"];
+            cell.companyLabel.text = [dict objectForKey:@"company_name"];
+            cell.addressLabel.text = [dict objectForKey:@"company_address"];
+            cell.durationLabel.text = [NSString stringWithFormat:@"%@ to %@",[dict objectForKey:@"start_year"],[dict objectForKey:@"end_year"]];
+            cell.descLabel.text = [dict objectForKey:@"job_desc"];
+
+            return cell;
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        cell.textView.delegate = self;
-        cell.textView.text = summaryText;
-        [cell setBorderToContentImageView];
-        
-        return cell;
+    } else { //awards
+        if (selectedHeader == indexPath.section) {
+            if (indexPath.row == 0) {
+                static NSString *cellIdentifier = @"AwardsCell";
+                
+                AwardsCell *cell = (AwardsCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"AwardsCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                [cell setBorder];
+                
+                return cell;
+            } else {
+                static NSString *cellIdentifier = @"EducationNonEditableCell";
+                
+                EducationNonEditableCell *cell = (EducationNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EducationNonEditableCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.degreeLabel.text = @"";
+                cell.universityLabel.text = @"";
+                cell.universityAddressLabel.text = @"";
+                cell.durationLabel.text = @"";
+                
+                NSDictionary *dict = [self.awardsArray objectAtIndex:indexPath.row-1];
+                cell.degreeLabel.text = [dict objectForKey:@"ca_title"];
+                cell.universityLabel.text = [dict objectForKey:@"ca_organization"];
+                cell.universityAddressLabel.text = [dict objectForKey:@"ca_desc"];
+                cell.durationLabel.text = [dict objectForKey:@"ca_year"];
+                
+                return cell;
+            }
+        } else {
+            static NSString *cellIdentifier = @"EducationNonEditableCell";
+            
+            EducationNonEditableCell *cell = (EducationNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EducationNonEditableCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.degreeLabel.text = @"";
+            cell.universityLabel.text = @"";
+            cell.universityAddressLabel.text = @"";
+            cell.durationLabel.text = @"";
+            
+            NSDictionary *dict = [self.awardsArray objectAtIndex:indexPath.row];
+            cell.degreeLabel.text = [dict objectForKey:@"ca_title"];
+            cell.universityLabel.text = [dict objectForKey:@"ca_organization"];
+            cell.universityAddressLabel.text = [dict objectForKey:@"ca_desc"];
+            cell.durationLabel.text = [dict objectForKey:@"ca_year"];
+            
+            return cell;
+        }
     }
 }
 #pragma mark - headerTapped
@@ -452,4 +586,23 @@
     selectedHeader = -1;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:previousSelectedHeader] withRowAnimation:UITableViewRowAnimationFade];
 }
+#pragma mark - keyboardWillShow
+-(void)keyboardWillShow:(NSNotification*)notification{
+    NSDictionary* userInfo = [notification userInfo];
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    [UIView animateWithDuration:.3 animations:^(void){
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0);
+        self.tableView.contentInset = contentInsets;
+        self.tableView.scrollIndicatorInsets = contentInsets;
+    }];
+}
+#pragma mark - keyboardWillHide
+-(void)keyboardWillHide:(NSNotification*)notification{
+    [UIView animateWithDuration:.3 animations:^(void){
+        self.tableView.contentInset = UIEdgeInsetsZero;
+        self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+    }];
+}
+
 @end
