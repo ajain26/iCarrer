@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZWT-yi-xyW" userLabel="leftVert">
@@ -84,6 +84,7 @@
                     <constraint firstAttribute="trailing" secondItem="fR3-9M-I46" secondAttribute="trailing" constant="10" id="FgL-Je-Hw1"/>
                     <constraint firstItem="6PQ-qJ-daa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Lc5-cl-sUL"/>
                     <constraint firstAttribute="bottom" secondItem="fR3-9M-I46" secondAttribute="bottom" id="Q0v-Nj-ngx"/>
+                    <constraint firstItem="fR3-9M-I46" firstAttribute="top" secondItem="RMS-ht-zeQ" secondAttribute="bottom" constant="10" id="QEc-zf-s3T"/>
                     <constraint firstItem="WHq-uP-2JC" firstAttribute="leading" secondItem="Rf6-DG-pSx" secondAttribute="trailing" constant="10" id="R2X-MH-mFp"/>
                     <constraint firstAttribute="trailing" secondItem="WHq-uP-2JC" secondAttribute="trailing" constant="9" id="WXQ-KW-8xs"/>
                     <constraint firstItem="RMS-ht-zeQ" firstAttribute="top" secondItem="Rf6-DG-pSx" secondAttribute="bottom" constant="8" id="Xza-b7-9SB"/>
@@ -99,6 +100,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentImageView" destination="Rf6-DG-pSx" id="Yda-qX-8ep"/>
+                <outlet property="postButton" destination="RMS-ht-zeQ" id="77U-D1-goM"/>
                 <outlet property="textView" destination="6PQ-qJ-daa" id="j9a-pR-oYA"/>
             </connections>
         </tableViewCell>

@@ -14,21 +14,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Mo-KK-cDe">
-                        <rect key="frame" x="10" y="11" width="300" height="21"/>
+                        <rect key="frame" x="15" y="11" width="290" height="21"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="2Mo-KK-cDe" secondAttribute="bottom" constant="11" id="MQO-EO-lCD"/>
-                    <constraint firstAttribute="trailing" secondItem="2Mo-KK-cDe" secondAttribute="trailing" constant="10" id="O8q-n4-EnH"/>
-                    <constraint firstItem="2Mo-KK-cDe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dhh-2U-gsA"/>
-                    <constraint firstItem="2Mo-KK-cDe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="dqS-Gp-JOy"/>
+                    <constraint firstItem="2Mo-KK-cDe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Lom-h5-5Tn"/>
+                    <constraint firstAttribute="bottom" secondItem="2Mo-KK-cDe" secondAttribute="bottom" constant="11" id="cb1-q3-3u4"/>
+                    <constraint firstItem="2Mo-KK-cDe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="qHz-dh-QNZ"/>
+                    <constraint firstAttribute="trailing" secondItem="2Mo-KK-cDe" secondAttribute="trailing" constant="15" id="qjN-fj-Ves"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -45,6 +45,7 @@
     selectedHeader = -1;
     summaryText = @"";
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Experience", @"Skills", @"Projects", @"Awards", nil];
+    
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
@@ -102,7 +103,7 @@
 }
 #pragma mark - tableView
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
+    return self.titleArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 50;
@@ -156,9 +157,11 @@
     if (indexPath.section == 0) {
         if (selectedHeader == indexPath.section) {
             if (indexPath.row == 0) {
-                return 200;
+                return UITableViewAutomaticDimension;
             } else {
-                if (summaryText.length > 0) {
+                if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+                    return 0;
+                } else {
                     return UITableViewAutomaticDimension;
                 }
             }
@@ -167,15 +170,25 @@
     }
     return UITableViewAutomaticDimension;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+/*-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (selectedHeader == indexPath.section) {
-            return 200;
+            if (indexPath.row == 0) {
+                return 200;
+            } else {
+                if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+                    return 0;
+                }
+                return 44;
+            }
         }
-        return 0;
+        if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
+            return 0;
+        }
+        return 44;
     }
     return 0;
-}
+}*/
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     int row = 0;
     if (section == 0) {
@@ -191,7 +204,7 @@
     return row;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0){
+    if (indexPath.section == 0){//summary
         if (selectedHeader == indexPath.section) {
             if (indexPath.row == 0) {
                 static NSString *cellIdentifier = @"IprofileSummaryCell";
@@ -202,9 +215,17 @@
                     cell = [arr objectAtIndex:0];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            
+                [cell.postButton addTarget:self action:@selector(post:) forControlEvents:UIControlEventTouchUpInside];
+                
                 cell.textView.delegate = self;
                 cell.textView.text = summaryText;
+                
+                if (![summaryText isEqualToString:@"Summary"]) {
+                    cell.textView.textColor = [UIColor blackColor];
+                } else {
+                    cell.textView.textColor = [UIColor lightGrayColor];
+                }
+                
                 [cell setBorderToContentImageView];
             
                 return cell;
@@ -216,8 +237,9 @@
                     NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"IprofileSummaryNonEditableCell" owner:self options:nil];
                     cell = [arr objectAtIndex:0];
                 }
+
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                cell.titleLabel.text = [self.profileDict objectForKey:@"summary"];
+                cell.titleLabel.text = [[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
                 
                 return cell;
             }
@@ -230,7 +252,7 @@
                 cell = [arr objectAtIndex:0];
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.titleLabel.text = [self.profileDict objectForKey:@"summary"];
+            cell.titleLabel.text = [[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
             return cell;
         }
@@ -272,8 +294,9 @@
 {
     if ([textView.text isEqualToString:@"Summary"]) {
         textView.text = @"";
-        textView.textColor = [UIColor blackColor];
     }
+    textView.textColor = [UIColor blackColor];
+
     [textView becomeFirstResponder];
 }
 
@@ -295,5 +318,42 @@
     }
 
     return YES;
+}
+#pragma mark - post
+-(void)post:(UIButton*)btn{
+    [self.view endEditing:true];
+    
+    NSMutableDictionary *param = [NSMutableDictionary new];
+    [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+    [param setObject:summaryText forKey:@"summary"];
+    
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_SUMMARY] withParam:param success:^(NSDictionary *responseDict) {
+        NSDictionary *dict = [responseDict objectForKey:@"status"];
+
+        if (![dict isKindOfClass:[NSNull class]] && dict) {
+            if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                    [self fetchUserDetails];
+                    [self reloadAll];
+                } else {
+                    [SVProgressHUD dismiss];
+                }
+            } else {
+                [SVProgressHUD dismiss];
+            }
+        } else {
+            [SVProgressHUD dismiss];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+}
+#pragma mark - reloadAll
+-(void)reloadAll{
+    long previousSelectedHeader = selectedHeader;
+    
+    selectedHeader = -1;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:previousSelectedHeader] withRowAnimation:UITableViewRowAnimationFade];
 }
 @end

@@ -10,6 +10,7 @@
 
 @interface IprofileSummaryCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 -(void)setBorderToContentImageView;
 @end
