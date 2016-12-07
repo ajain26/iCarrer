@@ -25,7 +25,7 @@
 #define UPDATE_USER_EXPERIENCE @"api/UpdateUserExperience.php"
 #define UPDATE_USER_AWARDS     @"api/UpdateUserAwards.php"
 #define SET_USER_EDUCATION     @"api/SetUserEducation.php"
-
+#define UPDATE_PROFILE         @"api/Updateprofile.php"
 
 
 #define VALID_EMAIL            @"Please enter a valid email"

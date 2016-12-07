@@ -23,10 +23,7 @@
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate>{
     long selectedHeader;
     NSString *summaryText;
-    
-    /**** EDUCATION ****/
-    /*******************/
-    
+
     /**** EXPERIENCE ****/
     NSMutableDictionary *experienceDict;
     /*******************/
@@ -44,6 +41,9 @@
 @property (strong, nonatomic) NSMutableArray *titleArray;
 @property (strong, nonatomic) NSMutableDictionary *educationDict;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *designationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end
 
@@ -52,11 +52,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setInitial];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:true];
+    self.userDict = [AppHelper userDefaultsDictionary:@"user"];
     [self fetchUserDetails];
+    [self setUserDetails];
+}
+-(void)setUserDetails{
+    self.userNameLabel.text = [self.userDict objectForKey:@"username"];
+    self.designationLabel.text = [self.userDict objectForKey:@"short_title"];
+    self.addressLabel.text = [self.userDict objectForKey:@"address"];
 }
 #pragma mark - setInitial
 -(void)setInitial{
-    self.userDict = [AppHelper userDefaultsDictionary:@"user"];
     selectedHeader = -1;
     summaryText = @"";
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Education", @"Experience", @"Awards", nil];
@@ -809,5 +818,9 @@
 }
 -(void)dismissYearTextField{
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+}
+#pragma mark - editProfile
+- (IBAction)editProfile:(id)sender {
+    [self performSegueWithIdentifier:@"EditProfileVC" sender:nil];
 }
 @end

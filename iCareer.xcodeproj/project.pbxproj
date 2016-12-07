@@ -83,6 +83,7 @@
 		67F3754A1DF81BF50009641C /* ExperienceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375481DF81BF50009641C /* ExperienceCell.xib */; };
 		67F375531DF8237A0009641C /* AwardsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375511DF8237A0009641C /* AwardsCell.m */; };
 		67F375541DF8237A0009641C /* AwardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375521DF8237A0009641C /* AwardsCell.xib */; };
+		67F375571DF851140009641C /* EditProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375561DF851140009641C /* EditProfileVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +242,8 @@
 		67F375501DF8237A0009641C /* AwardsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AwardsCell.h; path = View/AwardsCell.h; sourceTree = "<group>"; };
 		67F375511DF8237A0009641C /* AwardsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AwardsCell.m; path = View/AwardsCell.m; sourceTree = "<group>"; };
 		67F375521DF8237A0009641C /* AwardsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AwardsCell.xib; path = View/AwardsCell.xib; sourceTree = "<group>"; };
+		67F375551DF851140009641C /* EditProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditProfileVC.h; path = View/EditProfileVC.h; sourceTree = "<group>"; };
+		67F375561DF851140009641C /* EditProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditProfileVC.m; path = View/EditProfileVC.m; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D52DB939900BA66936A38766 /* libPods-iCareer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCareer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.release.xcconfig"; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 				67F375521DF8237A0009641C /* AwardsCell.xib */,
 				672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */,
 				672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */,
+				67F375551DF851140009641C /* EditProfileVC.h */,
+				67F375561DF851140009641C /* EditProfileVC.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -810,6 +815,7 @@
 				673980CF1DF2B9640040E24F /* BoardRoomVC.m in Sources */,
 				67B3EFB21DEF3C3B00E3D426 /* UISliderWidth.m in Sources */,
 				6740BAEB1DF3D54400C27897 /* UIImage+MultiFormat.m in Sources */,
+				67F375571DF851140009641C /* EditProfileVC.m in Sources */,
 				6740BADF1DF3D54400C27897 /* NSData+ImageContentType.m in Sources */,
 				673980DD1DF303200040E24F /* NewsRoomVC.m in Sources */,
 				673980E01DF303400040E24F /* IprofileVC.m in Sources */,
