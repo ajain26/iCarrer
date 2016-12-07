@@ -73,6 +73,12 @@
 		67DFB1F31DF6C1D9006E0F11 /* IprofileSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DFB1F11DF6C1D9006E0F11 /* IprofileSummaryCell.xib */; };
 		67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E965D81DEDFFA1005CAE09 /* RegisterVC.m */; };
 		67F375361DF7C2BF0009641C /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375351DF7C2BF0009641C /* ResultCell.m */; };
+		67F3753A1DF801560009641C /* EducationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375381DF801560009641C /* EducationCell.m */; };
+		67F3753B1DF801570009641C /* EducationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375391DF801560009641C /* EducationCell.xib */; };
+		67F3753F1DF809900009641C /* EducationNonEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F3753D1DF809900009641C /* EducationNonEditableCell.m */; };
+		67F375401DF809900009641C /* EducationNonEditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F3753E1DF809900009641C /* EducationNonEditableCell.xib */; };
+		67F375441DF817E40009641C /* ExperienceNonEditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375421DF817E40009641C /* ExperienceNonEditableCell.m */; };
+		67F375451DF817E40009641C /* ExperienceNonEditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +222,15 @@
 		67E965D81DEDFFA1005CAE09 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVC.m; path = View/RegisterVC.m; sourceTree = "<group>"; };
 		67F375341DF7C2BF0009641C /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultCell.h; path = View/ResultCell.h; sourceTree = "<group>"; };
 		67F375351DF7C2BF0009641C /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultCell.m; path = View/ResultCell.m; sourceTree = "<group>"; };
+		67F375371DF801560009641C /* EducationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EducationCell.h; path = View/EducationCell.h; sourceTree = "<group>"; };
+		67F375381DF801560009641C /* EducationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EducationCell.m; path = View/EducationCell.m; sourceTree = "<group>"; };
+		67F375391DF801560009641C /* EducationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EducationCell.xib; path = View/EducationCell.xib; sourceTree = "<group>"; };
+		67F3753C1DF809900009641C /* EducationNonEditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EducationNonEditableCell.h; path = View/EducationNonEditableCell.h; sourceTree = "<group>"; };
+		67F3753D1DF809900009641C /* EducationNonEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EducationNonEditableCell.m; path = View/EducationNonEditableCell.m; sourceTree = "<group>"; };
+		67F3753E1DF809900009641C /* EducationNonEditableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EducationNonEditableCell.xib; path = View/EducationNonEditableCell.xib; sourceTree = "<group>"; };
+		67F375411DF817E40009641C /* ExperienceNonEditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExperienceNonEditableCell.h; path = View/ExperienceNonEditableCell.h; sourceTree = "<group>"; };
+		67F375421DF817E40009641C /* ExperienceNonEditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExperienceNonEditableCell.m; path = View/ExperienceNonEditableCell.m; sourceTree = "<group>"; };
+		67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExperienceNonEditableCell.xib; path = View/ExperienceNonEditableCell.xib; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D52DB939900BA66936A38766 /* libPods-iCareer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCareer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.release.xcconfig"; sourceTree = "<group>"; };
@@ -461,6 +476,15 @@
 				670848C91DF729EB001E315C /* IprofileSummaryNonEditableCell.h */,
 				670848CA1DF729EB001E315C /* IprofileSummaryNonEditableCell.m */,
 				670848CB1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib */,
+				67F375371DF801560009641C /* EducationCell.h */,
+				67F375381DF801560009641C /* EducationCell.m */,
+				67F375391DF801560009641C /* EducationCell.xib */,
+				67F3753C1DF809900009641C /* EducationNonEditableCell.h */,
+				67F3753D1DF809900009641C /* EducationNonEditableCell.m */,
+				67F3753E1DF809900009641C /* EducationNonEditableCell.xib */,
+				67F375411DF817E40009641C /* ExperienceNonEditableCell.h */,
+				67F375421DF817E40009641C /* ExperienceNonEditableCell.m */,
+				67F375431DF817E40009641C /* ExperienceNonEditableCell.xib */,
 				672DE2B81DF5C1F5003D42C2 /* WebViewVC.h */,
 				672DE2B91DF5C1F5003D42C2 /* WebViewVC.m */,
 			);
@@ -658,7 +682,10 @@
 				670848CD1DF729EB001E315C /* IprofileSummaryNonEditableCell.xib in Resources */,
 				67B3EFA91DEF23C300E3D426 /* QuizQuestionCell.xib in Resources */,
 				673BC7EA1DEADA9400D3925D /* Main.storyboard in Resources */,
+				67F3753B1DF801570009641C /* EducationCell.xib in Resources */,
 				6740BADD1DF3D54400C27897 /* FLAnimatedImage in Resources */,
+				67F375401DF809900009641C /* EducationNonEditableCell.xib in Resources */,
+				67F375451DF817E40009641C /* ExperienceNonEditableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +760,7 @@
 			files = (
 				6740BAF01DF3D54400C27897 /* UIView+WebCacheOperation.m in Sources */,
 				6740BAE61DF3D54400C27897 /* SDWebImageDownloaderOperation.m in Sources */,
+				67F3753F1DF809900009641C /* EducationNonEditableCell.m in Sources */,
 				6740BAEC1DF3D54400C27897 /* UIImage+WebP.m in Sources */,
 				6740BAEF1DF3D54400C27897 /* UIView+WebCache.m in Sources */,
 				6740BAF61DF41D6000C27897 /* BoardRoomDetailCell.m in Sources */,
@@ -750,6 +778,7 @@
 				673BC7E11DEADA9400D3925D /* main.m in Sources */,
 				67331EAD1DEB3B8C009EB780 /* CoreDataFunction.m in Sources */,
 				6740BAE41DF3D54400C27897 /* SDWebImageDecoder.m in Sources */,
+				67F3753A1DF801560009641C /* EducationCell.m in Sources */,
 				6740BAE21DF3D54400C27897 /* SDImageCacheConfig.m in Sources */,
 				67B531CA1DF48284006C9EF6 /* NewsRoomCell.m in Sources */,
 				673980CC1DF2B94B0040E24F /* SideMenuVC.m in Sources */,
@@ -769,6 +798,7 @@
 				6740BAE91DF3D54400C27897 /* UIButton+WebCache.m in Sources */,
 				6740BAEE1DF3D54400C27897 /* UIImageView+WebCache.m in Sources */,
 				67DFB1F21DF6C1D9006E0F11 /* IprofileSummaryCell.m in Sources */,
+				67F375441DF817E40009641C /* ExperienceNonEditableCell.m in Sources */,
 				67331EB11DEB3C30009EB780 /* Services.m in Sources */,
 				6745E7AE1DEED95D00903E4F /* WelcomVC.m in Sources */,
 				6740BAEA1DF3D54400C27897 /* UIImage+GIF.m in Sources */,

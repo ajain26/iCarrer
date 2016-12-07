@@ -14,6 +14,8 @@
 #import "AppHelper.h"
 #import "IprofileSummaryCell.h"
 #import "IprofileSummaryNonEditableCell.h"
+#import "EducationNonEditableCell.h"
+#import "EducationCell.h"
 
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>{
     long selectedHeader;
@@ -23,8 +25,7 @@
 
 @property (strong, nonatomic) NSDictionary *profileDict;
 @property (strong, nonatomic) NSArray *experienceArray;
-@property (strong, nonatomic) NSArray *skillsArray;
-@property (strong, nonatomic) NSArray *projectsArray;
+@property (strong, nonatomic) NSArray *educationArray;
 @property (strong, nonatomic) NSArray *awardsArray;
 @property (strong, nonatomic) NSMutableArray *titleArray;
 
@@ -44,7 +45,7 @@
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];
     selectedHeader = -1;
     summaryText = @"";
-    self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Experience", @"Skills", @"Projects", @"Awards", nil];
+    self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Education", @"Experience", @"Awards", nil];
     
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -76,11 +77,8 @@
                     if (![[responseDict objectForKey:@"experience_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"experience_array"]) {
                         self.experienceArray = [responseDict objectForKey:@"experience_array"];
                     }
-                    if (![[responseDict objectForKey:@"skill_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"skill_array"]) {
-                        self.skillsArray = [responseDict objectForKey:@"skill_array"];
-                    }
-                    if (![[responseDict objectForKey:@"proj_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"proj_array"]) {
-                        self.projectsArray = [responseDict objectForKey:@"proj_array"];
+                    if (![[responseDict objectForKey:@"education_array"] isKindOfClass:[NSNull class]] && [responseDict objectForKey:@"education_array"]) {
+                        self.educationArray = [responseDict objectForKey:@"education_array"];
                     }
                     
                     [self.tableView reloadData];
@@ -130,7 +128,7 @@
     verticalDivider2.hidden = true;
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, tableView.bounds.size.width-40, 40)];
-    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:16.0f];;
+    titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f];;
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.text = [self.titleArray objectAtIndex: section];
     [view addSubview:titleLabel];
@@ -154,7 +152,7 @@
     return view;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
+    /*if (indexPath.section == 0) {
         if (selectedHeader == indexPath.section) {
             if (indexPath.row == 0) {
                 return UITableViewAutomaticDimension;
@@ -167,7 +165,7 @@
             }
         }
         return UITableViewAutomaticDimension;
-    }
+    }*/
     return UITableViewAutomaticDimension;
 }
 /*-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -191,7 +189,7 @@
 }*/
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     int row = 0;
-    if (section == 0) {
+    if (section == 0) {//summary
         if (summaryText.length > 0) {
             row = 1;
         }
@@ -199,6 +197,12 @@
             return row + 1;
         }
         return row;
+    } else if (section == 1){//education
+        if (selectedHeader == section) {
+            return self.educationArray.count + 1;
+        } else {
+            return self.educationArray.count;
+        }
     }
     
     return row;
@@ -256,7 +260,69 @@
 
             return cell;
         }
+    } else if (indexPath.section == 1){ //education
+        if (selectedHeader == indexPath.section) {
+            if (indexPath.row == 0) {
+                static NSString *cellIdentifier = @"EducationCell";
+                
+                EducationCell *cell = (EducationCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EducationCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                [cell setBorder];
+                
+                return cell;
+            } else {
+                static NSString *cellIdentifier = @"EducationNonEditableCell";
+                
+                EducationNonEditableCell *cell = (EducationNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+                if (cell == nil){
+                    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EducationNonEditableCell" owner:self options:nil];
+                    cell = [arr objectAtIndex:0];
+                }
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.degreeLabel.text = @"";
+                cell.universityLabel.text = @"";
+                cell.universityAddressLabel.text = @"";
+                cell.durationLabel.text = @"";
+                
+                NSDictionary *dict = [self.educationArray objectAtIndex:indexPath.row-1];
+                cell.degreeLabel.text = [dict objectForKey:@"degree_title"];
+                cell.universityLabel.text = [dict objectForKey:@"university"];
+                cell.universityAddressLabel.text = [dict objectForKey:@"university_address"];
+                cell.durationLabel.text = [NSString stringWithFormat:@"%@ to %@",[dict objectForKey:@"start_year"],[dict objectForKey:@"end_year"]];
+                
+                return cell;
+            }
+        } else {
+            static NSString *cellIdentifier = @"EducationNonEditableCell";
+            
+            EducationNonEditableCell *cell = (EducationNonEditableCell*)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil){
+                NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"EducationNonEditableCell" owner:self options:nil];
+                cell = [arr objectAtIndex:0];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            cell.degreeLabel.text = @"";
+            cell.universityLabel.text = @"";
+            cell.universityAddressLabel.text = @"";
+            cell.durationLabel.text = @"";
+            
+            NSDictionary *dict = [self.educationArray objectAtIndex:indexPath.row];
+            cell.degreeLabel.text = [dict objectForKey:@"degree_title"];
+            cell.universityLabel.text = [dict objectForKey:@"university"];
+            cell.universityAddressLabel.text = [dict objectForKey:@"university_address"];
+            cell.durationLabel.text = [NSString stringWithFormat:@"%@ to %@",[dict objectForKey:@"start_year"],[dict objectForKey:@"end_year"]];
+            
+            return cell;
+        }
     }
+    
     else {//TODO: change the cell below
         static NSString *cellIdentifier = @"IprofileSummaryCell";
         
@@ -331,6 +397,36 @@
     [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_SUMMARY] withParam:param success:^(NSDictionary *responseDict) {
         NSDictionary *dict = [responseDict objectForKey:@"status"];
 
+        if (![dict isKindOfClass:[NSNull class]] && dict) {
+            if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                    [self fetchUserDetails];
+                    [self reloadAll];
+                } else {
+                    [SVProgressHUD dismiss];
+                }
+            } else {
+                [SVProgressHUD dismiss];
+            }
+        } else {
+            [SVProgressHUD dismiss];
+        }
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
+}
+#pragma mark - updateUserExperience
+-(void)updateUserExperience{
+    [self.view endEditing:true];
+    
+    NSMutableDictionary *param = [NSMutableDictionary new];
+    [param setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+    [param setObject:summaryText forKey:@"summary"];
+    
+    [SVProgressHUD showWithStatus:@"Please wait..."];
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,UPDATE_USER_EXPERIENCE] withParam:param success:^(NSDictionary *responseDict) {
+        NSDictionary *dict = [responseDict objectForKey:@"status"];
+        
         if (![dict isKindOfClass:[NSNull class]] && dict) {
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
                 if ([[dict objectForKey:@"statuscode"] intValue] == 1) {

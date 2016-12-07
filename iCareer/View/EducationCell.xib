@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EducationCell" id="KGk-i7-Jjw" customClass="EducationCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="252"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="251"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="86o-yO-CNS" userLabel="leftVert">
+                        <rect key="frame" x="10" y="0.0" width="1" height="251"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Spi-Ho-2D6"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zGr-Sl-Nt4" userLabel="degreeImageView">
+                        <rect key="frame" x="20" y="10" width="279" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="J0H-dS-Ux0"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eQK-6e-zMy" userLabel="universityImageView">
+                        <rect key="frame" x="20" y="60" width="279" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Jsv-wd-2Yv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Haa-ec-k92" userLabel="univAddressImageView">
+                        <rect key="frame" x="20" y="110" width="279" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="vWk-mg-obh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ZG-0O-idg" userLabel="startYearImageView">
+                        <rect key="frame" x="20" y="160" width="130" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="p74-uI-8dz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iEa-CN-P4x" userLabel="endYearImageView">
+                        <rect key="frame" x="169" y="160" width="130" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="0li-5P-axq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hcO-iw-rbV" userLabel="rightVert">
+                        <rect key="frame" x="310" y="0.0" width="1" height="251"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="Dbb-lX-YyG"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddG-To-XXM" userLabel="bottomVert">
+                        <rect key="frame" x="10" y="250" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="W8n-yb-GD7"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1f-Qy-1FJ">
+                        <rect key="frame" x="229" y="210" width="70" height="30"/>
+                        <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="JQd-cO-wIQ"/>
+                            <constraint firstAttribute="height" constant="30" id="JTC-Mx-udl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <state key="normal" title="SUBMIT">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="u1f-Qy-1FJ" firstAttribute="top" secondItem="iEa-CN-P4x" secondAttribute="bottom" constant="10" id="3fJ-dS-ehh"/>
+                    <constraint firstItem="86o-yO-CNS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4Mk-Ht-ztl"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="leading" secondItem="Haa-ec-k92" secondAttribute="trailing" constant="11" id="4Vr-RT-rwR"/>
+                    <constraint firstItem="iEa-CN-P4x" firstAttribute="width" secondItem="3ZG-0O-idg" secondAttribute="width" id="6Ql-6n-iS0"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="leading" secondItem="eQK-6e-zMy" secondAttribute="trailing" constant="11" id="8lD-Jt-WLQ"/>
+                    <constraint firstItem="iEa-CN-P4x" firstAttribute="leading" secondItem="3ZG-0O-idg" secondAttribute="trailing" constant="19" id="9Q0-TX-nk5"/>
+                    <constraint firstItem="eQK-6e-zMy" firstAttribute="leading" secondItem="86o-yO-CNS" secondAttribute="trailing" constant="9" id="ALe-FI-lDZ"/>
+                    <constraint firstItem="3ZG-0O-idg" firstAttribute="leading" secondItem="86o-yO-CNS" secondAttribute="trailing" constant="9" id="EjD-3O-5Vv"/>
+                    <constraint firstItem="ddG-To-XXM" firstAttribute="top" secondItem="u1f-Qy-1FJ" secondAttribute="bottom" constant="10" id="HqV-pA-rxx"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="leading" secondItem="zGr-Sl-Nt4" secondAttribute="trailing" constant="11" id="Il3-8a-DRY"/>
+                    <constraint firstItem="86o-yO-CNS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Lwv-Qi-nVL"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="leading" secondItem="u1f-Qy-1FJ" secondAttribute="trailing" constant="11" id="QH3-4m-AYt"/>
+                    <constraint firstItem="iEa-CN-P4x" firstAttribute="height" secondItem="3ZG-0O-idg" secondAttribute="height" id="R9A-ox-NwW"/>
+                    <constraint firstItem="ddG-To-XXM" firstAttribute="top" secondItem="3ZG-0O-idg" secondAttribute="bottom" constant="50" id="Sfs-oQ-TL4"/>
+                    <constraint firstAttribute="trailing" secondItem="hcO-iw-rbV" secondAttribute="trailing" constant="9" id="T66-mV-0wf"/>
+                    <constraint firstItem="zGr-Sl-Nt4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="TOa-ed-CXd"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="leading" secondItem="iEa-CN-P4x" secondAttribute="trailing" constant="11" id="XaK-r7-gES"/>
+                    <constraint firstItem="iEa-CN-P4x" firstAttribute="top" secondItem="Haa-ec-k92" secondAttribute="bottom" constant="10" id="YKm-Aa-a4v"/>
+                    <constraint firstItem="3ZG-0O-idg" firstAttribute="top" secondItem="Haa-ec-k92" secondAttribute="bottom" constant="10" id="aBX-dd-aSK"/>
+                    <constraint firstItem="hcO-iw-rbV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bGq-qZ-JaD"/>
+                    <constraint firstAttribute="bottom" secondItem="86o-yO-CNS" secondAttribute="bottom" id="gwc-65-wAc"/>
+                    <constraint firstItem="zGr-Sl-Nt4" firstAttribute="leading" secondItem="86o-yO-CNS" secondAttribute="trailing" constant="9" id="ibY-pc-9kj"/>
+                    <constraint firstAttribute="bottom" secondItem="hcO-iw-rbV" secondAttribute="bottom" id="k1V-m4-cTW"/>
+                    <constraint firstItem="eQK-6e-zMy" firstAttribute="top" secondItem="zGr-Sl-Nt4" secondAttribute="bottom" constant="10" id="m7O-7r-peu"/>
+                    <constraint firstAttribute="bottom" secondItem="ddG-To-XXM" secondAttribute="bottom" id="nCi-aN-DII"/>
+                    <constraint firstItem="Haa-ec-k92" firstAttribute="top" secondItem="eQK-6e-zMy" secondAttribute="bottom" constant="10" id="oSQ-2K-9K8"/>
+                    <constraint firstItem="ddG-To-XXM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qgT-y3-Xiv"/>
+                    <constraint firstAttribute="trailing" secondItem="ddG-To-XXM" secondAttribute="trailing" constant="10" id="tUz-RD-Ev2"/>
+                    <constraint firstItem="Haa-ec-k92" firstAttribute="leading" secondItem="86o-yO-CNS" secondAttribute="trailing" constant="9" id="tXz-mw-uCh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="degreeImageView" destination="zGr-Sl-Nt4" id="R0a-46-hf7"/>
+                <outlet property="endYearImageView" destination="iEa-CN-P4x" id="46r-D3-j6l"/>
+                <outlet property="startYearImageView" destination="3ZG-0O-idg" id="uoz-w4-KoY"/>
+                <outlet property="univAddressImageView" destination="Haa-ec-k92" id="0wG-H4-Knq"/>
+                <outlet property="universityImageView" destination="eQK-6e-zMy" id="TfL-Hn-5QC"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

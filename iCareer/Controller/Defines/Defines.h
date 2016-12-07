@@ -22,6 +22,8 @@
 #define SHARE_NEWS             @"api/SetUpdateNewsShare.php"
 #define FETCH_USER_DETAILS     @"api/FetchUserDetails.php"
 #define UPDATE_SUMMARY         @"api/UpdateSummary.php"
+#define UPDATE_USER_EXPERIENCE @"api/UpdateUserExperience.php"
+#define UPDATE_USER_AWARDS     @"api/UpdateUserAwards.php"
 
 
 
