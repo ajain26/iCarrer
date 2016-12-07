@@ -20,9 +20,20 @@
 #import "ExperienceCell.h"
 #import "AwardsCell.h"
 
-@interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate>{
+@interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate>{
     long selectedHeader;
     NSString *summaryText;
+    
+    /**** EDUCATION ****/
+    /*******************/
+    
+    /**** EXPERIENCE ****/
+    NSMutableDictionary *experienceDict;
+    /*******************/
+    
+    /**** AWARDS ****/
+    NSMutableDictionary *awardDict;
+    /*******************/
 }
 @property (strong, nonatomic) NSDictionary *userDict;
 
@@ -31,7 +42,7 @@
 @property (strong, nonatomic) NSArray *educationArray;
 @property (strong, nonatomic) NSArray *awardsArray;
 @property (strong, nonatomic) NSMutableArray *titleArray;
-
+@property (strong, nonatomic) NSMutableDictionary *educationDict;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -49,6 +60,10 @@
     selectedHeader = -1;
     summaryText = @"";
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Education", @"Experience", @"Awards", nil];
+    
+    self.educationDict = [NSMutableDictionary new];
+    experienceDict = [NSMutableDictionary new];
+    awardDict = [NSMutableDictionary new];
     
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -165,41 +180,10 @@
     return view;
 }
 -(CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*if (indexPath.section == 0) {
-        if (selectedHeader == indexPath.section) {
-            if (indexPath.row == 0) {
-                return UITableViewAutomaticDimension;
-            } else {
-                if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
-                    return 0;
-                } else {
-                    return UITableViewAutomaticDimension;
-                }
-            }
-        }
-        return UITableViewAutomaticDimension;
-    }*/
+    
     return UITableViewAutomaticDimension;
 }
-/*-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        if (selectedHeader == indexPath.section) {
-            if (indexPath.row == 0) {
-                return 200;
-            } else {
-                if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
-                    return 0;
-                }
-                return 44;
-            }
-        }
-        if ([[[self.profileDict objectForKey:@"summary"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length] == 0) {
-            return 0;
-        }
-        return 44;
-    }
-    return 0;
-}*/
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     int row = 0;
     if (section == 0) {//summary
@@ -296,6 +280,64 @@
                     cell = [arr objectAtIndex:0];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.degreeTextField.text = @"";
+                cell.universityTextField.text = @"";
+                cell.universityAddressTextField.text = @"";
+                cell.startYearTextField.text = @"";
+                cell.endYearTextField.text = @"";
+                
+                cell.degreeTextField.delegate = self;
+                cell.universityTextField.delegate = self;
+                cell.universityAddressTextField.delegate = self;
+                cell.startYearTextField.delegate = self;
+                cell.endYearTextField.delegate = self;
+                
+                UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+                [datePicker setDate:[NSDate date]];
+                datePicker.datePickerMode = UIDatePickerModeDate;
+                [datePicker addTarget:self action:@selector(startDateTextField:) forControlEvents:UIControlEventValueChanged];
+                [cell.startYearTextField setInputView:datePicker];
+                
+                UIToolbar *toolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
+                toolbar.barStyle = UIBarStyleDefault;
+                UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+                UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissYearTextField)];
+                [toolbar setItems:[NSArray arrayWithObjects:flexibleSpaceLeft, doneButton, nil]];
+                cell.startYearTextField.inputAccessoryView = toolbar;
+                
+                
+                UIDatePicker *datePicker2 = [[UIDatePicker alloc]init];
+                [datePicker2 setDate:[NSDate date]];
+                datePicker2.datePickerMode = UIDatePickerModeDate;
+                [datePicker2 addTarget:self action:@selector(endDateTextField:) forControlEvents:UIControlEventValueChanged];
+                [cell.endYearTextField setInputView:datePicker2];
+                
+//                UIToolbar *toolbar2= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
+//                toolbar.barStyle = UIBarStyleDefault;
+//                UIBarButtonItem *flexibleSpaceLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//                UIBarButtonItem* doneButton2 = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+//                [toolbar setItems:[NSArray arrayWithObjects:flexibleSpaceLeft2, doneButton2, nil]];
+                cell.endYearTextField.inputAccessoryView = toolbar;
+                
+                [cell.submitButton addTarget:self action:@selector(submitEducation) forControlEvents:UIControlEventTouchUpInside];
+                
+                if ([self.educationDict objectForKey:@"degree_title"]) {
+                    cell.degreeTextField.text = [self.educationDict objectForKey:@"degree_title"];
+                }
+                if ([self.educationDict objectForKey:@"university"]) {
+                    cell.universityTextField.text = [self.educationDict objectForKey:@"university"];
+                }
+                if ([self.educationDict objectForKey:@"university_address"]) {
+                    cell.universityAddressTextField.text = [self.educationDict objectForKey:@"university_address"];
+                }
+                if ([self.educationDict objectForKey:@"start_year"]) {
+                    cell.startYearTextField.text = [self.educationDict objectForKey:@"start_year"];
+                }
+                if ([self.educationDict objectForKey:@"end_year"]) {
+                    cell.endYearTextField.text = [self.educationDict objectForKey:@"end_year"];
+                }
+                
                 
                 [cell setBorder];
                 
@@ -474,8 +516,13 @@
         }
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.view endEditing:true];
+}
 #pragma mark - headerTapped
 -(void)headerTapped:(UIButton*)btn{
+    [self.view endEditing:true];
+    
     long previousSelectedHeader = selectedHeader;
     if (selectedHeader != btn.tag) {
         if (selectedHeader != -1) {
@@ -488,10 +535,14 @@
         selectedHeader = -1;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:previousSelectedHeader] withRowAnimation:UITableViewRowAnimationFade];
     }
+    
 }
 #pragma mark - textview
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
+    CGRect sectionRect = [self.tableView rectForSection:0];
+    [self.tableView scrollRectToVisible:sectionRect animated:YES];
+    
     if ([textView.text isEqualToString:@"Summary"]) {
         textView.text = @"";
     }
@@ -604,5 +655,159 @@
         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
     }];
 }
+#pragma mark - textfield
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    CGPoint buttonPosition = [textField convertPoint:CGPointZero
+                                           toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    if (indexPath.section == 1) { //education
+        [self setEducationValues:textField];
+    } else if (indexPath.section == 2){ //experience
+        [self setExperienceValues:textField];
+    } else if (indexPath.section == 3){ //awards
+        [self setAwardsValues:textField];
+    }
+    
+    [textField resignFirstResponder];
+    return true;
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    CGPoint buttonPosition = [textField convertPoint:CGPointZero
+                                              toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    if (indexPath.section == 1) { //education
+        [self setEducationValues:textField];
+    } else if (indexPath.section == 2){ //experience
+        [self setExperienceValues:textField];
+    } else if (indexPath.section == 3){ //awards
+        [self setAwardsValues:textField];
+    }
 
+}
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return newLength <= 200;
+}
+-(void)setEducationValues:(UITextField*)textF{
+    switch (textF.tag) {
+        case 0://degree
+            [self.educationDict setObject:textF.text forKey:@"degree_title"];
+            break;
+        case 1://university
+            [self.educationDict setObject:textF.text forKey:@"university"];
+            break;
+        case 2://university address
+            [self.educationDict setObject:textF.text forKey:@"university_address"];
+            break;
+        case 3://start year
+            [self.educationDict setObject:textF.text forKey:@"start_year"];
+            break;
+        case 4://end year
+            [self.educationDict setObject:textF.text forKey:@"end_year"];
+            break;
+        default:
+            break;
+    }
+}
+-(void)setExperienceValues:(UITextField*)textF{
+    switch (textF.tag) {
+        case 0://degree
+            [experienceDict setObject:textF.text forKey:@"degree_title"];
+            break;
+        case 1://university
+            [experienceDict setObject:textF.text forKey:@"university"];
+            break;
+        case 2://university address
+            [experienceDict setObject:textF.text forKey:@"university_address"];
+            break;
+        case 3://start year
+            [experienceDict setObject:textF.text forKey:@"start_year"];
+            break;
+        case 4://end year
+            [experienceDict setObject:textF.text forKey:@"end_year"];
+            break;
+        case 5://end year
+            [experienceDict setObject:textF.text forKey:@"end_year"];
+            break;
+        default:
+            break;
+    }
+}
+-(void)setAwardsValues:(UITextField*)textF{
+    if ([textF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]) {
+        switch (textF.tag) {
+            case 0://degree
+                [awardDict setObject:textF.text forKey:@"degree_title"];
+                break;
+            case 1://university
+                [awardDict setObject:textF.text forKey:@"university"];
+                break;
+            case 2://university address
+                [awardDict setObject:textF.text forKey:@"university_address"];
+                break;
+            case 3://start year
+                [awardDict setObject:textF.text forKey:@"start_year"];
+                break;
+            case 4://end year
+                [awardDict setObject:textF.text forKey:@"end_year"];
+                break;
+            case 5://end year
+                [awardDict setObject:textF.text forKey:@"end_year"];
+                break;
+            default:
+                break;
+        }
+    }
+}
+-(void)submitEducation{
+    if ([[self.educationDict allKeys] count] == 5) {
+        [self.educationDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SET_USER_EDUCATION] withParam:self.educationDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.educationDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    } else {
+        [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+    }
+}
+-(void)startDateTextField:(id)sender
+{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    [picker setMaximumDate:[NSDate date]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [self.educationDict setObject:dateString forKey:@"start_year"];
+}
+-(void)endDateTextField:(id)sender{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    [picker setMaximumDate:[NSDate date]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [self.educationDict setObject:dateString forKey:@"end_year"];
+}
+-(void)dismissYearTextField{
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+}
 @end
