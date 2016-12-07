@@ -23,14 +23,6 @@
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate>{
     long selectedHeader;
     NSString *summaryText;
-
-    /**** EXPERIENCE ****/
-    NSMutableDictionary *experienceDict;
-    /*******************/
-    
-    /**** AWARDS ****/
-    NSMutableDictionary *awardDict;
-    /*******************/
 }
 @property (strong, nonatomic) NSDictionary *userDict;
 
@@ -39,7 +31,11 @@
 @property (strong, nonatomic) NSArray *educationArray;
 @property (strong, nonatomic) NSArray *awardsArray;
 @property (strong, nonatomic) NSMutableArray *titleArray;
+
 @property (strong, nonatomic) NSMutableDictionary *educationDict;
+@property (strong, nonatomic) NSMutableDictionary *experienceDict;
+@property (strong, nonatomic) NSMutableDictionary *awardDict;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *designationLabel;
@@ -71,8 +67,8 @@
     self.titleArray = [[NSMutableArray alloc] initWithObjects:@"Summary", @"Education", @"Experience", @"Awards", nil];
     
     self.educationDict = [NSMutableDictionary new];
-    experienceDict = [NSMutableDictionary new];
-    awardDict = [NSMutableDictionary new];
+    self.experienceDict = [NSMutableDictionary new];
+    self.awardDict = [NSMutableDictionary new];
     
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -322,11 +318,6 @@
                 [datePicker2 addTarget:self action:@selector(endDateTextField:) forControlEvents:UIControlEventValueChanged];
                 [cell.endYearTextField setInputView:datePicker2];
                 
-//                UIToolbar *toolbar2= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
-//                toolbar.barStyle = UIBarStyleDefault;
-//                UIBarButtonItem *flexibleSpaceLeft2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-//                UIBarButtonItem* doneButton2 = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
-//                [toolbar setItems:[NSArray arrayWithObjects:flexibleSpaceLeft2, doneButton2, nil]];
                 cell.endYearTextField.inputAccessoryView = toolbar;
                 
                 [cell.submitButton addTarget:self action:@selector(submitEducation) forControlEvents:UIControlEventTouchUpInside];
@@ -411,6 +402,64 @@
                 
                 [cell setBorder];
                 
+                cell.designationTextField.text = @"";
+                cell.companyTextField.text = @"";
+                cell.companAddressTextField.text = @"";
+                cell.startYearTextField.text = @"";
+                cell.endYearTextField.text = @"";
+                cell.jobDescTextField.text = @"";
+                
+                cell.designationTextField.delegate = self;
+                cell.companyTextField.delegate = self;
+                cell.companAddressTextField.delegate = self;
+                cell.startYearTextField.delegate = self;
+                cell.endYearTextField.delegate = self;
+                cell.jobDescTextField.delegate = self;
+
+                UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+                [datePicker setDate:[NSDate date]];
+                datePicker.datePickerMode = UIDatePickerModeDate;
+                [datePicker addTarget:self action:@selector(startDateExpTextField:) forControlEvents:UIControlEventValueChanged];
+                [cell.startYearTextField setInputView:datePicker];
+                
+                UIToolbar *toolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
+                toolbar.barStyle = UIBarStyleDefault;
+                UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+                UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissYearTextField)];
+                [toolbar setItems:[NSArray arrayWithObjects:flexibleSpaceLeft, doneButton, nil]];
+                cell.startYearTextField.inputAccessoryView = toolbar;
+                
+                
+                UIDatePicker *datePicker2 = [[UIDatePicker alloc]init];
+                [datePicker2 setDate:[NSDate date]];
+                datePicker2.datePickerMode = UIDatePickerModeDate;
+                [datePicker2 addTarget:self action:@selector(endDateExpTextField:) forControlEvents:UIControlEventValueChanged];
+                [cell.endYearTextField setInputView:datePicker2];
+                
+                cell.endYearTextField.inputAccessoryView = toolbar;
+                
+                [cell.submitButton addTarget:self action:@selector(submitExperience) forControlEvents:UIControlEventTouchUpInside];
+                
+                if ([self.experienceDict objectForKey:@"exp_title"]) {
+                    cell.designationTextField.text = [self.experienceDict objectForKey:@"exp_title"];
+                }
+                if ([self.experienceDict objectForKey:@"company_name"]) {
+                    cell.companyTextField.text = [self.experienceDict objectForKey:@"company_name"];
+                }
+                if ([self.experienceDict objectForKey:@"company_address"]) {
+                    cell.companAddressTextField.text = [self.experienceDict objectForKey:@"company_address"];
+                }
+                if ([self.experienceDict objectForKey:@"start_year"]) {
+                    cell.startYearTextField.text = [self.experienceDict objectForKey:@"start_year"];
+                }
+                if ([self.experienceDict objectForKey:@"end_year"]) {
+                    cell.endYearTextField.text = [self.experienceDict objectForKey:@"end_year"];
+                }
+                if ([self.experienceDict objectForKey:@"job_desc"]) {
+                    cell.jobDescTextField.text = [self.experienceDict objectForKey:@"job_desc"];
+                }
+
+                
                 return cell;
             } else {
                 static NSString *cellIdentifier = @"ExperienceNonEditableCell";
@@ -473,6 +522,47 @@
                     cell = [arr objectAtIndex:0];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                cell.awardNameTextField.text = @"";
+                cell.awardDescriptionTextField.text = @"";
+                cell.organisationTextField.text = @"";
+                cell.yearTextField.text = @"";
+                
+                cell.awardNameTextField.delegate = self;
+                cell.awardDescriptionTextField.delegate = self;
+                cell.organisationTextField.delegate = self;
+                cell.yearTextField.delegate = self;
+                
+                
+                UIDatePicker *datePicker = [[UIDatePicker alloc]init];
+                [datePicker setDate:[NSDate date]];
+                datePicker.datePickerMode = UIDatePickerModeDate;
+                [datePicker addTarget:self action:@selector(startDateExpTextField:) forControlEvents:UIControlEventValueChanged];
+                [cell.yearTextField setInputView:datePicker];
+                
+                UIToolbar *toolbar= [[UIToolbar alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width,44)];
+                toolbar.barStyle = UIBarStyleDefault;
+                UIBarButtonItem *flexibleSpaceLeft = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+                UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(dismissYearTextField)];
+                [toolbar setItems:[NSArray arrayWithObjects:flexibleSpaceLeft, doneButton, nil]];
+                cell.yearTextField.inputAccessoryView = toolbar;
+                
+                
+                [cell.submitButton addTarget:self action:@selector(submitAwards) forControlEvents:UIControlEventTouchUpInside];
+                
+                if ([self.awardDict objectForKey:@"ca_title"]) {
+                    cell.awardNameTextField.text = [self.awardDict objectForKey:@"ca_title"];
+                }
+                if ([self.awardDict objectForKey:@"ca_desc"]) {
+                    cell.awardDescriptionTextField.text = [self.awardDict objectForKey:@"ca_desc"];
+                }
+                if ([self.awardDict objectForKey:@"ca_organization"]) {
+                    cell.organisationTextField.text = [self.awardDict objectForKey:@"ca_organization"];
+                }
+                if ([self.awardDict objectForKey:@"ca_year"]) {
+                    cell.yearTextField.text = [self.awardDict objectForKey:@"ca_year"];
+                }
+                
                 
                 [cell setBorder];
                 
@@ -722,23 +812,23 @@
 }
 -(void)setExperienceValues:(UITextField*)textF{
     switch (textF.tag) {
-        case 0://degree
-            [experienceDict setObject:textF.text forKey:@"degree_title"];
+        case 0://title
+            [self.experienceDict setObject:textF.text forKey:@"exp_title"];
             break;
-        case 1://university
-            [experienceDict setObject:textF.text forKey:@"university"];
+        case 1://company name
+            [self.experienceDict setObject:textF.text forKey:@"company_name"];
             break;
-        case 2://university address
-            [experienceDict setObject:textF.text forKey:@"university_address"];
+        case 2://company address
+            [self.experienceDict setObject:textF.text forKey:@"company_address"];
             break;
         case 3://start year
-            [experienceDict setObject:textF.text forKey:@"start_year"];
+            [self.experienceDict setObject:textF.text forKey:@"start_year"];
             break;
         case 4://end year
-            [experienceDict setObject:textF.text forKey:@"end_year"];
+            [self.experienceDict setObject:textF.text forKey:@"end_year"];
             break;
-        case 5://end year
-            [experienceDict setObject:textF.text forKey:@"end_year"];
+        case 5://job desc
+            [self.experienceDict setObject:textF.text forKey:@"job_desc"];
             break;
         default:
             break;
@@ -747,29 +837,76 @@
 -(void)setAwardsValues:(UITextField*)textF{
     if ([textF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]) {
         switch (textF.tag) {
-            case 0://degree
-                [awardDict setObject:textF.text forKey:@"degree_title"];
+            case 0://title
+                [self.awardDict setObject:textF.text forKey:@"ca_title"];
                 break;
-            case 1://university
-                [awardDict setObject:textF.text forKey:@"university"];
+            case 1://desc
+                [self.awardDict setObject:textF.text forKey:@"ca_desc"];
                 break;
-            case 2://university address
-                [awardDict setObject:textF.text forKey:@"university_address"];
+            case 2://organization
+                [self.awardDict setObject:textF.text forKey:@"ca_organization"];
                 break;
-            case 3://start year
-                [awardDict setObject:textF.text forKey:@"start_year"];
-                break;
-            case 4://end year
-                [awardDict setObject:textF.text forKey:@"end_year"];
-                break;
-            case 5://end year
-                [awardDict setObject:textF.text forKey:@"end_year"];
+            case 3://year
+                [self.awardDict setObject:textF.text forKey:@"ca_year"];
                 break;
             default:
                 break;
         }
     }
 }
+#pragma mark - submitAwards
+-(void)submitAwards{
+    if ([[self.awardDict allKeys] count] == 4) {
+        [self.awardDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SET_USER_AWARDS] withParam:self.awardDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.awardDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    } else {
+        [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+    }
+}
+#pragma mark - submitExperience
+-(void)submitExperience{
+    if ([[self.experienceDict allKeys] count] == 6) {
+        [self.experienceDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
+        
+        [SVProgressHUD showWithStatus:@"Please wait..."];
+        [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SUBMIT_USER_EXPERIENCE] withParam:self.experienceDict success:^(NSDictionary *responseDict) {
+            [SVProgressHUD dismiss];
+            NSDictionary *dict = [responseDict objectForKey:@"status"];
+            
+            if (![dict isKindOfClass:[NSNull class]] && dict) {
+                if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
+                    if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
+                        [self.experienceDict removeAllObjects];
+                        selectedHeader = -1;
+                        [self fetchUserDetails];
+                    }
+                }
+            }
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+    } else {
+        [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+    }
+}
+#pragma mark - submitEducation
 -(void)submitEducation{
     if ([[self.educationDict allKeys] count] == 5) {
         [self.educationDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
@@ -795,8 +932,8 @@
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
 }
--(void)startDateTextField:(id)sender
-{
+#pragma mark - startDateTextField
+-(void)startDateTextField:(id)sender{
     UIDatePicker *picker = (UIDatePicker*)sender;
     [picker setMaximumDate:[NSDate date]];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -806,6 +943,7 @@
     NSString *dateString = [dateFormat stringFromDate:eventDate];
     [self.educationDict setObject:dateString forKey:@"start_year"];
 }
+#pragma mark - endDateTextField
 -(void)endDateTextField:(id)sender{
     UIDatePicker *picker = (UIDatePicker*)sender;
     [picker setMaximumDate:[NSDate date]];
@@ -816,8 +954,32 @@
     NSString *dateString = [dateFormat stringFromDate:eventDate];
     [self.educationDict setObject:dateString forKey:@"end_year"];
 }
+#pragma mark - dismissYearTextField
 -(void)dismissYearTextField{
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView reloadData];
+    //[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:selectedHeader] withRowAnimation:UITableViewRowAnimationFade];
+}
+#pragma mark - startDateExpTextField
+-(void)startDateExpTextField:(id)sender{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    [picker setMaximumDate:[NSDate date]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [self.experienceDict setObject:dateString forKey:@"start_year"];
+}
+#pragma mark - endDateExpTextField
+-(void)endDateExpTextField:(id)sender{
+    UIDatePicker *picker = (UIDatePicker*)sender;
+    [picker setMaximumDate:[NSDate date]];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDate *eventDate = picker.date;
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    
+    NSString *dateString = [dateFormat stringFromDate:eventDate];
+    [self.experienceDict setObject:dateString forKey:@"end_year"];
 }
 #pragma mark - editProfile
 - (IBAction)editProfile:(id)sender {

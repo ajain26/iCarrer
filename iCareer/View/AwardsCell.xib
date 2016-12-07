@@ -42,6 +42,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Award Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EcX-J4-eww">
+                        <rect key="frame" x="30" y="15" width="260" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-87-zhT" userLabel="universityImageView">
                         <rect key="frame" x="20" y="60" width="279" height="40"/>
                         <constraints>
@@ -53,6 +60,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Award Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WI3-dl-xcr">
+                        <rect key="frame" x="30" y="65" width="260" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2iw-aM-mJM" userLabel="univAddressImageView">
                         <rect key="frame" x="20" y="110" width="279" height="40"/>
                         <constraints>
@@ -64,6 +78,13 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Organisation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-ai-2qm">
+                        <rect key="frame" x="30" y="115" width="260" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="khQ-cA-W72" userLabel="univAddressImageView">
                         <rect key="frame" x="20" y="160" width="279" height="40"/>
                         <constraints>
@@ -99,6 +120,13 @@
                             <constraint firstAttribute="height" constant="1" id="FGp-pc-Cdk"/>
                         </constraints>
                     </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1o-sw-EGo">
+                        <rect key="frame" x="30" y="165" width="260" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7Wd-87-zhT" firstAttribute="top" secondItem="Vd1-uX-gdp" secondAttribute="bottom" constant="10" id="0bH-vy-A8M"/>
@@ -129,10 +157,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="awardDescImageView" destination="7Wd-87-zhT" id="0hI-51-wIk"/>
+                <outlet property="awardDescriptionTextField" destination="WI3-dl-xcr" id="cLA-Lq-fHj"/>
                 <outlet property="awardNameImageView" destination="Vd1-uX-gdp" id="SB8-S9-bQK"/>
+                <outlet property="awardNameTextField" destination="EcX-J4-eww" id="3ah-ch-hkX"/>
+                <outlet property="organisationTextField" destination="hZg-ai-2qm" id="KqW-fZ-dcf"/>
                 <outlet property="organizationImageView" destination="2iw-aM-mJM" id="3Cb-bA-hvU"/>
                 <outlet property="submitButton" destination="qJv-Iy-xI6" id="uhs-PC-dIY"/>
                 <outlet property="yearImageView" destination="khQ-cA-W72" id="V5A-UO-n4s"/>
+                <outlet property="yearTextField" destination="I1o-sw-EGo" id="3Nt-Is-99r"/>
             </connections>
         </tableViewCell>
     </objects>
