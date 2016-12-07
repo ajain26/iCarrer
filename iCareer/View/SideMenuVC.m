@@ -121,7 +121,7 @@
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [AppHelper removeFromUserDefaultsWithKey:@"user"];
-        [AppHelper removeFromUserDefaultsWithKey:@"skill"];
+        //[AppHelper removeFromUserDefaultsWithKey:@"skill"];
         [[AppDelegate getAppDelegate] logout];
         [self dismissViewControllerAnimated:YES completion:^{
         }];

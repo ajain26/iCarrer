@@ -72,6 +72,7 @@
 		67DFB1F21DF6C1D9006E0F11 /* IprofileSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DFB1F01DF6C1D9006E0F11 /* IprofileSummaryCell.m */; };
 		67DFB1F31DF6C1D9006E0F11 /* IprofileSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67DFB1F11DF6C1D9006E0F11 /* IprofileSummaryCell.xib */; };
 		67E965D91DEDFFA1005CAE09 /* RegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67E965D81DEDFFA1005CAE09 /* RegisterVC.m */; };
+		67F375361DF7C2BF0009641C /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F375351DF7C2BF0009641C /* ResultCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,8 @@
 		67DFB1F11DF6C1D9006E0F11 /* IprofileSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IprofileSummaryCell.xib; path = View/IprofileSummaryCell.xib; sourceTree = "<group>"; };
 		67E965D71DEDFFA1005CAE09 /* RegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterVC.h; path = View/RegisterVC.h; sourceTree = "<group>"; };
 		67E965D81DEDFFA1005CAE09 /* RegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterVC.m; path = View/RegisterVC.m; sourceTree = "<group>"; };
+		67F375341DF7C2BF0009641C /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultCell.h; path = View/ResultCell.h; sourceTree = "<group>"; };
+		67F375351DF7C2BF0009641C /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultCell.m; path = View/ResultCell.m; sourceTree = "<group>"; };
 		C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.debug.xcconfig"; sourceTree = "<group>"; };
 		D52DB939900BA66936A38766 /* libPods-iCareer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iCareer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iCareer.release.xcconfig"; path = "Pods/Target Support Files/Pods-iCareer/Pods-iCareer.release.xcconfig"; sourceTree = "<group>"; };
@@ -422,6 +425,8 @@
 				67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */,
 				67B3EFB81DF0297C00E3D426 /* ResultVC.h */,
 				67B3EFB91DF0297C00E3D426 /* ResultVC.m */,
+				67F375341DF7C2BF0009641C /* ResultCell.h */,
+				67F375351DF7C2BF0009641C /* ResultCell.m */,
 				673980CA1DF2B94B0040E24F /* SideMenuVC.h */,
 				673980CB1DF2B94B0040E24F /* SideMenuVC.m */,
 				673980D81DF2F6FB0040E24F /* SideMenuCell.h */,
@@ -736,6 +741,7 @@
 				673BC7E71DEADA9400D3925D /* LoginVC.m in Sources */,
 				6740BAE71DF3D54400C27897 /* SDWebImageManager.m in Sources */,
 				67B3EFBA1DF0297C00E3D426 /* ResultVC.m in Sources */,
+				67F375361DF7C2BF0009641C /* ResultCell.m in Sources */,
 				673BC7E41DEADA9400D3925D /* AppDelegate.m in Sources */,
 				6745E7B11DEEDD4700903E4F /* QuizVC.m in Sources */,
 				67B3EFA81DEF23C300E3D426 /* QuizQuestionCell.m in Sources */,
