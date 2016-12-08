@@ -28,14 +28,14 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    NSLog(@"URL: %@",urlPath);
-    NSLog(@"PARAM: %@",params);
+    //NSLog(@"URL: %@",urlPath);
+    //NSLog(@"PARAM: %@",params);
     
     [manager POST:urlPath parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSError *error = nil;
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-        NSLog(@"json: %@",json);
+        //NSLog(@"json: %@",json);
         if (![json isKindOfClass:[NSNull class]] && json) {
             
             if ([urlPath containsString:VALIDATEUSER] || [urlPath containsString:USERREGISTRATION]) {
@@ -50,7 +50,7 @@
         }
     }
           failure:^(NSURLSessionTask *operation, NSError *error) {
-              NSLog(@"Error: %@", error);
+              //NSLog(@"Error: %@", error);
               failure(error);
           }];
 }
@@ -61,7 +61,7 @@
     
     [manager POST:urlPath parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         for(NSString *aKey in [params allKeys]){
-            NSLog(@"Key: %@ - Value: %@",aKey, [params objectForKey:aKey]);
+            //NSLog(@"Key: %@ - Value: %@",aKey, [params objectForKey:aKey]);
             [formData appendPartWithFormData:[[params objectForKey:aKey] dataUsingEncoding:NSUTF8StringEncoding] name:aKey];
         }
         [formData appendPartWithFormData:[NSData data] name:@"profile_image"];
@@ -73,20 +73,20 @@
         
         NSString *myString = [[NSString alloc] initWithData:responseObject encoding:NSASCIIStringEncoding];
         if (![myString isKindOfClass:[NSNull class]] && myString) {
-            NSLog(@"%@",myString);
+            //NSLog(@"%@",myString);
             
             NSArray *strArray = [myString componentsSeparatedByString:@"}{"];
-            NSLog(@"%@",strArray);
+            //NSLog(@"%@",strArray);
             
             id json = nil;
             
             if (![strArray isKindOfClass:[NSNull class]] && strArray) {
                 NSString *str0 = [[strArray objectAtIndex:0] stringByAppendingString:@"}"];
-                NSLog(@"%@",str0);
+                //NSLog(@"%@",str0);
                 NSData *data = [str0 dataUsingEncoding:NSUTF8StringEncoding];
                 
                 json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                NSLog(@"%@",json);
+                //NSLog(@"%@",json);
             }
             
             if (![json isKindOfClass:[NSNull class]] && json) {
@@ -101,7 +101,7 @@
             success(nil);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Error: %@", error);
+        //NSLog(@"Error: %@", error);
         failure(error);
     }];
 }
@@ -139,9 +139,9 @@
         if (![skillDict isKindOfClass:[NSNull class]] && skillDict) {
             [AppHelper saveToUserDefaults:skillDict withKey:@"skill"];
         }
-        NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
+        //NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
         [AppHelper saveToUserDefaults:json withKey:@"traitRating"];
-        NSLog(@"%@",[AppHelper userDefaultsDictionary:@"traitRating"]);
+        //NSLog(@"%@",[AppHelper userDefaultsDictionary:@"traitRating"]);
     }
 }
 #pragma mark - connected

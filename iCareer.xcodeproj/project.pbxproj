@@ -112,14 +112,14 @@
 		67331EA81DEB3B3D009EB780 /* AppHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppHelper.h; path = Controller/AppHelper/AppHelper.h; sourceTree = "<group>"; };
 		67331EA91DEB3B3D009EB780 /* AppHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppHelper.m; path = Controller/AppHelper/AppHelper.m; sourceTree = "<group>"; };
 		67331EAB1DEB3B8C009EB780 /* CoreDataFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataFunction.h; path = Controller/CoreDataFunction/CoreDataFunction.h; sourceTree = "<group>"; };
-		67331EAC1DEB3B8C009EB780 /* CoreDataFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataFunction.m; path = Controller/CoreDataFunction/CoreDataFunction.m; sourceTree = "<group>"; };
+		67331EAC1DEB3B8C009EB780 /* CoreDataFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = CoreDataFunction.m; path = Controller/CoreDataFunction/CoreDataFunction.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		67331EAE1DEB3C1D009EB780 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Defines.h; path = Controller/Defines/Defines.h; sourceTree = "<group>"; };
 		67331EAF1DEB3C30009EB780 /* Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Services.h; path = Controller/Services/Services.h; sourceTree = "<group>"; };
 		67331EB01DEB3C30009EB780 /* Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Services.m; path = Controller/Services/Services.m; sourceTree = "<group>"; };
 		673980CA1DF2B94B0040E24F /* SideMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuVC.h; path = View/SideMenuVC.h; sourceTree = "<group>"; };
 		673980CB1DF2B94B0040E24F /* SideMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuVC.m; path = View/SideMenuVC.m; sourceTree = "<group>"; };
 		673980CD1DF2B9640040E24F /* BoardRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomVC.h; path = View/BoardRoomVC.h; sourceTree = "<group>"; };
-		673980CE1DF2B9640040E24F /* BoardRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomVC.m; path = View/BoardRoomVC.m; sourceTree = "<group>"; };
+		673980CE1DF2B9640040E24F /* BoardRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BoardRoomVC.m; path = View/BoardRoomVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		673980D01DF2BF2A0040E24F /* MFSideMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MFSideMenuVC.h; path = View/MFSideMenuVC.h; sourceTree = "<group>"; };
 		673980D11DF2BF2A0040E24F /* MFSideMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MFSideMenuVC.m; path = View/MFSideMenuVC.m; sourceTree = "<group>"; };
 		673980D31DF2ED4D0040E24F /* SideMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuHeaderView.h; path = View/SideMenuHeaderView.h; sourceTree = "<group>"; };
@@ -128,13 +128,13 @@
 		673980D81DF2F6FB0040E24F /* SideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuCell.h; path = View/SideMenuCell.h; sourceTree = "<group>"; };
 		673980D91DF2F6FB0040E24F /* SideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuCell.m; path = View/SideMenuCell.m; sourceTree = "<group>"; };
 		673980DB1DF303200040E24F /* NewsRoomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsRoomVC.h; path = View/NewsRoomVC.h; sourceTree = "<group>"; };
-		673980DC1DF303200040E24F /* NewsRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsRoomVC.m; path = View/NewsRoomVC.m; sourceTree = "<group>"; };
+		673980DC1DF303200040E24F /* NewsRoomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = NewsRoomVC.m; path = View/NewsRoomVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		673980DE1DF3033F0040E24F /* IprofileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IprofileVC.h; path = View/IprofileVC.h; sourceTree = "<group>"; };
 		673980DF1DF303400040E24F /* IprofileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IprofileVC.m; path = View/IprofileVC.m; sourceTree = "<group>"; };
 		673BC7DC1DEADA9400D3925D /* iCareer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iCareer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673BC7E01DEADA9400D3925D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		673BC7E21DEADA9400D3925D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		673BC7E31DEADA9400D3925D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		673BC7E31DEADA9400D3925D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		673BC7E51DEADA9400D3925D /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		673BC7E61DEADA9400D3925D /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		673BC7E91DEADA9400D3925D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,18 +191,18 @@
 		6740BADB1DF3D54400C27897 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "ThirdParty/SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		6740BADC1DF3D54400C27897 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "ThirdParty/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		6740BAF11DF4138E00C27897 /* BoardRoomDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomDetailVC.h; path = View/BoardRoomDetailVC.h; sourceTree = "<group>"; };
-		6740BAF21DF4138E00C27897 /* BoardRoomDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomDetailVC.m; path = View/BoardRoomDetailVC.m; sourceTree = "<group>"; };
+		6740BAF21DF4138E00C27897 /* BoardRoomDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BoardRoomDetailVC.m; path = View/BoardRoomDetailVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6740BAF41DF41D6000C27897 /* BoardRoomDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomDetailCell.h; path = View/BoardRoomDetailCell.h; sourceTree = "<group>"; };
 		6740BAF51DF41D6000C27897 /* BoardRoomDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomDetailCell.m; path = View/BoardRoomDetailCell.m; sourceTree = "<group>"; };
 		6740BAF71DF4454000C27897 /* BoardRoomCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardRoomCommentCell.h; path = View/BoardRoomCommentCell.h; sourceTree = "<group>"; };
 		6740BAF81DF4454000C27897 /* BoardRoomCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardRoomCommentCell.m; path = View/BoardRoomCommentCell.m; sourceTree = "<group>"; };
 		6740BAF91DF4454000C27897 /* BoardRoomCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BoardRoomCommentCell.xib; path = View/BoardRoomCommentCell.xib; sourceTree = "<group>"; };
 		6740BAFC1DF4512100C27897 /* BoardAddPostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardAddPostVC.h; path = View/BoardAddPostVC.h; sourceTree = "<group>"; };
-		6740BAFD1DF4512100C27897 /* BoardAddPostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardAddPostVC.m; path = View/BoardAddPostVC.m; sourceTree = "<group>"; };
+		6740BAFD1DF4512100C27897 /* BoardAddPostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = BoardAddPostVC.m; path = View/BoardAddPostVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6745E7AC1DEED95D00903E4F /* WelcomVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomVC.h; path = View/WelcomVC.h; sourceTree = "<group>"; };
 		6745E7AD1DEED95D00903E4F /* WelcomVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WelcomVC.m; path = View/WelcomVC.m; sourceTree = "<group>"; };
 		6745E7AF1DEEDD4700903E4F /* QuizVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizVC.h; path = View/QuizVC.h; sourceTree = "<group>"; };
-		6745E7B01DEEDD4700903E4F /* QuizVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizVC.m; path = View/QuizVC.m; sourceTree = "<group>"; };
+		6745E7B01DEEDD4700903E4F /* QuizVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = QuizVC.m; path = View/QuizVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		67B3EFA51DEF23C300E3D426 /* QuizQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizQuestionCell.h; path = View/QuizQuestionCell.h; sourceTree = "<group>"; };
 		67B3EFA61DEF23C300E3D426 /* QuizQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizQuestionCell.m; path = View/QuizQuestionCell.m; sourceTree = "<group>"; };
 		67B3EFA71DEF23C300E3D426 /* QuizQuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizQuestionCell.xib; path = View/QuizQuestionCell.xib; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		67B3EFB41DEFF4D400E3D426 /* QuizOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizOptionsCell.m; path = View/QuizOptionsCell.m; sourceTree = "<group>"; };
 		67B3EFB51DEFF4D400E3D426 /* QuizOptionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuizOptionsCell.xib; path = View/QuizOptionsCell.xib; sourceTree = "<group>"; };
 		67B3EFB81DF0297C00E3D426 /* ResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultVC.h; path = View/ResultVC.h; sourceTree = "<group>"; };
-		67B3EFB91DF0297C00E3D426 /* ResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultVC.m; path = View/ResultVC.m; sourceTree = "<group>"; };
+		67B3EFB91DF0297C00E3D426 /* ResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = ResultVC.m; path = View/ResultVC.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		67B3EFBD1DF0486000E3D426 /* HCSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCSStarRatingView.h; path = ThirdParty/HCSStarRatingView/HCSStarRatingView.h; sourceTree = "<group>"; };
 		67B3EFBE1DF0486000E3D426 /* HCSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCSStarRatingView.m; path = ThirdParty/HCSStarRatingView/HCSStarRatingView.m; sourceTree = "<group>"; };
 		67B531C81DF48284006C9EF6 /* NewsRoomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsRoomCell.h; path = View/NewsRoomCell.h; sourceTree = "<group>"; };
@@ -654,7 +654,8 @@
 				TargetAttributes = {
 					673BC7DB1DEADA9000D3925D = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = A33EMYX597;
+						ProvisioningStyle = Manual;
 					};
 					673BC7F71DEADA9700D3925D = {
 						CreatedOnToolsVersion = 8.1;
@@ -914,7 +915,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -962,7 +964,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -988,11 +991,15 @@
 			baseConfigurationReference = C12F91E7E2D6C081752BA3F1 /* Pods-iCareer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
+				DEVELOPMENT_TEAM = A33EMYX597;
 				INFOPLIST_FILE = iCareer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maverick.iCareer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iCareerApp.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "417ae051-add9-420a-8877-60431ed09e6b";
+				PROVISIONING_PROFILE_SPECIFIER = iCareer0;
 			};
 			name = Debug;
 		};
@@ -1001,11 +1008,15 @@
 			baseConfigurationReference = FB277A40C30EE9B7A8AC497D /* Pods-iCareer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ryan Perkins (A33EMYX597)";
+				DEVELOPMENT_TEAM = A33EMYX597;
 				INFOPLIST_FILE = iCareer/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.maverick.iCareer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iCareerApp.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "417ae051-add9-420a-8877-60431ed09e6b";
+				PROVISIONING_PROFILE_SPECIFIER = iCareer0;
 			};
 			name = Release;
 		};

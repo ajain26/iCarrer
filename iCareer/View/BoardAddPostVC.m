@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSDictionary *userDict;
+@property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
+
 @end
 
 @implementation BoardAddPostVC
@@ -32,10 +34,13 @@
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];
     
     self.emailImageView.layer.borderWidth = 1.0f;
-    self.emailImageView.layer.borderColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0f].CGColor;
+    self.emailImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     self.messageImageView.layer.borderWidth = 1.0f;
-    self.messageImageView.layer.borderColor = [UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:1.0f].CGColor;
+    self.messageImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    self.contentImageView.layer.borderWidth = 1.0f;
+    self.contentImageView.layer.borderColor = [UIColor colorWithRed:95.0/255.0 green:170.0/255.0 blue:145.0/255.0 alpha:1.0f].CGColor;
     
     /* Add notification to keyboard appear/disappear */
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -141,7 +146,7 @@
     
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    //NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
     
     [param setObject:[dateFormatter stringFromDate:[NSDate date]] forKey:@"timestamp"];
     

@@ -77,7 +77,7 @@
                         NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"discussion_owner ==[c] %@", [self.userDict objectForKey:@"user_id"]];
 
                         //NSPredicate *predicateString = [NSPredicate predicateWithFormat:@"%K contains[cd] %@", @"discussion_owner", [self.userDict objectForKey:@"user_id"]];//keySelected is NSString itself
-                        NSLog(@"predicate %@",predicateString);
+                        //NSLog(@"predicate %@",predicateString);
                         self.myBoardArray = [NSMutableArray arrayWithArray:[self.boardArray filteredArrayUsingPredicate:predicateString]];
                         
                         [self.tableView reloadData];
@@ -165,7 +165,7 @@
         if (imagePath.length > 0) {
             imagePath = [imagePath stringByReplacingOccurrencesOfString:@"../" withString:BASEURL];
         }
-        NSLog(@"--------imagePath: %@",imagePath);
+        //NSLog(@"--------imagePath: %@",imagePath);
         
         [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:imagePath] placeholderImage:[UIImage imageNamed:@"profile"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             cell.userImageView.image = image;

@@ -30,7 +30,7 @@
 }
 #pragma mark - setInitialView
 -(void)setInitialView{
-    NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
+    //NSLog(@"%@",[AppHelper userDefaultsDictionary:@"skill"]);
     self.ratingDict = [AppHelper userDefaultsDictionary:@"skill"];
     self.otherRatingDict = [AppHelper userDefaultsDictionary:@"traitRating"];
     

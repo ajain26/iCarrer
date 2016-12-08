@@ -7,7 +7,8 @@
 //
 
 //#define BASEURL                @"http://inubex.in/preprod_icareer/api/"
-#define BASEURL                @"http://inubex.in/icareer/"
+#define BASEURL2                @"http://inubex.in/icareer/"
+#define BASEURL                @"http://infoastra.in/icareer/"
 #define VALIDATEUSER           @"api/ValidateUser.php"
 #define USERREGISTRATION       @"api/UserRegistration.php"
 #define FETCHQUESTIONS         @"api/FetchQuestionSet.php"

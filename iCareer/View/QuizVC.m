@@ -234,7 +234,7 @@
 }
 #pragma mark - next
 - (IBAction)next:(id)sender {
-    NSLog(@"Q->%d",questionCounter);
+    //NSLog(@"Q->%d",questionCounter);
     if (answerType) {//options
         if (optionValue != -1){
             if (questionCounter < 6){
@@ -380,7 +380,7 @@
             self.traitCounterArray[i] = [NSString stringWithFormat:@"%d",traitCount.intValue+1];
         }
     }
-    NSLog(@"%@",self.traitValueArray);
+    //NSLog(@"%@",self.traitValueArray);
     for (int i = 0; i < self.traitArray.count; i++) {
         if (![self.traitValueArray[i] isEqualToString:@"0"]) {
             NSString *traitVal = self.traitValueArray[i];
@@ -390,17 +390,17 @@
             self.avgTraitValueArray[i] = @"0";
         }
     }
-    NSLog(@"==========");
-    NSLog(@"money: %@",self.avgTraitValueArray[0]);
-    NSLog(@"balance: %@",self.avgTraitValueArray[1]);
-    NSLog(@"confidence: %@",self.avgTraitValueArray[2]);
-    NSLog(@"entrepreneurial: %@",self.avgTraitValueArray[3]);
-    NSLog(@"interpersonal: %@",self.avgTraitValueArray[4]);
-    NSLog(@"analytical: %@",self.avgTraitValueArray[5]);
-    NSLog(@"street: %@",self.avgTraitValueArray[6]);
-    NSLog(@"pressure: %@",self.avgTraitValueArray[7]);
-    NSLog(@"sales: %@",self.avgTraitValueArray[8]);
-    NSLog(@"==========");
+    //NSLog(@"==========");
+    //NSLog(@"money: %@",self.avgTraitValueArray[0]);
+    //NSLog(@"balance: %@",self.avgTraitValueArray[1]);
+    //NSLog(@"confidence: %@",self.avgTraitValueArray[2]);
+    //NSLog(@"entrepreneurial: %@",self.avgTraitValueArray[3]);
+    //NSLog(@"interpersonal: %@",self.avgTraitValueArray[4]);
+    //NSLog(@"analytical: %@",self.avgTraitValueArray[5]);
+    //NSLog(@"street: %@",self.avgTraitValueArray[6]);
+    //NSLog(@"pressure: %@",self.avgTraitValueArray[7]);
+    //NSLog(@"sales: %@",self.avgTraitValueArray[8]);
+    //NSLog(@"==========");
 }
 #pragma mark - submitAnswers
 -(void)submitAnswers{

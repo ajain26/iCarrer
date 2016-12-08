@@ -15,6 +15,7 @@
 @interface EditProfileVC ()<UITextFieldDelegate>
 @property (strong, nonatomic) NSDictionary *userDict;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
 
 @end
 
@@ -29,6 +30,9 @@
 -(void)setInitial{
     self.userDict = [AppHelper userDefaultsDictionary:@"user"];
 
+    self.contentImageView.layer.borderWidth = 1.0f;
+    self.contentImageView.layer.borderColor = [UIColor colorWithRed:95.0/255.0 green:170.0/255.0 blue:145.0/255.0 alpha:1.0f].CGColor;
+    
     /* Add notification to keyboard appear/disappear */
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)

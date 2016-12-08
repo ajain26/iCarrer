@@ -1045,6 +1045,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="274"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h3d-qf-djx">
+                                            <rect key="frame" x="20" y="20" width="335" height="234"/>
+                                            <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="234" id="GRe-R8-XeZ"/>
+                                            </constraints>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gck-HE-JXi" userLabel="emailImageView">
                                             <rect key="frame" x="47" y="47" width="280" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1109,12 +1116,15 @@
                                     <constraints>
                                         <constraint firstItem="33W-Xy-A54" firstAttribute="top" secondItem="4ul-1w-QAl" secondAttribute="bottom" constant="15" id="83C-F1-4u7"/>
                                         <constraint firstItem="4ul-1w-QAl" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="47" id="8ck-cB-ufe"/>
+                                        <constraint firstAttribute="trailing" secondItem="h3d-qf-djx" secondAttribute="trailing" constant="20" id="Blo-Pe-j8d"/>
                                         <constraint firstItem="sCg-hj-av9" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="57" id="Dki-Ak-asH"/>
                                         <constraint firstItem="ulH-do-ybh" firstAttribute="top" secondItem="gck-HE-JXi" secondAttribute="bottom" constant="22" id="QxS-Vw-UMV"/>
                                         <constraint firstAttribute="trailing" secondItem="4ul-1w-QAl" secondAttribute="trailing" constant="48" id="SGz-hu-fP3"/>
+                                        <constraint firstItem="h3d-qf-djx" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="20" id="X0V-5T-eCx"/>
                                         <constraint firstItem="gck-HE-JXi" firstAttribute="top" secondItem="s1L-AF-77X" secondAttribute="top" constant="47" id="aG1-1e-QeB"/>
                                         <constraint firstItem="ulH-do-ybh" firstAttribute="leading" secondItem="s1L-AF-77X" secondAttribute="leading" constant="57" id="bxw-w9-vVl"/>
                                         <constraint firstAttribute="trailing" secondItem="ulH-do-ybh" secondAttribute="trailing" constant="58" id="dRy-Tq-xNf"/>
+                                        <constraint firstItem="h3d-qf-djx" firstAttribute="top" secondItem="s1L-AF-77X" secondAttribute="top" constant="20" id="hwJ-4R-6PN"/>
                                         <constraint firstAttribute="trailing" secondItem="33W-Xy-A54" secondAttribute="trailing" constant="48" id="iRf-1o-PKH"/>
                                         <constraint firstAttribute="trailing" secondItem="sCg-hj-av9" secondAttribute="trailing" constant="58" id="kd2-y8-Saq"/>
                                         <constraint firstItem="sCg-hj-av9" firstAttribute="top" secondItem="s1L-AF-77X" secondAttribute="top" constant="52" id="mEu-Os-lNZ"/>
@@ -1142,6 +1152,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contentImageView" destination="h3d-qf-djx" id="8Je-Dn-D3M"/>
                         <outlet property="emailImageView" destination="gck-HE-JXi" id="JsX-iI-zzK"/>
                         <outlet property="messageImageView" destination="4ul-1w-QAl" id="5BP-fa-vqA"/>
                         <outlet property="messageTextView" destination="ulH-do-ybh" id="3sx-za-Ivc"/>
@@ -2352,6 +2363,11 @@ AND ENTER iCAREER PLATFORM</string>
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqP-VL-8fb">
+                                            <rect key="frame" x="20" y="20" width="335" height="234"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hRT-7v-S6I" userLabel="emailImageView">
                                             <rect key="frame" x="48" y="40" width="280" height="40"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2475,6 +2491,7 @@ AND ENTER iCAREER PLATFORM</string>
                     <connections>
                         <outlet property="addressImageView" destination="35E-by-EgY" id="huv-77-TVG"/>
                         <outlet property="addressTextField" destination="bGP-Ub-dle" id="yI4-mg-tv0"/>
+                        <outlet property="contentImageView" destination="NqP-VL-8fb" id="QtF-ca-JX6"/>
                         <outlet property="designationImageView" destination="t82-aO-IjE" id="1F3-16-bhu"/>
                         <outlet property="designationTextField" destination="S2M-r7-dHJ" id="iAz-Sh-jDh"/>
                         <outlet property="tableView" destination="6zf-gs-HE1" id="R9W-c9-dkp"/>

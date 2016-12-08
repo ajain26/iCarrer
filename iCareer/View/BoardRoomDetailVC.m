@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@",self.boardDict);
+    //NSLog(@"%@",self.boardDict);
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     textViewText = @"";
@@ -288,7 +288,7 @@
 #pragma mark - post
 -(void)post:(UIButton*)btn{
     [self.view endEditing:true];
-    NSLog(@"%@",textViewText);
+    //NSLog(@"%@",textViewText);
     if ([textViewText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length > 0) {
         
         NSMutableDictionary *param = [NSMutableDictionary new];
@@ -298,7 +298,7 @@
         
         NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+        //NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
         
         [param setObject:[dateFormatter stringFromDate:[NSDate date]] forKey:@"timestamp"];
 

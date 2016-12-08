@@ -45,12 +45,12 @@
     //[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 
-    NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
+    //NSLog(@"%@",[dateFormatter stringFromDate:[NSDate date]]);
     
     [param setObject:[dateFormatter stringFromDate:[NSDate date]] forKey:@"date"];
     
     [SVProgressHUD showWithStatus:@"Please wait..."];
-    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,FETCH_NEWS] withParam:param success:^(NSDictionary *responseDict) {
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL2,FETCH_NEWS] withParam:param success:^(NSDictionary *responseDict) {
         [SVProgressHUD dismiss];
         NSDictionary *dict = [responseDict objectForKey:@"status"];
         
@@ -141,7 +141,7 @@
     [param setObject:[likeDict objectForKey:@"news_id"] forKey:@"newsid"];
    
     [SVProgressHUD showWithStatus:@"Please wait..."];
-    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,LIKE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL2,LIKE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
         NSDictionary *dict = [responseDict objectForKey:@"status"];
         
         if (![dict isKindOfClass:[NSNull class]] && dict) {
@@ -188,7 +188,7 @@
     [param setObject:[shareDict objectForKey:@"news_id"] forKey:@"newsid"];
     
     [SVProgressHUD showWithStatus:@"Please wait..."];
-    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL,SHARE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
+    [[Services sharedInstance] servicePOSTWithPath:[NSString stringWithFormat:@"%@%@",BASEURL2,SHARE_NEWS] withParam:param success:^(NSDictionary *responseDict) {
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
