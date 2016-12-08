@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *organisationTextField;
 @property (weak, nonatomic) IBOutlet UITextField *yearTextField;
 
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 
 -(void)setBorder;

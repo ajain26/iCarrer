@@ -158,7 +158,7 @@
         
         if (![dict isKindOfClass:[NSNull class]] && dict) {
             if (![[dict objectForKey:@"statuscode"] isKindOfClass:[NSNull class]] && [dict objectForKey:@"statuscode"]) {
-                [AppHelper showToast:[dict objectForKey:@"msg"] shakeView:nil parentView:self.view];
+                [AppHelper showToast:[dict objectForKey:@"msg"] shakeView:nil parentView:[[[UIApplication sharedApplication] delegate] window]];
 
                 if ([[dict objectForKey:@"statuscode"] intValue] == 1) {
                     [self.navigationController popViewControllerAnimated:true];

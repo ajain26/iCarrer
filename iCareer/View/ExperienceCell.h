@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *endImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *descImageView;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *designationTextField;
 @property (weak, nonatomic) IBOutlet UITextField *companyTextField;

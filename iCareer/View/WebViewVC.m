@@ -22,6 +22,8 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:requestObj];
     self.webView.delegate = self;
+    [self.activityIndicator startAnimating];
+
 }
 #pragma mark - webview
 -(void)webViewDidStartLoad:(UIWebView *)webView{

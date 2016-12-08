@@ -127,6 +127,23 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07Q-RY-IfZ">
+                        <rect key="frame" x="150" y="210" width="70" height="30"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="YHt-eY-jib"/>
+                            <constraint firstAttribute="height" constant="30" id="thv-Gj-7l7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <state key="normal" title="CANCEL">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7Wd-87-zhT" firstAttribute="top" secondItem="Vd1-uX-gdp" secondAttribute="bottom" constant="10" id="0bH-vy-A8M"/>
@@ -140,9 +157,11 @@
                     <constraint firstAttribute="bottom" secondItem="tfd-Tb-mFS" secondAttribute="bottom" id="UY9-DA-pXc"/>
                     <constraint firstItem="tfd-Tb-mFS" firstAttribute="leading" secondItem="khQ-cA-W72" secondAttribute="trailing" constant="11" id="UeS-GA-w0U"/>
                     <constraint firstItem="qJv-Iy-xI6" firstAttribute="top" secondItem="khQ-cA-W72" secondAttribute="bottom" constant="10" id="W8h-i4-2t8"/>
+                    <constraint firstItem="ea0-Jk-fgw" firstAttribute="top" secondItem="07Q-RY-IfZ" secondAttribute="bottom" constant="10" id="cOo-Bd-afN"/>
                     <constraint firstItem="tfd-Tb-mFS" firstAttribute="leading" secondItem="qJv-Iy-xI6" secondAttribute="trailing" constant="10" id="cd1-5p-xrb"/>
                     <constraint firstItem="ea0-Jk-fgw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="e84-6M-THs"/>
                     <constraint firstItem="tfd-Tb-mFS" firstAttribute="leading" secondItem="2iw-aM-mJM" secondAttribute="trailing" constant="11" id="eee-Zu-0XL"/>
+                    <constraint firstItem="qJv-Iy-xI6" firstAttribute="leading" secondItem="07Q-RY-IfZ" secondAttribute="trailing" constant="10" id="fAh-wO-MOo"/>
                     <constraint firstAttribute="bottom" secondItem="4a8-MP-OHi" secondAttribute="bottom" id="fE5-Jc-F02"/>
                     <constraint firstItem="4a8-MP-OHi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ipw-bQ-Cbp"/>
                     <constraint firstItem="khQ-cA-W72" firstAttribute="top" secondItem="2iw-aM-mJM" secondAttribute="bottom" constant="10" id="j2a-tU-SfW"/>
@@ -160,6 +179,7 @@
                 <outlet property="awardDescriptionTextField" destination="WI3-dl-xcr" id="cLA-Lq-fHj"/>
                 <outlet property="awardNameImageView" destination="Vd1-uX-gdp" id="SB8-S9-bQK"/>
                 <outlet property="awardNameTextField" destination="EcX-J4-eww" id="3ah-ch-hkX"/>
+                <outlet property="cancelButton" destination="07Q-RY-IfZ" id="ne6-0E-QdZ"/>
                 <outlet property="organisationTextField" destination="hZg-ai-2qm" id="KqW-fZ-dcf"/>
                 <outlet property="organizationImageView" destination="2iw-aM-mJM" id="3Cb-bA-hvU"/>
                 <outlet property="submitButton" destination="qJv-Iy-xI6" id="uhs-PC-dIY"/>

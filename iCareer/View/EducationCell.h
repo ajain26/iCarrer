@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *univAddressImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *startYearImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *endYearImageView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *universityAddressTextField;
 @property (weak, nonatomic) IBOutlet UITextField *degreeTextField;

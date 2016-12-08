@@ -2269,6 +2269,30 @@ AND ENTER iCAREER PLATFORM</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="zH0-Qd-9Fg" userLabel="footerView">
+                                    <rect key="frame" x="0.0" y="242" width="375" height="80"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXc-EY-xJC">
+                                            <rect key="frame" x="10" y="10" width="355" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.37254901960784315" green="0.66666666666666663" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                            <state key="normal" title="ACESS YOUR COMPLETE PROFILE">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="accessCompleteProfile:" destination="LMB-BN-RhG" eventType="touchUpInside" id="xmR-iJ-ogK"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tXk-S5-Okl">
                                         <rect key="frame" x="0.0" y="198" width="375" height="44"/>
@@ -2303,6 +2327,7 @@ AND ENTER iCAREER PLATFORM</string>
                         <outlet property="tableView" destination="Ezh-g9-BYy" id="HYX-CR-KSk"/>
                         <outlet property="userNameLabel" destination="TwL-h6-jn2" id="0g4-TQ-CE0"/>
                         <segue destination="ZTK-6J-KwZ" kind="show" identifier="EditProfileVC" id="TOz-dS-cav"/>
+                        <segue destination="lPN-Ap-dNh" kind="show" identifier="WebViewVC" id="ruP-jF-2ji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaW-ly-3hP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2561,4 +2586,7 @@ AND ENTER iCAREER PLATFORM</string>
         <image name="tele_user" width="143" height="144"/>
         <image name="user" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ruP-jF-2ji"/>
+    </inferredMetricsTieBreakers>
 </document>

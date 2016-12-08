@@ -19,6 +19,7 @@
 #import "ExperienceNonEditableCell.h"
 #import "ExperienceCell.h"
 #import "AwardsCell.h"
+#import "WebViewVC.h"
 
 @interface IprofileVC ()<UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UITextFieldDelegate>{
     long selectedHeader;
@@ -234,7 +235,8 @@
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 [cell.postButton addTarget:self action:@selector(post:) forControlEvents:UIControlEventTouchUpInside];
-                
+                [cell.cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+
                 cell.textView.delegate = self;
                 cell.textView.text = summaryText;
                 
@@ -321,7 +323,8 @@
                 cell.endYearTextField.inputAccessoryView = toolbar;
                 
                 [cell.submitButton addTarget:self action:@selector(submitEducation) forControlEvents:UIControlEventTouchUpInside];
-                
+                [cell.cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+
                 if ([self.educationDict objectForKey:@"degree_title"]) {
                     cell.degreeTextField.text = [self.educationDict objectForKey:@"degree_title"];
                 }
@@ -405,7 +408,8 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
                 [cell setBorder];
-                
+                [cell.cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+
                 cell.designationTextField.text = @"";
                 cell.companyTextField.text = @"";
                 cell.companAddressTextField.text = @"";
@@ -532,7 +536,8 @@
                     cell = [arr objectAtIndex:0];
                 }
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
+                [cell.cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
+
                 cell.awardNameTextField.text = @"";
                 cell.awardDescriptionTextField.text = @"";
                 cell.organisationTextField.text = @"";
@@ -634,7 +639,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.view endEditing:true];
 }
-
+#pragma mark - cancel
+-(void)cancel:(UIButton*)btn{
+    selectedHeader = -1;
+    [self.tableView reloadData];
+}
 #pragma mark - headerTapped
 -(void)headerTapped:(UIButton*)btn{
     [self.view endEditing:true];
@@ -925,6 +934,14 @@
             [SVProgressHUD dismiss];
         }];
     } else if ([[self.awardDict allKeys] count] == 5){//edit
+        int flag = 1;
+        for(NSString *aKey in [self.awardDict allKeys]){
+            if ([[[self.awardDict objectForKey:aKey] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag) {
         [self.awardDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
         [SVProgressHUD showWithStatus:@"Please wait..."];
@@ -944,6 +961,9 @@
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
+        } else {
+            [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+        }
     } else {
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
@@ -972,6 +992,16 @@
             [SVProgressHUD dismiss];
         }];
     } else if ([[self.experienceDict allKeys] count] == 7) {//edit
+        
+        int flag = 1;
+        for(NSString *aKey in [self.experienceDict allKeys]){
+            if ([[[self.experienceDict objectForKey:aKey] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag) {
+        
         [self.experienceDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
         [SVProgressHUD showWithStatus:@"Please wait..."];
@@ -991,6 +1021,9 @@
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
+        } else {
+            [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+        }
     }else {
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
@@ -1019,6 +1052,15 @@
             [SVProgressHUD dismiss];
         }];
     } else if ([[self.educationDict allKeys] count] == 6) {//edit
+        int flag = 1;
+        for(NSString *aKey in [self.educationDict allKeys]){
+            if ([[[self.educationDict objectForKey:aKey] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag) {
+            
         [self.educationDict setObject:[self.userDict objectForKey:@"user_id"] forKey:@"user_id"];
         
         [SVProgressHUD showWithStatus:@"Please wait..."];
@@ -1038,6 +1080,10 @@
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];
+        }
+        else {
+            [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
+        }
     }else {
         [AppHelper showToast:ALL_FIELDS_MANDATORY shakeView:nil parentView:self.view];
     }
@@ -1107,5 +1153,16 @@
 #pragma mark - editProfile
 - (IBAction)editProfile:(id)sender {
     [self performSegueWithIdentifier:@"EditProfileVC" sender:nil];
+}
+#pragma mark - accessCompleteProfile
+- (IBAction)accessCompleteProfile:(id)sender {
+    [self performSegueWithIdentifier:@"WebViewVC" sender:nil];
+}
+#pragma mark - segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"WebViewVC"]) {
+        WebViewVC *web = (WebViewVC*)segue.destinationViewController;
+        web.url = [NSString stringWithFormat:@"%@",BASEURL];
+    }
 }
 @end

@@ -69,6 +69,23 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-4x-mHf">
+                        <rect key="frame" x="160" y="158" width="70" height="30"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="StW-Cd-vIm"/>
+                            <constraint firstAttribute="height" constant="30" id="ff9-bI-QMf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                        <state key="normal" title="CANCEL">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fR3-9M-I46" userLabel="bottomVert">
                         <rect key="frame" x="10" y="198" width="300" height="1"/>
                         <color key="backgroundColor" red="0.37254901959999998" green="0.66666666669999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,11 +111,14 @@
                     <constraint firstItem="6PQ-qJ-daa" firstAttribute="leading" secondItem="ZWT-yi-xyW" secondAttribute="trailing" constant="16" id="oer-Oc-ca2"/>
                     <constraint firstItem="ZWT-yi-xyW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="qRz-wt-3mj"/>
                     <constraint firstItem="Rf6-DG-pSx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vmF-Mq-W24"/>
+                    <constraint firstItem="fR3-9M-I46" firstAttribute="top" secondItem="HId-4x-mHf" secondAttribute="bottom" constant="10" id="wWO-EV-SSB"/>
+                    <constraint firstItem="RMS-ht-zeQ" firstAttribute="leading" secondItem="HId-4x-mHf" secondAttribute="trailing" constant="10" id="zCw-Of-0Rz"/>
                     <constraint firstAttribute="bottom" secondItem="WHq-uP-2JC" secondAttribute="bottom" id="zlh-jL-039"/>
                     <constraint firstItem="WHq-uP-2JC" firstAttribute="leading" secondItem="6PQ-qJ-daa" secondAttribute="trailing" constant="16" id="zv8-L3-hWz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="cancelButton" destination="HId-4x-mHf" id="Kxq-Jp-eno"/>
                 <outlet property="contentImageView" destination="Rf6-DG-pSx" id="Yda-qX-8ep"/>
                 <outlet property="postButton" destination="RMS-ht-zeQ" id="77U-D1-goM"/>
                 <outlet property="textView" destination="6PQ-qJ-daa" id="j9a-pR-oYA"/>
