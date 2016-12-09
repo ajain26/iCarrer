@@ -28,14 +28,14 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    NSLog(@"URL: %@",urlPath);
-    NSLog(@"PARAM: %@",params);
+    //NSLog(@"URL: %@",urlPath);
+    //NSLog(@"PARAM: %@",params);
     
     [manager POST:urlPath parameters:params progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSError *error = nil;
         
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:&error];
-        NSLog(@"json: %@",json);
+        //NSLog(@"json: %@",json);
         if (![json isKindOfClass:[NSNull class]] && json) {
             
             if ([urlPath containsString:VALIDATEUSER] || [urlPath containsString:USERREGISTRATION]) {
@@ -50,7 +50,7 @@
         }
     }
           failure:^(NSURLSessionTask *operation, NSError *error) {
-              NSLog(@"Error: %@", error);
+              //NSLog(@"Error: %@", error);
               failure(error);
           }];
 }

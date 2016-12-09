@@ -1162,7 +1162,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"WebViewVC"]) {
         WebViewVC *web = (WebViewVC*)segue.destinationViewController;
-        web.url = [NSString stringWithFormat:@"%@",BASEURL];
+        web.url = [NSString stringWithFormat:@"%@",REDIRECT_URL];
     }
 }
 @end

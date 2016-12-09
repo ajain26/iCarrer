@@ -9,6 +9,7 @@
 //#define BASEURL                @"http://inubex.in/preprod_icareer/api/"
 #define BASEURL2               @"http://inubex.in/icareer/"
 #define BASEURL                @"http://inubex.in/icareer/"//@"http://infoastra.in/icareer/"
+#define REDIRECT_URL           @"http://inubex.in/preprod_icareer/index.php"
 #define VALIDATEUSER           @"api/ValidateUser.php"
 #define USERREGISTRATION       @"api/UserRegistration.php"
 #define FETCHQUESTIONS         @"api/FetchQuestionSet.php"
