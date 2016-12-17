@@ -239,7 +239,7 @@
 }
 #pragma mark - next
 - (IBAction)next:(id)sender {
-    //NSLog(@"Q->%d",questionCounter);
+    if (self.quizArray.count > 0){
     if (answerType) {//options
         if (optionValue != -1){
             if (questionCounter < 6){
@@ -276,6 +276,9 @@
     self.questionCounterLabel.text = [NSString stringWithFormat:@"Question %d of %lu",questionCounter+1,(unsigned long)self.quizArray.count];
     if (questionCounter == 6) {
         [self.nextButton setTitle:@"Submit" forState:UIControlStateNormal];
+    }
+    } else {
+        [self fetchQuestions];
     }
 }
 #pragma mark - quizSliderDelegate
