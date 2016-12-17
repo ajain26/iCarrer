@@ -133,6 +133,8 @@
     else {
         NSDictionary *quizDict = [self.quizArray objectAtIndex:questionCounter];
         if ([[quizDict objectForKey:@"question_type"] isEqualToString:@"option"]) {
+            tableView.scrollEnabled = true;
+
             answerType = 1;
             NSArray *optionsArray;
             if (![[quizDict objectForKey:@"question"] isKindOfClass:[NSNull class]] && [quizDict objectForKey:@"question"]) {
@@ -142,7 +144,10 @@
                 return optionsArray.count-1;
             }
             return 0;
+        } else {
+            tableView.scrollEnabled = false;
         }
+        
         answerType = 0;
         return 1;
     }
