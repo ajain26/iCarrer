@@ -24,7 +24,7 @@
     if (![[AppHelper userDefaultsDictionary:@"user"] isKindOfClass:[NSNull class]] && [AppHelper userDefaultsDictionary:@"user"]) {
         [self setupSideMenu];
     }
-    
+    NSLog(@"Create new repo");
     return YES;
 }
 #pragma mark - getAppdelegate
