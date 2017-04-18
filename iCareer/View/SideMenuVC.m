@@ -36,7 +36,7 @@
 -(void)setInitialView{
     self.selectedIndex = 0;
     
-    self.headerView = [[SideMenuHeaderView alloc] init];
+  //  self.headerView = [[SideMenuHeaderView alloc] init];
     self.tableView.tableHeaderView = self.headerView;
     
     self.sideArray = [[NSMutableArray alloc] initWithObjects:@"Boardroom", @"Newspaper", @"iProfile", @"Logout", nil];
