@@ -648,6 +648,9 @@
 -(void)headerTapped:(UIButton*)btn{
     [self.view endEditing:true];
     
+    
+    
+    
     long previousSelectedHeader = selectedHeader;
     if (selectedHeader != btn.tag) {
         if (selectedHeader != -1) {
